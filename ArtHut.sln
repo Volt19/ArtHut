@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtHut", "ArtHut\ArtHut.csproj", "{77D00EFA-F765-48D0-B036-38B2060488F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtHut", "ArtHut\ArtHut.csproj", "{77D00EFA-F765-48D0-B036-38B2060488F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtHut.Data", "ArtHut.Data\ArtHut.Data.csproj", "{CC8386F6-7889-4419-B4E4-A4988D2E499E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtHut.Business", "ArtHut.Business\ArtHut.Business.csproj", "{3EA9E8F5-AB4D-4D9A-92AE-0789551ABC89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{77D00EFA-F765-48D0-B036-38B2060488F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77D00EFA-F765-48D0-B036-38B2060488F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77D00EFA-F765-48D0-B036-38B2060488F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC8386F6-7889-4419-B4E4-A4988D2E499E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC8386F6-7889-4419-B4E4-A4988D2E499E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC8386F6-7889-4419-B4E4-A4988D2E499E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC8386F6-7889-4419-B4E4-A4988D2E499E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA9E8F5-AB4D-4D9A-92AE-0789551ABC89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA9E8F5-AB4D-4D9A-92AE-0789551ABC89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA9E8F5-AB4D-4D9A-92AE-0789551ABC89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA9E8F5-AB4D-4D9A-92AE-0789551ABC89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

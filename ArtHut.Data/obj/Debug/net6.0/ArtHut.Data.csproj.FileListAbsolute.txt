@@ -1,0 +1,14 @@
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\bin\Debug\net6.0\ArtHut.Data.deps.json
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\bin\Debug\net6.0\ArtHut.Data.runtimeconfig.json
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\bin\Debug\net6.0\ArtHut.Data.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\bin\Debug\net6.0\ref\ArtHut.Data.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\bin\Debug\net6.0\ArtHut.Data.pdb
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\obj\Debug\net6.0\ArtHut.Data.csproj.AssemblyReference.cache
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\obj\Debug\net6.0\ArtHut.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\obj\Debug\net6.0\ArtHut.Data.AssemblyInfoInputs.cache
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\obj\Debug\net6.0\ArtHut.Data.AssemblyInfo.cs
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\obj\Debug\net6.0\ArtHut.Data.csproj.CoreCompileInputs.cache
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\obj\Debug\net6.0\ArtHut.Data.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\obj\Debug\net6.0\ref\ArtHut.Data.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\obj\Debug\net6.0\ArtHut.Data.pdb
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Data\obj\Debug\net6.0\ArtHut.Data.genruntimeconfig.cache
