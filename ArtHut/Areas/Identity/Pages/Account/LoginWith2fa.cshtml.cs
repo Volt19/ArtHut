@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using ArtHut.Areas.Identity.Data;
+using ArtHut.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 

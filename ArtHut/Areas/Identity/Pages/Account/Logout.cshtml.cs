@@ -5,7 +5,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
-using ArtHut.Areas.Identity.Data;
+using ArtHut.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
