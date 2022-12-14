@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using ArtHut.Data;
 using ArtHut.Data.Models;
@@ -11,6 +12,11 @@ builder.Services.AddDbContext<ArtHutDbContext>(options =>
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ArtHutDbContext>();
 
+//builder.Services.AddIdentityServer()
+//    .AddApiAuthorization<User, ArtHutDbContext>();
+
+//builder.Services.AddAuthentication()
+//    .AddIdentityServerJwt();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
@@ -33,5 +39,11 @@ app.UseAuthentication();;
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+app.UseCors(c => c
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
+
 
 app.Run();

@@ -278,3 +278,13 @@ C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ArtHut.Business.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ArtHut.Data.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ArtHut.Business.pdb
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ArtHut.Data.pdb
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Duende.IdentityServer.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Duende.IdentityServer.AspNetIdentity.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Duende.IdentityServer.EntityFramework.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Duende.IdentityServer.EntityFramework.Storage.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Duende.IdentityServer.Storage.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\IdentityModel.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Microsoft.AspNetCore.ApiAuthorization.IdentityServer.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
