@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3fBWLqjqew45j5sUJ5pvEVaPXiqTUhqWz42/MTlCXw4=",
+  "Hash": "Lv/wKpZay3ltHh0YXUUPFMlRzmL3qKZj8Qi1qw69xQg=",
   "Source": "ArtHut",
   "BasePath": "_content/ArtHut",
   "Mode": "Default",
@@ -1071,6 +1071,40 @@
       "OriginalItemSpec": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ArtHut.bundle.scp.css"
     },
     {
+      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\Red Panda logo.png",
+      "SourceId": "ArtHut",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
+      "BasePath": "_content/ArtHut",
+      "RelativePath": "css/imgs/Red Panda logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\imgs\\Red Panda logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\NordicaClassicLight.woff",
+      "SourceId": "ArtHut",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
+      "BasePath": "_content/ArtHut",
+      "RelativePath": "css/NordicaClassicLight.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\NordicaClassicLight.woff"
+    },
+    {
       "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\site.css",
       "SourceId": "ArtHut",
       "SourceType": "Discovered",
@@ -1086,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\SulSans.woff",
+      "SourceId": "ArtHut",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
+      "BasePath": "_content/ArtHut",
+      "RelativePath": "css/SulSans.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\SulSans.woff"
     },
     {
       "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\favicon.ico",
