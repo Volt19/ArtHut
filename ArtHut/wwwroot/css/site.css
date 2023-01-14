@@ -1,31 +1,35 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
     margin-bottom: 60px;
     letter-spacing: 0.01rem;
     -webkit-font-smoothing: antialiased;
+    background-color: #f5f4f2;
 }
+
 @font-face {
     font-family: 'Sul Sans';
-    src: url('/css/SulSans.woff') format('woff');
+    src: url('/css/Fonts/SulSans.woff') format('woff');
 }
+
 @font-face {
     font-family: 'Sul Sans Light';
-    src: url('/css/NordicaClassicLight.woff') format('woff');
+    src: url('/css/Fonts/NordicaClassicLight.woff') format('woff');
 }
+
 .mynavbar-brand {
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
@@ -36,33 +40,68 @@ body {
     white-space: nowrap;
     color: #ff1749 !important;
 }
+
 .logo {
     height: 60px;
     width: 50px;
     margin-bottom: 10px;
     margin-right: 0.5rem;
 }
+
 .privacyLink {
     text-decoration-line: none;
     color: #d7d2cb;
 }
+
 .color_gray {
     color: #d7d2cb;
 }
+
 .fontSul {
     font-family: 'Sul Sans'
 }
+
 .fontSulLight {
     font-family: 'Sul Sans Light'
 }
+
 .color_change_red {
     transition: color 100ms ease-in-out;
     color: black !important;
 }
-.color_change_red:hover {
-    color: #ff1749 !important;
+
+    .color_change_red:hover {
+        color: #ff1749 !important;
+    }
+
+.font_size_14 {
+    font-size: 14px;
+    padding-top: 0.7rem;
 }
-.font_size_14{
-    font-size:14px;
-    padding-top:0.7rem;
+
+.basket img{
+    height: 18px;
+    margin-bottom: 6px;
+    margin-left: 15px;
 }
+
+.basket img.image-hover {
+    display:none;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity .2s;
+}
+  
+
+.basket:hover img.image-hover {
+    opacity: 1;
+    display:block;
+}
+.basket:hover img.image-main {
+    display: none;
+    opacity: 0;
+}
+
+
+
+

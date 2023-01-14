@@ -1,11 +1,69 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "Home page";
 }
 
-<div class="text-center ">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <div style="height1000px"></div>
+
+<div class="container-fluid">
+
+		<div class="slideshow-container" style="text-align:left">
+			<div class="MyPresentationSlides ">
+				<center>
+					<div class="row p-0">
+						<div class="slick_slider_block col p-0"></div>
+						<div class="col p-0">
+							<img src="~/css/imgs/2cd3214367c8470ba3143106415a463f.png" class="slick_slider_block pic align-self-end" />
+						</div>
+					</div>
+
+				</center>
+			</div>
+			<div class="MyPresentationSlides">
+				<center>
+					<img src="~/css/imgs/03_r_car.jpg"
+						 style="width:720;height:400;">
+				</center>
+			</div>
+			<a class="prev" onclick="plusPresentationSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusPresentationSlides(1)">&#10095;</a>
+		</div>
+		<div style="text-align:center">
+			<span class="Slide" onclick="currentPresentationSlides(1)"></span>
+			<span class="Slide" onclick="currentPresentationSlides(2)"></span>
+		</div>
+	<form style="height:1000px"></form>
 </div>
+
+@section Scripts
+	{
+<script type="text/javascript" language="javascript">
+
+	let PresentationslideIndex = 1;
+	PresentationSlides(1);
+
+	function plusPresentationSlides(n) {
+		PresentationSlides(PresentationslideIndex += n);
+	}
+
+	function currentPresentationSlides(n) {
+		PresentationSlides(PresentationslideIndex = n);
+	}
+	function PresentationSlides(n) {
+		let i;
+		let slides = document.getElementsByClassName("MyPresentationSlides");
+		let dots = document.getElementsByClassName("Slide");
+		if (n > slides.length) { PresentationslideIndex = 1 }
+		if (n < 1) { PresentationslideIndex = slides.length }
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[PresentationslideIndex - 1].style.display = "block";
+		dots[PresentationslideIndex - 1].className += " active";
+	}
+</script>
+	}
+

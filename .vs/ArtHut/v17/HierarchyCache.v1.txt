@@ -1,119 +1,178 @@
 ﻿++Solution 'ArtHut' ‎(3 of 3 projects)
 i:{00000000-0000-0000-0000-000000000000}:ArtHut.sln
-++ArtHut.Data
-i:{00000000-0000-0000-0000-000000000000}:ArtHut.Data
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\source\repos\arthut\arthut.data\bin\debug\net6.0\arthut.data.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut.data\arthut.data.csproj
-++Dependencies
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1066
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1125
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1028
-++Analyzers
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:analyzers
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:analyzers
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:analyzers
-++Frameworks
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:frameworks
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:frameworks
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:frameworks
-++Microsoft.NETCore.App
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\microsoft.netcore.app
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\source\repos\arthut\arthut.business\microsoft.netcore.app
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\microsoft.netcore.app
-++Packages
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:packages
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:packages
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:packages
-++Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.10)
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1208
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1209
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1053
-++Microsoft.AspNetCore.Identity.UI (6.0.10)
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1180
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1182
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1056
-++Microsoft.EntityFrameworkCore.Design (6.0.11)
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1205
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1206
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1207
-++Microsoft.EntityFrameworkCore.SqlServer (6.0.10)
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1189
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1190
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1051
-++Microsoft.EntityFrameworkCore.Tools (6.0.10)
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1193
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1194
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1054
-++Microsoft.VisualStudio.Web.CodeGeneration.Design (6.0.10)
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1195
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1196
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1055
-++Swashbuckle.AspNetCore (6.3.0)
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1203
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1204
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1052
-++Models
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\models\
-++User.cs
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\models\user.cs
-++ArtHutDbContext.cs
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\arthutdbcontext.cs
-++MessagePackAnalyzer
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\.nuget\packages\messagepackanalyzer\2.1.152\analyzers\dotnet\messagepackanalyzer.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\.nuget\packages\messagepackanalyzer\2.1.152\analyzers\dotnet\messagepackanalyzer.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\.nuget\packages\messagepackanalyzer\2.1.152\analyzers\dotnet\messagepackanalyzer.dll
-++Microsoft.AspNetCore.App.Analyzers
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
-++Microsoft.AspNetCore.App.CodeFixes
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
-++Microsoft.CodeAnalysis.Analyzers
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.analyzers.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.analyzers.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.analyzers.dll
-++Microsoft.CodeAnalysis.CSharp.Analyzers
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.csharp.analyzers.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.csharp.analyzers.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.csharp.analyzers.dll
-++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
-++Microsoft.CodeAnalysis.NetAnalyzers
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
-++Microsoft.EntityFrameworkCore.Analyzers
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.10\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.10\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.10\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
-++Microsoft.Extensions.Logging.Generators
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
-++System.Text.Json.SourceGeneration
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
 ++ArtHut.Business
 i:{00000000-0000-0000-0000-000000000000}:ArtHut.Business
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut.business\arthut.business.csproj
+++Dependencies
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>687
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>688
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1220
+++Analyzers
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:analyzers
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:analyzers
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:analyzers
+++MessagePackAnalyzer
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\.nuget\packages\messagepackanalyzer\2.1.152\analyzers\dotnet\messagepackanalyzer.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\.nuget\packages\messagepackanalyzer\2.1.152\analyzers\dotnet\messagepackanalyzer.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\.nuget\packages\messagepackanalyzer\2.1.152\analyzers\dotnet\messagepackanalyzer.dll
+++Microsoft.AspNetCore.App.Analyzers
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.analyzers.dll
+++Microsoft.AspNetCore.App.CodeFixes
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\cs\microsoft.aspnetcore.app.codefixes.dll
+++Microsoft.CodeAnalysis.Analyzers
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.analyzers.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.analyzers.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.analyzers.dll
+++Microsoft.CodeAnalysis.CSharp.Analyzers
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.csharp.analyzers.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.csharp.analyzers.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2\analyzers\dotnet\cs\microsoft.codeanalysis.csharp.analyzers.dll
+++Microsoft.CodeAnalysis.CSharp.NetAnalyzers
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.csharp.netanalyzers.dll
+++Microsoft.CodeAnalysis.NetAnalyzers
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk\analyzers\microsoft.codeanalysis.netanalyzers.dll
+++Microsoft.EntityFrameworkCore.Analyzers
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.11\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.11\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\.nuget\packages\microsoft.entityframeworkcore.analyzers\6.0.11\analyzers\dotnet\cs\microsoft.entityframeworkcore.analyzers.dll
+++Microsoft.Extensions.Logging.Generators
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\packs\microsoft.aspnetcore.app.ref\6.0.0\analyzers\dotnet\roslyn4.0\cs\microsoft.extensions.logging.generators.dll
+++System.Text.Json.SourceGeneration
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\packs\microsoft.netcore.app.ref\6.0.1\analyzers\dotnet\cs\system.text.json.sourcegeneration.dll
+++Frameworks
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:frameworks
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:frameworks
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:frameworks
+++Packages
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:packages
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:packages
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:packages
 ++Projects
 i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:projects
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:projects
+++Microsoft.NETCore.App
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\source\repos\arthut\arthut.business\microsoft.netcore.app
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\microsoft.netcore.app
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\microsoft.netcore.app
+++Microsoft.AspNetCore.Identity.EntityFrameworkCore (6.0.10)
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1252
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1267
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1236
+++Microsoft.AspNetCore.Identity.UI (6.0.10)
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1255
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1270
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1239
+++Microsoft.EntityFrameworkCore.Design (6.0.11)
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1250
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1265
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1234
+++Microsoft.EntityFrameworkCore.SqlServer (6.0.10)
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1249
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1264
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1233
+++Microsoft.EntityFrameworkCore.Tools (6.0.11)
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1253
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1268
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1237
+++Microsoft.VisualStudio.Web.CodeGeneration.Design (6.0.10)
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1254
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1269
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1238
+++Swashbuckle.AspNetCore (6.3.0)
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:>1251
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1266
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1235
+++ArtHut.Data
+i:{3ea9e8f5-ab4d-4d9a-92ae-0789551abc89}:c:\users\veli_\source\repos\arthut\arthut.data\arthut.data.csproj
+i:{00000000-0000-0000-0000-000000000000}:ArtHut.Data
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut.data\arthut.data.csproj
+++Migrations
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\migrations\
+++Models
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\models\
+++ArtHutDbContext.cs
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\arthutdbcontext.cs
+++Microsoft.AspNetCore.ApiAuthorization.IdentityServer (6.0.10)
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1271
+++20221214162729_InitialCreate.cs
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\migrations\20221214162729_initialcreate.cs
+++ArtHutDbContextModelSnapshot.cs
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\migrations\arthutdbcontextmodelsnapshot.cs
+++User.cs
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\models\user.cs
+++20221214162729_InitialCreate.Designer.cs
+i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:c:\users\veli_\source\repos\arthut\arthut.data\migrations\20221214162729_initialcreate.designer.cs
 ++ArtHut
 i:{00000000-0000-0000-0000-000000000000}:ArtHut
 ++Connected Services 
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1029
-++Microsoft.AspNetCore.App
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\microsoft.aspnetcore.app
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1221
+++Microsoft.AspNetCore.Analyzers
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
+++Microsoft.AspNetCore.Components.Analyzers
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
+++Microsoft.AspNetCore.Mvc.Analyzers
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
+++Microsoft.AspNetCore.Razor.Internal.SourceGenerator.Transport
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.internal.sourcegenerator.transport.dll
+++Microsoft.NET.Sdk.Razor.SourceGenerators
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
 ++Properties
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\properties\
 ++wwwroot
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\
+++css
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\dist\css\
+++imgs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\imgs\
+++Red Panda logo.png
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\imgs\red panda logo.png
+++NordicaClassicLight.woff
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\fonts\nordicaclassiclight.woff
+++site.css
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\site.css
+++SulSans.woff
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\fonts\sulsans.woff
+++js
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\js\
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\dist\js\
+++lib
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\
+++bootstrap
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\
+++dist
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\dist\
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery\dist\
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation\dist\
+++LICENSE
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\license
+++jquery
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery\
+++LICENSE.txt
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery\license.txt
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation-unobtrusive\license.txt
+++jquery-validation
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation\
+++LICENSE.md
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation\license.md
+++jquery-validation-unobtrusive
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation-unobtrusive\
+++jquery.validate.unobtrusive.js
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+++favicon.ico
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\favicon.ico
 ++Areas
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\
 ++Identity
@@ -140,86 +199,55 @@ i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arth
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\_viewimports.cshtml
 ++ChangePassword.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\changepassword.cshtml
-++ChangePassword.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\changepassword.cshtml.cs
 ++DeletePersonalData.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\deletepersonaldata.cshtml
-++DeletePersonalData.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\deletepersonaldata.cshtml.cs
 ++Disable2fa.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\disable2fa.cshtml
-++Disable2fa.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\disable2fa.cshtml.cs
 ++DownloadPersonalData.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\downloadpersonaldata.cshtml
-++DownloadPersonalData.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\downloadpersonaldata.cshtml.cs
 ++Email.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\email.cshtml
-++Email.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\email.cshtml.cs
 ++EnableAuthenticator.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\enableauthenticator.cshtml
-++EnableAuthenticator.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\enableauthenticator.cshtml.cs
 ++ExternalLogins.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\externallogins.cshtml
 ++ExternalLogins.cshtml.cs
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\externallogins.cshtml.cs
 ++GenerateRecoveryCodes.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\generaterecoverycodes.cshtml
-++GenerateRecoveryCodes.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\generaterecoverycodes.cshtml.cs
 ++Index.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\index.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\index.cshtml
-++Index.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\index.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\index.cshtml.cs
 ++ManageNavPages.cs
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\managenavpages.cs
 ++PersonalData.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\personaldata.cshtml
-++PersonalData.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\personaldata.cshtml.cs
 ++ResetAuthenticator.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\resetauthenticator.cshtml
-++ResetAuthenticator.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\resetauthenticator.cshtml.cs
 ++SetPassword.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\setpassword.cshtml
-++SetPassword.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\setpassword.cshtml.cs
 ++ShowRecoveryCodes.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\showrecoverycodes.cshtml
-++ShowRecoveryCodes.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\showrecoverycodes.cshtml.cs
 ++TwoFactorAuthentication.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\twofactorauthentication.cshtml
-++TwoFactorAuthentication.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\twofactorauthentication.cshtml.cs
 ++AccessDenied.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\accessdenied.cshtml
 ++ConfirmEmail.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\confirmemail.cshtml
-++ConfirmEmail.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\confirmemail.cshtml.cs
 ++ConfirmEmailChange.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\confirmemailchange.cshtml
-++ConfirmEmailChange.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\confirmemailchange.cshtml.cs
 ++ExternalLogin.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\externallogin.cshtml
 ++ExternalLogin.cshtml.cs
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\externallogin.cshtml.cs
 ++ForgotPassword.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\forgotpassword.cshtml
-++ForgotPassword.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\forgotpassword.cshtml.cs
 ++ForgotPasswordConfirmation.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\forgotpasswordconfirmation.cshtml
 ++Lockout.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\lockout.cshtml
+++Lockout.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\lockout.cshtml.cs
 ++Login.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\login.cshtml
 ++Login.cshtml.cs
@@ -238,22 +266,16 @@ i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arth
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\logout.cshtml.cs
 ++Register.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\register.cshtml
-++Register.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\register.cshtml.cs
 ++RegisterConfirmation.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\registerconfirmation.cshtml
-++RegisterConfirmation.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\registerconfirmation.cshtml.cs
 ++ResendEmailConfirmation.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\resendemailconfirmation.cshtml
-++ResendEmailConfirmation.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\resendemailconfirmation.cshtml.cs
 ++ResetPassword.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\resetpassword.cshtml
-++ResetPassword.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\resetpassword.cshtml.cs
 ++ResetPasswordConfirmation.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\resetpasswordconfirmation.cshtml
+++Data
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\data\
 ++_ValidationScriptsPartial.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\_validationscriptspartial.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\shared\_validationscriptspartial.cshtml
@@ -265,6 +287,8 @@ i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arth
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\error.cshtml
 ++Shared
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\shared\
+++_Layout.cshtml.css
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\shared\_layout.cshtml.css
 ++_LoginPartial.cshtml
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\shared\_loginpartial.cshtml
 ++Privacy.cshtml
@@ -276,75 +300,15 @@ i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arth
 ++ScaffoldingReadMe.txt
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\scaffoldingreadme.txt
 ++SQL Server Express LocalDB (Local) (ConnectionStrings:ArtHutDbContextConnection)
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1057
-++Microsoft.AspNetCore.Analyzers
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.analyzers.dll
-++Microsoft.AspNetCore.Components.Analyzers
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.components.analyzers.dll
-++Microsoft.AspNetCore.Mvc.Analyzers
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.web\analyzers\cs\microsoft.aspnetcore.mvc.analyzers.dll
-++Microsoft.AspNetCore.Razor.Internal.SourceGenerator.Transport
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.razor\source-generators\microsoft.aspnetcore.razor.internal.sourcegenerator.transport.dll
-++Microsoft.NET.Sdk.Razor.SourceGenerators
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\program files\dotnet\sdk\6.0.101\sdks\microsoft.net.sdk.razor\source-generators\microsoft.net.sdk.razor.sourcegenerators.dll
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1307
+++Microsoft.AspNetCore.App
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\microsoft.aspnetcore.app
 ++launchSettings.json
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\properties\launchsettings.json
 ++serviceDependencies.json
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\properties\servicedependencies.json
-++css
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\dist\css\
-++js
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\js\
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\dist\js\
-++lib
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\
-++favicon.ico
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\favicon.ico
-++AccessDenied.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\accessdenied.cshtml.cs
-++ForgotPasswordConfirmation.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\forgotpasswordconfirmation.cshtml.cs
-++Lockout.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\lockout.cshtml.cs
-++ResetPasswordConfirmation.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\resetpasswordconfirmation.cshtml.cs
-++Error.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\error.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\error.cshtml.cs
-++_Layout.cshtml.css
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\shared\_layout.cshtml.css
-++Privacy.cshtml.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\privacy.cshtml.cs
-++appsettings.Development.json
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\appsettings.development.json
-++serviceDependencies.local.json
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\properties\servicedependencies.local.json
-++site.css
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\site.css
 ++site.js
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\js\site.js
-++bootstrap
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\
-++jquery
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery\
-++jquery-validation
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation\
-++jquery-validation-unobtrusive
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation-unobtrusive\
-++dist
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\dist\
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery\dist\
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation\dist\
-++LICENSE
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\license
-++LICENSE.txt
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery\license.txt
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation-unobtrusive\license.txt
-++LICENSE.md
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation\license.md
-++jquery.validate.unobtrusive.js
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
 ++jquery.js
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery\dist\jquery.js
 ++additional-methods.js
@@ -353,6 +317,64 @@ i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arth
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation\dist\jquery.validate.js
 ++jquery.validate.unobtrusive.min.js
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
+++ChangePassword.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\changepassword.cshtml.cs
+++DeletePersonalData.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\deletepersonaldata.cshtml.cs
+++Disable2fa.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\disable2fa.cshtml.cs
+++DownloadPersonalData.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\downloadpersonaldata.cshtml.cs
+++Email.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\email.cshtml.cs
+++EnableAuthenticator.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\enableauthenticator.cshtml.cs
+++GenerateRecoveryCodes.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\generaterecoverycodes.cshtml.cs
+++Index.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\index.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\index.cshtml.cs
+++PersonalData.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\personaldata.cshtml.cs
+++ResetAuthenticator.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\resetauthenticator.cshtml.cs
+++SetPassword.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\setpassword.cshtml.cs
+++ShowRecoveryCodes.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\showrecoverycodes.cshtml.cs
+++TwoFactorAuthentication.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\manage\twofactorauthentication.cshtml.cs
+++AccessDenied.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\accessdenied.cshtml.cs
+++ConfirmEmail.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\confirmemail.cshtml.cs
+++ConfirmEmailChange.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\confirmemailchange.cshtml.cs
+++ForgotPassword.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\forgotpassword.cshtml.cs
+++ForgotPasswordConfirmation.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\forgotpasswordconfirmation.cshtml.cs
+++Register.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\register.cshtml.cs
+++RegisterConfirmation.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\registerconfirmation.cshtml.cs
+++ResendEmailConfirmation.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\resendemailconfirmation.cshtml.cs
+++ResetPassword.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\resetpassword.cshtml.cs
+++ResetPasswordConfirmation.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\account\resetpasswordconfirmation.cshtml.cs
+++Class.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\data\class.cs
+++Error.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\error.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\error.cshtml.cs
+++Privacy.cshtml.cs
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\pages\privacy.cshtml.cs
+++appsettings.Development.json
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\appsettings.development.json
+++serviceDependencies.local.json
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\properties\servicedependencies.local.json
 ++bootstrap.css
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\dist\css\bootstrap.css
 ++bootstrap-grid.css
@@ -449,10 +471,12 @@ i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arth
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
 ++bootstrap.esm.min.js.map
 i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+++SQL Server Database (ConnectionStrings:DefaultConnection)
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1308
+++SQL Server Database dependency with connectionId 'ConnectionStrings:DefaultConnection' is detected
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:>1309
 ++NewFolder
-++Data
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\data\
-++Class.cs
-i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\areas\identity\pages\data\class.cs
-++Microsoft.AspNetCore.ApiAuthorization.IdentityServer (6.0.10)
-i:{cc8386f6-7889-4419-b4e4-a4988d2e499e}:>1286
+++Fonts
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\fonts\
+++basket-icon-darck.png
+i:{77d00efa-f765-48d0-b036-38b2060488f2}:c:\users\veli_\source\repos\arthut\arthut\wwwroot\css\imgs\basket-icon-darck.png

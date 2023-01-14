@@ -7,20 +7,20 @@
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/ArtHut.styles.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+
 
 	@*    <environment include="Development">
 		<link rel="stylesheet" href="./css//>
 		</environment>*@
 </head>
-<body class="overflow-scroll">
+<body>
 	<header>
-		<div class="offer-bar">
-		</div>
-		@*.navbar-nav-scroll*@
-		<nav class="mynav navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+		<div class="offer-bar"></div>
+		<nav id="navbar_top" class="mynav navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom">
 			<div class="container mycontainer">
 				<img src="~/css/imgs/Red Panda logo.png" class="mynavbar-brand logo" />
-				<a id="arthutLogo"class="mynavbar-brand" asp-area="" asp-page="/Index">ArtHut</a>
+				<a id="arthutLogo" class="mynavbar-brand" asp-area="" asp-page="/Index">ArtHut</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
 						aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -28,43 +28,32 @@
 				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 					<ul class="navbar-nav flex-grow-1">
 						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+							<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-page="/Index">Shop</a>
 						</li>
 					</ul>
 				</div>
 				<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
 					@{
-						await Html.RenderPartialAsync("_LoginPartial");
-					}
+		                await Html.RenderPartialAsync("_LoginPartial");
+	                 }
 				</div>
-				@*<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
-					@{
-					var result = Engine.FindView(ViewContext, "_LoginPartial", isMainPage: false);
-					}
-					@if (result.Success)
-					{
-					await Html.RenderPartialAsync("_LoginPartial");
-					}
-					else
-					{
-					throw new InvalidOperationException("The default Identity UI layout requires a partial view '_LoginPartial' " +
-					"usually located at '/Pages/_LoginPartial' or at '/Views/Shared/_LoginPartial' to work. Based on your configuration " +
-					$"we have looked at it in the following locations: {System.Environment.NewLine}{string.Join(System.Environment.NewLine, result.SearchedLocations)}.");
-					}
-					</div>*@
+				<div  class="basket">
+					<img src="~/css/imgs/basket-icon-darck.png" class="image-main  nav-item" />
+				    <img class="image-hover" src="~/css/imgs/basket-icon-red.png">   
+				</div>
 			</div>
 		</nav>
 	</header>
-	<div class="container">
+	<div class="">
 		<main role="main" class="pb-3">
-			@RenderBody()
+		@RenderBody()
 		</main>
 	</div>
 
 	<footer class="border-top footer text-muted">
 		<div class="container">
 			<div class="color_gray">
-			&copy; 2022 - ArtHut - <a class="privacyLink" asp-area="" asp-page="/Privacy">Privacy</a>
+				&copy; 2022 - ArtHut - <a class="privacyLink" asp-area="" asp-page="/Privacy">Privacy</a>
 			</div>
 		</div>
 	</footer>
@@ -73,6 +62,7 @@
 	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="~/js/site.js" asp-append-version="true"></script>
 
-	@await RenderSectionAsync("Scripts", required: false)
+@await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
