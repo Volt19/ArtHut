@@ -113,9 +113,15 @@ namespace ArtHut.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                
+                if (_userManager.FindByEmailAsync(Input.Email).Result != null)
+                {
+                    ModelState.AddModelError(string.Empty, "This email address is already in use");
+                    return Page();
+                }
                 var user = CreateUser();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, user.Id, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 

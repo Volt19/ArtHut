@@ -11,11 +11,11 @@ namespace ArtHut.Data.Models
     public class ChatRoom
     {
         public int Id { get; set; }
-        public string User1Id { get; set; }
+        public string? User1Id { get; set; }
         [Required]
         [ForeignKey("User1Id")]
         public User User1 { get; set; }
-        public string User2Id { get;set; }
+        public string? User2Id { get;set; }
         [Required]
         [ForeignKey("User2Id")]
         public User User2 { get; set; }

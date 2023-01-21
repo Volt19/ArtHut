@@ -13,7 +13,10 @@ namespace ArtHut.Data
 {
     public class ArtHutDbContext : ApiAuthorizationDbContext<User>
     {
-        //public DbSet<UserGroup> UserGroups => Set<UserGroup>();
+        public DbSet<Product> Products => Set<Product>();
+        public DbSet<Photo> Photos => Set<Photo>();
+        public DbSet<ChatRoom> ChatRooms => Set<ChatRoom>();
+        public DbSet<Massage> Massages => Set<Massage>();
         public ArtHutDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
             : base(options, operationalStoreOptions)
         {
@@ -24,16 +27,20 @@ namespace ArtHut.Data
             base.OnModelCreating(builder);
 
             builder.Entity<User>().ToTable("Users");
-            builder.Entity<IdentityRole>().ToTable(name: "Roles");
-            builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
-            builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
-            builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
-            builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
-            builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
+            //builder.Entity<IdentityRole>().ToTable(name: "Roles");
+            //builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
+            //builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
+            //builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
+            //builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
+            //builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
 
             //builder.ApplyConfiguration(new UserGroupEntityConfiguration());
 
             //SeedInitialData(builder);
+
+            builder.Entity<ChatRoom>().HasOne(x => x.User1).WithMany(x => x.ChatRooms).HasForeignKey(x => x.User1Id).OnDelete(DeleteBehavior.ClientSetNull); ;
+            builder.Entity<ChatRoom>().HasOne(x => x.User2).WithMany(x => x.ChatRooms2).HasForeignKey(x => x.User2Id).OnDelete(DeleteBehavior.ClientSetNull); ;
+
 
         }
         //private void SeedInitialData(ModelBuilder builder)

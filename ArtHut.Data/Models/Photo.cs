@@ -16,7 +16,7 @@ namespace ArtHut.Data.Models
         public byte[] Bytes { get; set; }
         public string Description { get; set; }
         public string FileExtension { get; set; }
-        public decimal Size { get; set; }
+        //public decimal Size { get; set; }
         public string? UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }

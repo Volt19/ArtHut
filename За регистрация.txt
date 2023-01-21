@@ -1,0 +1,51 @@
+//за регистрация 
+<<.alert-box.success {
+    background-color: #7ce0d3;
+    border-color: #7ce0d3;
+    color: #15212f;
+}
+.alert-box {
+    z-index: 11;
+}
+.alert-box {
+    border-style: solid;
+    border-width: 0;
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding: 0.9375rem 0 0.9375rem 0;
+    position: relative;
+    transition: opacity 300ms ease-out;
+    background-color: #ff1749;
+    border-color: #ff1749;
+    color: #ffffff;
+}>> 
+
+Регистрация с външни източници:
+<<builder.Services.AddAuthentication()
+   .AddGoogle(options =>
+   {
+       IConfigurationSection googleAuthNSection =
+       config.GetSection("Authentication:Google");
+       options.ClientId = googleAuthNSection["ClientId"];
+       options.ClientSecret = googleAuthNSection["ClientSecret"];
+   })
+   .AddFacebook(options =>
+   {
+       IConfigurationSection FBAuthNSection =
+       config.GetSection("Authentication:FB");
+       options.ClientId = FBAuthNSection["ClientId"];
+       options.ClientSecret = FBAuthNSection["ClientSecret"];
+   })
+   .AddMicrosoftAccount(microsoftOptions =>
+   {
+       microsoftOptions.ClientId = config["Authentication:Microsoft:ClientId"];
+       microsoftOptions.ClientSecret = config["Authentication:Microsoft:ClientSecret"];
+   })
+   .AddTwitter(twitterOptions =>
+   {
+       twitterOptions.ConsumerKey = config["Authentication:Twitter:ConsumerAPIKey"];
+       twitterOptions.ConsumerSecret = config["Authentication:Twitter:ConsumerSecret"];
+       twitterOptions.RetrieveUserDetails = true;
+   });>>

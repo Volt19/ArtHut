@@ -24,5 +24,6 @@ namespace ArtHut.Data.Models
         public DateTime? DeletedAt { get; set; }
         public bool? IsSold { get; set; }
         public ICollection<Photo> Photos { get; set; }
+        public ICollection<ChatRoom> ChatRooms { get; set; }
     }
 }

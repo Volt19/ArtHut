@@ -1,23 +1,39 @@
 ﻿@page
 @model RegisterConfirmationModel
 @{
-    ViewData["Title"] = "Register confirmation";
+	ViewData["Title"] = "Register confirmation";
 }
 
-<h1>@ViewData["Title"]</h1>
-@{
-    if (@Model.DisplayConfirmAccountLink)
-    {
-<p>
-    This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
-</p>
-    }
-    else
-    {
-<p>
-        Please check your email to confirm your account.
-</p>
-    }
-}
+<style type="text/css">
+	body {
+		background-image: url("@Url.Content("~/css/imgs/Background_blue.jpg")");
+		background-size: 200% 150%;
+		background-position: center;
+	}
+</style>
+
+<section class="container">
+	<div class="ms-sm-5 me-sm-5">
+		<div class="ms-sm-5 me-sm-5">
+			<div class="ms-xl-5 me-sm-5">
+				<form id="account" method="post" class="form_white">
+					<h2>Thank you for joining!</h2>
+					<div class="form-floating ">
+						<p>Welcome, we are happy to have you as our user. Please, teke a few seconds to tell us about and lern about our website.</p>
+					</div>
+					<div class="form-floating ">
+						<p>Please check your email to confirm your account.</p>
+					</div>
+					<div class="form-floating ">
+						<button id="registerSubmit" type="submit" class=" w-100 btn btn-lg  red_btn">Get Started</button>
+					</div>
+					<a class="link" href="~/">No thanks, take me to the art.</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
 

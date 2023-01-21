@@ -5,9 +5,15 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtHut", "ArtHut\ArtHut.csproj", "{77D00EFA-F765-48D0-B036-38B2060488F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtHut.Data", "ArtHut.Data\ArtHut.Data.csproj", "{CC8386F6-7889-4419-B4E4-A4988D2E499E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtHut.Data", "ArtHut.Data\ArtHut.Data.csproj", "{CC8386F6-7889-4419-B4E4-A4988D2E499E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtHut.Business", "ArtHut.Business\ArtHut.Business.csproj", "{3EA9E8F5-AB4D-4D9A-92AE-0789551ABC89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtHut.Business", "ArtHut.Business\ArtHut.Business.csproj", "{3EA9E8F5-AB4D-4D9A-92AE-0789551ABC89}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E62317D2-DBA9-41C4-A898-937F70FA238D}"
+	ProjectSection(SolutionItems) = preProject
+		Todo.txt = Todo.txt
+		За регистрация.txt = За регистрация.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

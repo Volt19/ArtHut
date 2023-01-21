@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using ArtHut.Data;
 using ArtHut.Data.Models;
+using ArtHut.Controllers;
+using Microsoft.AspNetCore.Identity.UI.Services;
+
+
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -19,6 +23,8 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
 //    .AddIdentityServerJwt();
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 var app = builder.Build();
 

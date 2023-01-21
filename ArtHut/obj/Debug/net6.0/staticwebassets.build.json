@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LiizXpGqCZIxJ+kwEIcsbQMZI0LOR9lEk0hkv0tvCL0=",
+  "Hash": "Jg5sKPgwtghvpMEUcxTxC+TyhUfJAFAuaeBsegyWNHQ=",
   "Source": "ArtHut",
   "BasePath": "_content/ArtHut",
   "Mode": "Default",
@@ -1105,6 +1105,23 @@
       "OriginalItemSpec": "wwwroot\\css\\Fonts\\SulSans.woff"
     },
     {
+      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\Identity.css",
+      "SourceId": "ArtHut",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
+      "BasePath": "_content/ArtHut",
+      "RelativePath": "css/Identity.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Identity.css"
+    },
+    {
       "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\02_o_car.jpg",
       "SourceId": "ArtHut",
       "SourceType": "Discovered",
@@ -1154,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\imgs\\2cd3214367c8470ba3143106415a463f.png"
+    },
+    {
+      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\Background_blue.jpg",
+      "SourceId": "ArtHut",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
+      "BasePath": "_content/ArtHut",
+      "RelativePath": "css/imgs/Background_blue.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\imgs\\Background_blue.jpg"
     },
     {
       "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\basket-icon-darck.png",

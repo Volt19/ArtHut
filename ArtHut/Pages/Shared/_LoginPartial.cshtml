@@ -1,32 +1,81 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
 
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
-<ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-    </li>
-    <li class="nav-item">
-        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark color_change_red" id="register" asp-area="Identity" asp-page="/Account/Register">Join</a>
-    </li>
 
-    <li class="nav-item nav-link fontSulLight text-dark ps-1 pe-1 font_size_14">
-        or
-    </li>
-    <li class="nav-item">
-        <a class="nav-link color_change_red" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
+<ul class="navbar-nav">
+	@if (SignInManager.IsSignedIn(User))
+	{
+		<li class="nav-item">
+			<a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+		</li>
+		<li class="nav-item">
+			<form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+				<button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+			</form>
+		</li>
+	}
+	else
+	{
+		<li class="nav-item search ">
+			<input class="form-control  search"  placeholder="Search" aria-label="Search" />
+		</li>
+		<li class="nav-item search me-4">
+			<button class="btn form-control " type="submit"><i class="fa fa-search"></i></button>
+		</li>
+		
+
+		<li class="nav-item">
+			<a class="nav-link text-dark color_change_red" id="register" asp-area="Identity" asp-page="/Account/Register">Join</a>
+		</li>
+
+		<li class="nav-item nav-link fontSulLight text-dark ps-1 pe-1 font_size_14">
+			or
+		</li>
+		<li class="nav-item">
+			<a class="nav-link color_change_red" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+		</li>
+	}
 </ul>
+
+
+<div class="modal  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				@*<form id="registerForm" asp-route-returnUrl="@RegisterModel.ReturnUrl" method="post">
+					<h2>Create a new account.</h2>
+					<hr />
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<div class="form-floating">
+					<input asp-for="@RegisterModel.Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+					<label asp-for="@RegisterModel.Input.Email"></label>
+					<span asp-validation-for="@RegisterModel.Input.Email" class="text-danger"></span>
+					</div>
+					<div class="form-floating">
+					<input asp-for="@RegisterModel.Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+					<label asp-for="@RegisterModel.Input.Password"></label>
+					<span asp-validation-for="@RegisterModel.Input.Password" class="text-danger"></span>
+					</div>
+					<div class="form-floating">
+					<input asp-for="@RegisterModel.Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+					<label asp-for="@RegisterModel.Input.ConfirmPassword"></label>
+					<span asp-validation-for="@RegisterModel.Input.ConfirmPassword" class="text-danger"></span>
+					</div>
+					<button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+					</form>*@
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>

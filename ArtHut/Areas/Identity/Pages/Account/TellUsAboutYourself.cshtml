@@ -1,0 +1,50 @@
+﻿@page
+@model ArtHut.Areas.Identity.Pages.Account.TellUsAboutYourselfModel
+@{
+}
+
+<style type="text/css">
+	body {
+		background-image: url("@Url.Content("~/css/imgs/Background_blue.jpg")");
+		background-size: 200% 150%;
+		background-position: center;
+	}
+</style>
+
+<section class="container">
+	<div class="ms-sm-5 me-sm-5">
+		<div class="ms-sm-5 me-sm-5">
+			<div class="ms-xl-5 me-sm-5">
+				<form id="account" method="post" class="form_gray">
+					<h2>Tell us about yourself</h2>
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<p>My name is</p>
+					<div class="form-floating ">
+						<input asp-for="Input.FirstName" class="input" aria-required="true" placeholder="FirstName" 
+						aria-label="FirstName" aria-describedby="basic-addon2"/>
+						<span asp-validation-for="Input.FirstName" class="text-danger"></span>
+					</div>
+					<div class="form-floating ">
+						<input asp-for="Input.LastName" class="input" aria-required="true" placeholder="LastName" 
+						aria-label="LastName" aria-describedby="basic-addon2"/>
+						<span asp-validation-for="Input.LastName" class="text-danger"></span>
+					</div>
+					<p>Do you hame a alias?</p>
+					<div class="form-floating ">
+						<input asp-for="Input.Alias" class="input" aria-required="true" placeholder="Alias" 
+						aria-label="LastName" aria-describedby="basic-addon2"/>
+						<span asp-validation-for="Input.Alias" class="text-danger"></span>
+					</div>
+					@*<div class="form-floating ">
+						<input asp-for="Input.UserName" class="input" aria-required="true" placeholder="UserName" 
+						aria-label="LastName" aria-describedby="basic-addon2"/>
+						<span asp-validation-for="Input.UserName" class="text-danger"></span>
+					</div>*@
+					<button id="registerSubmit" type="submit" class="w-100 btn btn-lg  red_btn">Submit</button>
+					<a class="link color_change_red" href="~/">Skip straight to the art</a>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+

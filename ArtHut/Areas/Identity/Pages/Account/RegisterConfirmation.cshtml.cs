@@ -3,8 +3,14 @@
 #nullable disable
 
 using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Text;
+using System.Text.Encodings.Web;
+using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using ArtHut.Data.Models;
 using Microsoft.AspNetCore.Identity;
@@ -12,6 +18,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Logging;
 
 namespace ArtHut.Areas.Identity.Pages.Account
 {
@@ -27,23 +34,9 @@ namespace ArtHut.Areas.Identity.Pages.Account
             _sender = sender;
         }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        public string Email { get; set; }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        public bool DisplayConfirmAccountLink { get; set; }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        public string EmailConfirmationUrl { get; set; }
+        public static string Email { get; set; }
+        //public bool DisplayConfirmAccountLink { get; set; }
+        //public string EmailConfirmationUrl { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string email, string returnUrl = null)
         {
@@ -60,21 +53,13 @@ namespace ArtHut.Areas.Identity.Pages.Account
             }
 
             Email = email;
-            // Once you add a real email sender, you should remove this code that lets you confirm the account
-            DisplayConfirmAccountLink = true;
-            if (DisplayConfirmAccountLink)
-            {
-                var userId = await _userManager.GetUserIdAsync(user);
-                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                EmailConfirmationUrl = Url.Page(
-                    "/Account/ConfirmEmail",
-                    pageHandler: null,
-                    values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                    protocol: Request.Scheme);
-            }
-
             return Page();
+        }
+
+        //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));             code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
+        public async Task<IActionResult> OnPostAsync()
+        {
+            return RedirectToPage("TellUsAboutYourself", new { email = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(Email)) });
         }
     }
 }

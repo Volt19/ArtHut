@@ -79,29 +79,101 @@ body {
     padding-top: 0.7rem;
 }
 
-.basket img{
+.basket img {
     height: 18px;
     margin-bottom: 6px;
     margin-left: 15px;
 }
 
-.basket img.image-hover {
-    display:none;
-    object-fit: contain;
-    opacity: 0;
-    transition: opacity .2s;
-}
-  
+    .basket img.image-hover {
+        display: none;
+        object-fit: contain;
+        opacity: 0;
+        transition: opacity .2s;
+    }
+
 
 .basket:hover img.image-hover {
     opacity: 1;
-    display:block;
+    display: block;
 }
+
 .basket:hover img.image-main {
     display: none;
     opacity: 0;
 }
 
+.red_btn {
+    background: border-box #ff1749;
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+    .red_btn:active {
+        outline: none;
+        box-shadow: none;
+    }
 
+.input {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #212529;
+    background-clip: padding-box;
+    border: none;
+    appearance: none;
+    margin-bottom: 10px;
+    height: calc(3.5rem + 2px);
+    line-height: 1.25;
+    padding-left: 1rem;
+}
 
+.input:focus {
+    outline: none;
+}
 
+.form_gray {
+    margin-top: 50px;
+    height: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #ebe9e5;
+    padding: 2rem;
+    font-family: 'Sul Sans';
+}
+.form_white {
+    margin-top: 50px;
+    height: 100%;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: white;
+    padding: 2rem;
+    font-family: 'Sul Sans';
+}
+.link{
+    color:black;
+}
+.search {
+    background-color: white;
+    height: 2.5rem;
+    border: none;
+    
+}
+.search:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.search input {
+    width: 130px !important;
+    display: block;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+}
+.back_white {
+    background-color: white;
+}
