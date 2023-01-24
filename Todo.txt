@@ -7,7 +7,14 @@
 За Web:
 Допълни потока на регистрация 
 -започни с RegisterConfirmation => ConfirmEmail
--Направи razor page за попълване на допълнителните user данни (имена)
+-ConfirmEmail трябва да се форматира 
 Довърши дизайна на Login
+
+Do:
+-Лоцация на клиент <<using System.Globalization;  string name = RegionInfo.CurrentRegion.DisplayName;>>, добави.
+-Оценка на продукта 
+-харесани артисти и творби модули 
+-Тагове
+-Ориентация на продукта.
 
 

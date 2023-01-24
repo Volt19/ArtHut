@@ -25,8 +25,8 @@ namespace ArtHut.Data.Models
         public bool IsDeleted { get; set; } 
         public ICollection<Product> Products { get; set; }
         public ICollection<Photo> Photos { get; set; }
-        public ICollection<ChatRoom> ChatRooms { get; set; }
-        public ICollection<ChatRoom> ChatRooms2 { get; set; }
+        public ICollection<ChatRoom> Sender { get; set; } 
+        public ICollection<ChatRoom> Receiver { get; set; }
         public ICollection<Massage> Massages { get; set; }
     }
 }

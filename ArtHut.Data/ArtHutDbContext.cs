@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using System.Reflection.Emit;
 using Microsoft.EntityFrameworkCore.Internal;
-//using VividTracker.Data.EntityConfigurations;
+//using ArtHut.Data.EntityConfigurations;
 using ArtHut.Data.Models;
 
 namespace ArtHut.Data
@@ -17,6 +17,9 @@ namespace ArtHut.Data
         public DbSet<Photo> Photos => Set<Photo>();
         public DbSet<ChatRoom> ChatRooms => Set<ChatRoom>();
         public DbSet<Massage> Massages => Set<Massage>();
+        public DbSet<Category> Categories => Set<Category>();
+        public DbSet<ProductsCategory> ProductsCategories => Set<ProductsCategory>();
+        public DbSet<Discount> Discounts => Set<Discount>();
         public ArtHutDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
             : base(options, operationalStoreOptions)
         {
@@ -38,8 +41,10 @@ namespace ArtHut.Data
 
             //SeedInitialData(builder);
 
-            builder.Entity<ChatRoom>().HasOne(x => x.User1).WithMany(x => x.ChatRooms).HasForeignKey(x => x.User1Id).OnDelete(DeleteBehavior.ClientSetNull); ;
-            builder.Entity<ChatRoom>().HasOne(x => x.User2).WithMany(x => x.ChatRooms2).HasForeignKey(x => x.User2Id).OnDelete(DeleteBehavior.ClientSetNull); ;
+            builder.Entity<ChatRoom>().HasOne(x => x.User1).WithMany(x => x.Sender).HasForeignKey(x => x.User1Id).OnDelete(DeleteBehavior.ClientSetNull); ;
+            builder.Entity<ChatRoom>().HasOne(x => x.User2).WithMany(x => x.Receiver).HasForeignKey(x => x.User2Id).OnDelete(DeleteBehavior.ClientSetNull); ;
+            builder.Entity<Category>().HasOne(x => x.PCategory).WithMany(x => x.Categories).OnDelete(DeleteBehavior.ClientSetNull); ;
+
 
 
         }

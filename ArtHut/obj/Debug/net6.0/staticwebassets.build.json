@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Jg5sKPgwtghvpMEUcxTxC+TyhUfJAFAuaeBsegyWNHQ=",
+  "Hash": "YnBNZJzBpPq/9BoQ+HI9pKh9jt4h5kuCTJ5I2EFsWLo=",
   "Source": "ArtHut",
   "BasePath": "_content/ArtHut",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Fonts\\SulSans.woff"
+    },
+    {
+      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\Fonts\\SulSans-Regular.woff",
+      "SourceId": "ArtHut",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
+      "BasePath": "_content/ArtHut",
+      "RelativePath": "css/Fonts/SulSans-Regular.woff",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Fonts\\SulSans-Regular.woff"
     },
     {
       "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\Identity.css",

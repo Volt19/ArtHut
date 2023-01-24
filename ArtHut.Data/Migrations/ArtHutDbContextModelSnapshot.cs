@@ -22,6 +22,31 @@ namespace ArtHut.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("ArtHut.Data.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ParentCategory")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentCategory");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("ArtHut.Data.Models.ChatRoom", b =>
                 {
                     b.Property<int>("Id")
@@ -51,6 +76,40 @@ namespace ArtHut.Data.Migrations
                     b.HasIndex("User2Id");
 
                     b.ToTable("ChatRooms");
+                });
+
+            modelBuilder.Entity("ArtHut.Data.Models.Discount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("DiscountPercent")
+                        .HasColumnType("decimal(6,2)");
+
+                    b.Property<DateTime?>("Ends")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double?>("Price")
+                        .IsRequired()
+                        .HasColumnType("float");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("Starts")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Discounts");
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.Massage", b =>
@@ -169,6 +228,31 @@ namespace ArtHut.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("ArtHut.Data.Models.ProductsCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("CategoryId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductsCategories");
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.User", b =>
@@ -529,6 +613,15 @@ namespace ArtHut.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ArtHut.Data.Models.Category", b =>
+                {
+                    b.HasOne("ArtHut.Data.Models.Category", "PCategory")
+                        .WithMany("Categories")
+                        .HasForeignKey("ParentCategory");
+
+                    b.Navigation("PCategory");
+                });
+
             modelBuilder.Entity("ArtHut.Data.Models.ChatRoom", b =>
                 {
                     b.HasOne("ArtHut.Data.Models.Product", "Product")
@@ -538,12 +631,12 @@ namespace ArtHut.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("ArtHut.Data.Models.User", "User1")
-                        .WithMany("ChatRooms")
+                        .WithMany("Sender")
                         .HasForeignKey("User1Id")
                         .IsRequired();
 
                     b.HasOne("ArtHut.Data.Models.User", "User2")
-                        .WithMany("ChatRooms2")
+                        .WithMany("Receiver")
                         .HasForeignKey("User2Id")
                         .IsRequired();
 
@@ -552,6 +645,17 @@ namespace ArtHut.Data.Migrations
                     b.Navigation("User1");
 
                     b.Navigation("User2");
+                });
+
+            modelBuilder.Entity("ArtHut.Data.Models.Discount", b =>
+                {
+                    b.HasOne("ArtHut.Data.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.Massage", b =>
@@ -597,6 +701,25 @@ namespace ArtHut.Data.Migrations
                     b.HasOne("ArtHut.Data.Models.User", null)
                         .WithMany("Products")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("ArtHut.Data.Models.ProductsCategory", b =>
+                {
+                    b.HasOne("ArtHut.Data.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ArtHut.Data.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -650,6 +773,11 @@ namespace ArtHut.Data.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ArtHut.Data.Models.Category", b =>
+                {
+                    b.Navigation("Categories");
+                });
+
             modelBuilder.Entity("ArtHut.Data.Models.Product", b =>
                 {
                     b.Navigation("ChatRooms");
@@ -659,15 +787,15 @@ namespace ArtHut.Data.Migrations
 
             modelBuilder.Entity("ArtHut.Data.Models.User", b =>
                 {
-                    b.Navigation("ChatRooms");
-
-                    b.Navigation("ChatRooms2");
-
                     b.Navigation("Massages");
 
                     b.Navigation("Photos");
 
                     b.Navigation("Products");
+
+                    b.Navigation("Receiver");
+
+                    b.Navigation("Sender");
                 });
 #pragma warning restore 612, 618
         }
