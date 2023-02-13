@@ -38,10 +38,12 @@ namespace ArtHut.Data.Repositories
 
         public virtual async Task<TEntity> AddAsync(TEntity entity)
         {
-            Entities.Add(entity);
-
-            await Context.SaveChangesAsync();
-
+            try
+            {
+                Entities.Add(entity);
+                await Context.SaveChangesAsync();
+            }
+            catch (Exception ex) { }
             return entity;
         }
 

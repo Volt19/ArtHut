@@ -59,8 +59,7 @@ button.accept-policy {
     background: #f5f4f2 !important;
     height: 75px;
     font-family: 'Sul Sans';
-
-    
+    z-index: 9;
 }
 .offer-bar {
     display: flex;

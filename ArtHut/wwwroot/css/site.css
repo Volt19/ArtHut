@@ -30,6 +30,11 @@ body {
     src: url('/css/Fonts/SulSans-Regular.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'GD Boing Bold';
+    src: url('/css/Fonts/GD-Boing-Bold.woff') format('woff');
+}
+
 .mynavbar-brand {
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
@@ -56,6 +61,10 @@ body {
 .color_gray {
     color: #d7d2cb;
 }
+.color_red {
+    color: #ff1749;
+}
+
 
 .fontSul {
     font-family: 'Sul Sans'
@@ -63,6 +72,9 @@ body {
 
 .fontSulLight {
     font-family: 'Sul Sans Light'
+}
+.fontGB {
+    font-family: 'GD Boing Bold'
 }
 
 .color_change_red {
@@ -113,6 +125,10 @@ body {
         outline: none;
         box-shadow: none;
     }
+.dark_btn {
+    color: white;
+    background-color: #15212f;
+}
 
 .input {
     display: block;
@@ -129,9 +145,10 @@ body {
     padding-left: 1rem;
 }
 
-.input:focus {
-    outline: none;
-}
+    .input:focus, .input:active{
+        outline: none !important;
+        box-shadow: none;
+    }
 
 .form_gray {
     margin-top: 50px;
@@ -175,3 +192,45 @@ body {
     color: #212529;
 }
 
+#manage {
+    padding: 0;
+    padding-top: 5px;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; /* remove the gap so it doesn't close */
+}
+.dropdown-menu {
+    top: 134% !important;
+    left: -400% !important;
+    box-shadow: 0px 2px 5px 0px rgb(0 0 0 / 10%) !important;
+    border:0;
+    border-radius:0;
+}
+    .dropdown-menu::before {
+        position: absolute;
+        top: -20px;
+        right: 38%;
+        content: '';
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid #fff;
+    }
+.dropdown-item:hover {
+    background-color: #ebe9e5 !important;
+    color: black !important;
+}
+.dropdown-item:focus {
+    color: black !important;
+    background-color: #ebe9e5 !important;
+}
+
+.nav-pills .nav-link.active {
+    color: black !important;
+    background-color: #f5f4f2 !important;
+}
+.mycontainer {
+    margin: 0 auto;
+    margin-bottom: 0;
+    max-width: 73.125rem;
+}

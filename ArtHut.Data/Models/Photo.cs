@@ -10,13 +10,18 @@ namespace ArtHut.Data.Models
 {
     public class Photo
     {
+        public Photo(byte[] bytes, string fileExtension, int? productId, string userId)
+        {
+            Bytes = bytes;
+            FileExtension = fileExtension;
+            ProductId = productId;
+            UserId = userId;
+        }
 
         [Key]
         public int Id { get; set; }
         public byte[] Bytes { get; set; }
-        public string Description { get; set; }
         public string FileExtension { get; set; }
-        //public decimal Size { get; set; }
         public string? UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }

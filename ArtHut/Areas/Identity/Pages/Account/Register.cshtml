@@ -7,12 +7,9 @@
 <style type="text/css">
 	body {
 		background-image: url("@Url.Content("~/css/imgs/Background_blue.jpg")");
-	    background-size: 200% 150%;
-		background-position: center; 
-			
+		background-size: 200% 150%;
+		background-position: center;
 	}
-
-
 
 </style>
 
@@ -20,25 +17,30 @@
 	<div class="ms-sm-5 me-sm-5">
 		<div class="ms-sm-5 me-sm-5">
 			<div class="ms-xl-5 me-sm-5">
-				<form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="align-self-center form_gray">
+				<form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="align-self-center form_gray pb-3">
 					<h2>Create a new account.</h2>
 					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 					<div class="form-floating ">
-						<input asp-for="Input.Email" class="input" autocomplete="username" aria-required="true" placeholder="Email" 
-						aria-label="Email" aria-describedby="basic-addon2"/>
+						<input asp-for="Input.Email" class="input" autocomplete="username" aria-required="true" placeholder="Email"
+							   aria-label="Email" aria-describedby="basic-addon2" />
 						<span asp-validation-for="Input.Email" class="text-danger"></span>
 					</div>
 					<div class="form-floating  ">
-						<input asp-for="Input.Password" class="input" autocomplete="new-password" aria-required="true" placeholder="Password" 
-						aria-label="Password" aria-describedby="basic-addon2"/>
+						<input asp-for="Input.Password" class="input" autocomplete="new-password" aria-required="true" placeholder="Password"
+							   aria-label="Password" aria-describedby="basic-addon2" />
 						<span asp-validation-for="Input.Password" class="text-danger"></span>
 					</div>
 					<div class="form-floating ">
-						<input asp-for="Input.ConfirmPassword" class="input" autocomplete="new-password" aria-required="true" 
-						placeholder="ConfirmPassword" aria-label="ConfirmPassword" aria-describedby="basic-addon2"/>
+						<input asp-for="Input.ConfirmPassword" class="input" autocomplete="new-password" aria-required="true"
+							   placeholder="ConfirmPassword" aria-label="ConfirmPassword" aria-describedby="basic-addon2" />
 						<span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
 					</div>
 					<button id="registerSubmit" type="submit" class="w-100 btn btn-lg  red_btn">Register</button>
+					<div>
+						<p>
+							<a id="resend-confirmation " class="text-dark justify-content-end d-flex pt-2" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+						</p>
+					</div>
 				</form>
 			</div>
 		</div>

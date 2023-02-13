@@ -7,38 +7,39 @@
 <style type="text/css">
 	body {
 		background-image: url("@Url.Content("~/css/imgs/Background_blue.jpg")");
-	    background-size: 200% 150%;
-		background-position: center; 	
+		background-size: 200% 150%;
+		background-position: center;
 	}
-	.form-check-input:checked{
+
+	.form-check-input:checked {
 		background-color: #ff1749;
 		outline: none;
-		border:none;
+		border: none;
 	}
 
 </style>
 
 <section class="container">
-	<div class="">
+	<div class="ms-sm-5 me-sm-5">
 		<div class="ms-sm-5 me-sm-5">
 			<div class="ms-xl-5 me-sm-5">
-				<form id="account" method="post" class="form_gray">
-					<h2>Use a local account to log in.</h2>
+				<form id="account" method="post" class="form_gray pb-3">
+					<h2>Login to Your Account</h2>
 					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-										<div class="form-floating ">
-						<input asp-for="Input.Email" class="input" autocomplete="username" aria-required="true" placeholder="Email" 
-						aria-label="Email" aria-describedby="basic-addon2"/>
+					<div class="form-floating ">
+						<input asp-for="Input.Email" class="input" autocomplete="username" aria-required="true" placeholder="Email"
+							   aria-label="Email" aria-describedby="basic-addon2" />
 						<span asp-validation-for="Input.Email" class="text-danger"></span>
 					</div>
 					<div class="form-floating  ">
-						<input asp-for="Input.Password" class="input" autocomplete="new-password" aria-required="true" placeholder="Password" 
-						aria-label="Password" aria-describedby="basic-addon2"/>
+						<input asp-for="Input.Password" class="input" autocomplete="new-password" aria-required="true" placeholder="Password"
+							   aria-label="Password" aria-describedby="basic-addon2" />
 						<span asp-validation-for="Input.Password" class="text-danger"></span>
 					</div>
 					<div>
 						<div class="checkbox">
 							<label asp-for="Input.RememberMe" class="form-label">
-								<input class="form-check-input" asp-for="Input.RememberMe"/>
+								<input class="form-check-input" asp-for="Input.RememberMe" />
 								@Html.DisplayNameFor(m => m.Input.RememberMe)
 							</label>
 						</div>
@@ -48,14 +49,12 @@
 					</div>
 					<div>
 						<p>
-							<a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+							<a id="forgot-password" class="text-dark justify-content-end d-flex pt-2" asp-page="./ForgotPassword">Forgot your password</a>
 						</p>
 						<p>
-							<a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+							<a asp-page="./Register" class="text-dark justify-content-end d-flex" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
 						</p>
-						<p>
-							<a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-						</p>
+
 					</div>
 				</form>
 			</div>

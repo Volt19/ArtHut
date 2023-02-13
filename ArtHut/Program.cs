@@ -5,7 +5,10 @@ using ArtHut.Data;
 using ArtHut.Data.Models;
 using ArtHut.Controllers;
 using Microsoft.AspNetCore.Identity.UI.Services;
-
+using ArtHut.Data.Repositories.Interfaces;
+using ArtHut.Business.Services.Interfaces;
+using ArtHut.Data.Repositories;
+using ArtHut.Business.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -25,6 +28,15 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
 builder.Services.AddRazorPages();
 
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
+
+builder.Services.AddScoped<ITagsRepository, TagsRepository>();
+builder.Services.AddScoped<ITagsService, TagsService>();
+
+builder.Services.AddScoped<IPhotosRepository, PhotosRepository>();
+builder.Services.AddScoped<IPhotosService, PhotosService>();
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using ArtHut.Areas.Identity.Pages.Account.Manage
+@using Microsoft.AspNetCore.Identity
 @using ArtHut.Data.Models;
 @using ArtHut.Areas.Identity.Pages.Account
 
@@ -9,24 +10,46 @@
 <ul class="navbar-nav">
 	@if (SignInManager.IsSignedIn(User))
 	{
-		<li class="nav-item">
-			<a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-		</li>
-		<li class="nav-item">
-			<form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-				<button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-			</form>
-		</li>
-	}
-	else
-	{
 		<li class="nav-item search ">
-			<input class="form-control  search"  placeholder="Search" aria-label="Search" />
+			<input class="form-control  search" placeholder="Search" aria-label="Search" />
 		</li>
 		<li class="nav-item search me-4">
 			<button class="btn form-control " type="submit"><i class="fa fa-search"></i></button>
 		</li>
-		
+		<li class="nav-item dropdown">
+			<a id="manage" class="nav-link text-dark color_change_red " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" aria-expanded="false">
+				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="  bi bi-person-fill" viewBox="0 0 16 16">
+					<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+				</svg>
+			</a>
+			<ul class="dropdown-menu fontSulLight">
+				<li><a class="dropdown-item ps-4" asp-area="Identity" asp-page="/Account/Manage/Index">Action</a></li>
+				<li><a class="nav-link text-dark color_change_red ps-3" asp-area=""  asp-page="/Messages/Inbox">Messages</a></li>
+				<li><form id="logoutForm" class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+				<button id="logout" type="submit" class="nav-link btn btn-link text-dark color_change_red pt-0 pb-0 text-start">Logout</button></form></li>
+			</ul>
+		</li>
+
+		@*		<div class="dropdown">
+			<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+			Dropdown button
+			</button>
+			<ul class="dropdown-menu">
+			<li><a class="dropdown-item" href="#">Action</a></li>
+			<li><a class="dropdown-item" href="#">Another action</a></li>
+			<li><a class="dropdown-item" href="#">Something else here</a></li>
+			</ul>
+			</div>*@
+	}
+	else
+	{
+		<li class="nav-item search ">
+			<input class="form-control  search" placeholder="Search" aria-label="Search" />
+		</li>
+		<li class="nav-item search me-4">
+			<button class="btn form-control " type="submit"><i class="fa fa-search"></i></button>
+		</li>
+
 
 		<li class="nav-item">
 			<a class="nav-link text-dark color_change_red" id="register" asp-area="Identity" asp-page="/Account/Register">Join</a>

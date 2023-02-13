@@ -12,22 +12,30 @@ namespace ArtHut.Data.Models
     {
         public User()
         {
+
             CreatedAt = DateTime.Now;
-            //UserGroups = new List<UserGroup>();
-            //TrackingItemValueActivities =new List<TrackingItemValueActivity>();
-            IsDeleted = false;
+            IsPublic = false;
+            Products = new List<Product>();
+            Photos =new List<Photo>();
+            Addresses = new List<Address>();
+            LikedArtists = new List<LikedArtist>();
+            ProductsLikes = new List<ProductsLikes>();
         }
 
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Alias { get; set; }
-        public DateTime CreatedAt { get; set; } 
-        public bool IsDeleted { get; set; } 
+        public bool IsPublic { get; set; }
+        public DateTime CreatedAt { get; set; }
         public ICollection<Product> Products { get; set; }
         public ICollection<Photo> Photos { get; set; }
-        public ICollection<ChatRoom> Sender { get; set; } 
-        public ICollection<ChatRoom> Receiver { get; set; }
-        public ICollection<Massage> Massages { get; set; }
+        public ICollection<Massage> Senders { get; set; } 
+        public ICollection<Massage> Receivers { get; set; }
+        public ICollection<Address> Addresses { get; set; }
+        public ICollection<LikedArtist> LikedArtists { get; set; }
+        public ICollection<ProductsLikes> ProductsLikes { get; set; }
+
+
     }
 }
 

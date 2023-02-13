@@ -83,7 +83,7 @@ namespace ArtHut.Areas.Identity.Pages.Account
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Remember me")]
             public bool RememberMe { get; set; }
         }
 
@@ -115,9 +115,9 @@ namespace ArtHut.Areas.Identity.Pages.Account
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 var user = _userManager.FindByEmailAsync(Input.Email);
-                if (user != null)
+                if (user.Result != null)
                 {
-                    result = await _signInManager.PasswordSignInAsync(user.Result.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                    result = await _signInManager.PasswordSignInAsync(user.Result?.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 }
                 if (result.Succeeded)
                 {

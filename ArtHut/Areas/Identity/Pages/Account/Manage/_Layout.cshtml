@@ -1,27 +1,64 @@
-﻿@{
-    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
-    {
-        Layout = (string)parentLayout;
-    }
-    else
-    {
-        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
-    }
+﻿@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+@using System.Globalization;
+@inject UserManager<User> UserManager
+@{
+	if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+	{
+		Layout = (string)parentLayout;
+	}
+	else
+	{
+		Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+	}
 }
+<head>
+	<link rel="stylesheet" href="~/css/AccountManage.css" asp-append-version="true" />
+</head>
 
-<h1>Manage your account</h1>
 
 <div>
-    <h2>Change your account settings</h2>
-    <hr />
-    <div class="row">
-        <div class="col-md-3">
-            <partial name="_ManageNav" />
-        </div>
-        <div class="col-md-9">
-            @RenderBody()
-        </div>
-    </div>
+	<div class="user_background container-fluid"></div>
+	<div class="container mycontainer">
+		<div div class="row justify-content-end  border-bottom p-1"><partial name="_ManageNav"/> </div>
+
+		<div class="row">
+			<div class="col-3 d-flex flex-column ">
+				<div class="justify-content-center align-self-center row">
+					<img src="~/css/imgs/Profil_Img.jpg" class="ProfileImg p-0" />
+				</div>
+				<div class=" align-self-center row">
+					@if (@User.Identity!.Name! != UserManager.GetUserId(User))
+					{
+						<p class="mt-5 fs-5 text-wrap fontSul">@User.Identity!.Name!</p>
+					}
+					else
+					{
+						<p class="mt-5 fs-5 text-wrap fontSul mb-2">An Arthut user</p>
+					}
+				</div>
+				<div class=" align-self-center row fontSulLight ">
+					<p>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-geo-alt-fill color_red pb-1" viewBox="0 0 16 16">
+							<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+						</svg>@RegionInfo.CurrentRegion.EnglishName
+					</p>
+				</div>
+				<div class="col-3 d-flex flex-column ">
+					@*<p>@ViewData["ActivePage"]</p>*@
+					@if(ViewData["ActivePage"] == "Messages")
+					{
+						<partial name="./Messages/MessagesNav"/> 
+					}
+				</div>
+			</div>
+			<div class="col-9">
+				@RenderBody()
+			</div>
+		</div>
+
+	</div>
 </div>
 
 @section Scripts {

@@ -1,0 +1,25 @@
+﻿.user_background {
+    height: 140px;
+    object-fit: cover;
+    background-image: url("imgs/Background_blue.jpg");
+    background-position: center;
+}
+
+.nav-pills .nav-link.active {
+    color: #ff1749 !important;
+    background-color: #f5f4f2 !important;
+}
+
+.ProfileImg {
+    position: absolute;
+    width: 112px !important;
+    height: 112px !important;
+    border-radius: 100%;
+    top: 240px;
+    z-index: 5;
+}
+
+.mycontainer {
+    max-width: 73.125rem;
+}
+

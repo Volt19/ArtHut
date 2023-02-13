@@ -11,15 +11,16 @@ namespace ArtHut.Data.Models
     public class Massage
     {
         public int Id { get; set; }
-        public DateTime SendAt { get; set; }
-        public DateTime? seenAt { get; set; }
         public string Text { get; set; }
-        public int ChatRoomId { get; set; }
-        [ForeignKey("ChatRoomId")]
-        public ChatRoom ChatRoom { get; set; }
-        public string UserId { get; set; }
+        public string SenderId { get; set; }
         [Required]
-        [ForeignKey("UserId")]
-        public User User { get; set; }
+        [ForeignKey("SenderId")]
+        public User Sender   { get; set; }
+        public string ReceiverId { get; set; }
+        [Required]
+        [ForeignKey("ReceiverId")]
+        public User Receiver { get; set; }
+        public DateTime SendAt { get; set; }
+        public DateTime? SeenAt { get; set; }
     }
 }

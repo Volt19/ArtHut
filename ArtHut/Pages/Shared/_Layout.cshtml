@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/ArtHut.styles.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -15,10 +14,17 @@
 		<link rel="stylesheet" href="./css//>
 		</environment>*@
 </head>
+
+@using ArtHut.Areas.Identity.Pages.Account.Manage
+@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+
+@inject SignInManager<User> signInManager
 <body>
 	<header>
 		<div class="offer-bar"></div>
-		<nav id="navbar_top" class="mynav navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom">
+		<nav id="navbar_top" class="mynav navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom ">
 			<div class="container mycontainer">
 				<a id="arthutLogo" class="mynavbar-brand" asp-area="" asp-page="/Index"><img src="~/css/imgs/Red Panda logo.png" class="mynavbar-brand logo" /> ArtHut</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -28,18 +34,26 @@
 				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 					<ul class="navbar-nav flex-grow-1">
 						<li class="nav-item">
-							<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-page="/Index">Shop</a>
+							<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-page="/Shop">Shop</a>
 						</li>
+						@if (signInManager.IsSignedIn(User))
+						{
+							<li class="nav-item">
+								<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-page-handler="Dev" asp-page="/ArtPost/SecondStep">ArtPost</a>
+							</li>@*
+							<li class="nav-item">
+								<a class="nav-link text-dark color_change_red ps-3" asp-area=""  asp-page="/ArtPost/FirstStep">ArtPost</a>
+							</li>*@
+						}
+
 					</ul>
 				</div>
 				<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
-					
+
 					@{
 						await Html.RenderPartialAsync("_LoginPartial");
 					}
 				</div>
-				
-
 				<div class="basket">
 					<img src="~/css/imgs/basket-icon-darck.png" class="image-main  nav-item" />
 					<img class="image-hover" src="~/css/imgs/basket-icon-red.png">

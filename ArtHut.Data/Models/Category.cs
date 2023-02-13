@@ -18,6 +18,7 @@ namespace ArtHut.Data.Models
         [ForeignKey("ParentCategory")]
         public Category? PCategory { get; set; }
         public ICollection<Category> Categories { get; set; }
+        public ICollection<ProductsCategory> ProductsCategories { get; set; }
 
     }
 }

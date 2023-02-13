@@ -1,0 +1,126 @@
+﻿@page
+@model ArtHut.Pages.ArtPost.SecondStepcshtmlModel
+
+<style>
+	.file-input {
+		display: inline-block;
+		padding: 10px 20px;
+		background-color: #3f51b5;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+		.file-input input[type="file"] {
+			opacity: 0;
+			position: absolute;
+			z-index: -1;
+		}
+
+</style>
+
+<section class="container mycontainer">
+	<div class="ps-3 pe-3">
+		<div class="">
+			<div class="row align-self-center justify-content-center d-flex">
+				<h1 class="row align-self-center justify-content-center d-flex">Create Art post</h1>
+				<h4 class="row align-self-center justify-content-center d-flex">2/3</h4>
+				<hr />
+			</div>
+			<div>
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="row ">
+					<div class="row ps-5 pe-5 ">
+						<div class="col-4 bg-white">
+							<h6>Main Pic</h6>
+							@*<form enctype="multipart/form-data" method="post">
+								<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+								<div enctype="multipart/form-data" class="form-group" method="post">
+								<label asp-for="Input.Picture" class="control-label"></label>
+								<label class="file-input">
+								Choose a File
+								<input type="file" asp-for="Input.Picture" class="form-control" accept="image/*" />
+								</label>
+
+								<span asp-validation-for="Input.Picture" class="text-danger"></span>
+								</div>
+								<div class="form-group">
+								<div class="row">
+								<div class="col pt-2">
+								<button method="post" asp-page-handler="add" type="submit" class="w-100 btn dark_btn" onchange="previewImage(event)">
+								Add Picture
+								</button>
+								</div>
+								</div>
+								</div>
+								</form>*@
+						</div>
+						<div class="col bg-white ms-4 ">
+							<div class="row">
+								<label class="control-label"> Other Pictures</label>
+							</div>
+							<div class="d-flex flex-wrap align-items-center justify-content-center">
+								<div class="d-flex flex-wrap row">
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;">
+											<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="white" fill="currentColor" class="bi bi-plus-circle align-self-center justify-content-center" viewBox="0 0 16 16">
+												<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+												<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+											</svg>
+										</div>
+									</div>
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;"></div>
+									</div>
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;"></div>
+									</div>
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;"></div>
+									</div>
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;"></div>
+									</div>
+								</div>
+								<div class="d-flex flex-wrap row">
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;"></div>
+									</div>
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;"></div>
+									</div>
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;"></div>
+									</div>
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;"></div>
+									</div>
+									<div class="col p-0">
+										<div class="d-flex align-items-center justify-content-center m-2 " style="width: 105px; height: 105px; background-color: #f5f4f2;"></div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row pt-3">
+						<div class="col">
+							<button method="post" asp-page-handler="back" type="submit" class="w-100 btn btn-lg red_btn">Back</button>
+						</div>
+						<div class="col">
+							<button type="submit" method="post" asp-page-handler="next" class="w-100 btn btn-lg red_btn">Next</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+</section>
+
+@section Scripts
+	{
+<script type="text/javascript" language="javascript">
+</script>
+}

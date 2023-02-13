@@ -1,0 +1,48 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+@using System.Globalization;
+@inject UserManager<User> UserManager
+@model ArtHut.Pages.Messages.InboxModel
+@{
+	ViewData["ActivePage"] = MessagesNavPages.Inbox;
+}
+<head>
+	<link rel="stylesheet" href="~/css/Messages.css" asp-append-version="true" />
+</head>
+
+<div class="user_background container-fluid fontSul"></div>
+<div class="container mycontainer">
+	<div class="row justify-content-center  align-self-center border-bottom p-1"> <h4 class = "justify-content-center  align-self-center d-flex m-0">Messages</h4> </div>
+	<div class="row">
+		<div class="col-3 d-flex flex-column ">
+			<div class="justify-content-center align-self-center row">
+				<img src="~/css/imgs/Profil_Img.jpg" class="ProfileImg p-0" />
+			</div>
+			<div class=" align-self-center row mt-2">
+				@if (@User.Identity!.Name! != UserManager.GetUserId(User))
+				{
+					<p class="mt-5 fs-5 text-wrap fontSul">@User.Identity!.Name!</p>
+				}
+				else
+				{
+					<p class="mt-5 fs-5 text-wrap fontSul mb-2">An Arthut user</p>
+				}
+			</div>
+			<div class=" align-self-center row fontSulLight ">
+				<p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-geo-alt-fill color_red pb-1" viewBox="0 0 16 16">
+						<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+					</svg>@RegionInfo.CurrentRegion.EnglishName
+				</p>
+			</div>
+
+				<partial name="MessagesNav" />
+		</div>
+		<div class="col-9">
+			<h1>Inbox</h1>
+		</div>
+	</div>
+</div>
+

@@ -44,6 +44,19 @@ namespace ArtHut.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Countries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Countries", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DeviceCodes",
                 columns: table => new
                 {
@@ -101,6 +114,20 @@ namespace ArtHut.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Tags",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NormalizedName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tags", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -108,8 +135,8 @@ namespace ArtHut.Data.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Alias = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsPublic = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -147,6 +174,37 @@ namespace ArtHut.Data.Migrations
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Addresses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CountryId = table.Column<int>(type: "int", nullable: false),
+                    District = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StreetAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Addresses", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Addresses_Countries_CountryId",
+                        column: x => x.CountryId,
+                        principalTable: "Countries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Addresses_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -237,21 +295,93 @@ namespace ArtHut.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IsEmpty = table.Column<bool>(type: "bit", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Carts_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LikedArtists",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ArtistId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LikedArtists", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LikedArtists_Users_ArtistId",
+                        column: x => x.ArtistId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_LikedArtists_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Massages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SenderId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ReceiverId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    SendAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    SeenAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Massages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Massages_Users_ReceiverId",
+                        column: x => x.ReceiverId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Massages_Users_SenderId",
+                        column: x => x.SenderId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsUnique = table.Column<bool>(type: "bit", nullable: false),
+                    IsUnique = table.Column<bool>(type: "bit", nullable: true),
                     Qantity = table.Column<int>(type: "int", nullable: true),
-                    Price = table.Column<double>(type: "float", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    ModifiedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: true),
+                    Size = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsSold = table.Column<bool>(type: "bit", nullable: true),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -260,37 +390,32 @@ namespace ArtHut.Data.Migrations
                         name: "FK_Products_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ChatRooms",
+                name: "CartItems",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    User1Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    User2Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: false)
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    CartId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChatRooms", x => x.Id);
+                    table.PrimaryKey("PK_CartItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ChatRooms_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
+                        name: "FK_CartItems_Carts_CartId",
+                        column: x => x.CartId,
+                        principalTable: "Carts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ChatRooms_Users_User1Id",
-                        column: x => x.User1Id,
-                        principalTable: "Users",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_ChatRooms_Users_User2Id",
-                        column: x => x.User2Id,
-                        principalTable: "Users",
+                        name: "FK_CartItems_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
                         principalColumn: "Id");
                 });
 
@@ -325,7 +450,6 @@ namespace ArtHut.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Bytes = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FileExtension = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false)
@@ -343,8 +467,7 @@ namespace ArtHut.Data.Migrations
                         name: "FK_Photos_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -374,33 +497,100 @@ namespace ArtHut.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Massages",
+                name: "ProductsLikes",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    SendAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    seenAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ChatRoomId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Massages", x => x.Id);
+                    table.PrimaryKey("PK_ProductsLikes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Massages_ChatRooms_ChatRoomId",
-                        column: x => x.ChatRoomId,
-                        principalTable: "ChatRooms",
+                        name: "FK_ProductsLikes_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Massages_Users_UserId",
+                        name: "FK_ProductsLikes_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductsTags",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    TagId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductsTags", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductsTags_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProductsTags_Tags_TagId",
+                        column: x => x.TagId,
+                        principalTable: "Tags",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "1611b0f2-97ce-4f07-9884-0a1b99c71d40", "7f632d5a-e7d6-4fc3-bda1-90042dec0bf3", "Administrator", "ADMINISTRATOR" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Description", "Name", "ParentCategory" },
+                values: new object[,]
+                {
+                    { 1, null, " Painting", null },
+                    { 2, null, "Printmaking", null },
+                    { 3, null, "Sculpture", null },
+                    { 4, null, "Photography", null },
+                    { 5, null, "Drawing", null },
+                    { 6, null, "Digital Art", null },
+                    { 7, null, "Collage", null },
+                    { 8, null, "Wood Carving", null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "AccessFailedCount", "Alias", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FirstName", "IsPublic", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "32719623-eabe-479f-9cea-6d0457ef6ed0", 0, null, "f84e967a-f50a-4e99-912d-35fa5f454da0", new DateTime(2023, 2, 13, 15, 18, 58, 612, DateTimeKind.Local).AddTicks(7607), "admin@AH.net", true, null, false, null, false, null, "ADMIN@AH.NET", "ADMIN", "AQAAAAEAACcQAAAAEK6PJfEjf3zdDPh5clyhtUHI5/Vgk3Xdy+oJM+9F/ks3pBfDbdYqB2UBYoqzoSuQrQ==", "1234567890", false, "36b85566-20d3-4b75-bf0b-9ad38562ba52", false, "admin" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "1611b0f2-97ce-4f07-9884-0a1b99c71d40", "32719623-eabe-479f-9cea-6d0457ef6ed0" });
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "CreatedAt", "DeletedAt", "Description", "IsSold", "IsUnique", "Name", "Price", "Qantity", "Size", "UserId" },
+                values: new object[] { 1, null, null, "This is Test description", null, true, "Test Product", 1.0, null, "0x0x0", "32719623-eabe-479f-9cea-6d0457ef6ed0" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Addresses_CountryId",
+                table: "Addresses",
+                column: "CountryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Addresses_UserId",
+                table: "Addresses",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -430,24 +620,25 @@ namespace ArtHut.Data.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CartItems_CartId",
+                table: "CartItems",
+                column: "CartId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CartItems_ProductId",
+                table: "CartItems",
+                column: "ProductId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Carts_UserId",
+                table: "Carts",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Categories_ParentCategory",
                 table: "Categories",
                 column: "ParentCategory");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChatRooms_ProductId",
-                table: "ChatRooms",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChatRooms_User1Id",
-                table: "ChatRooms",
-                column: "User1Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ChatRooms_User2Id",
-                table: "ChatRooms",
-                column: "User2Id");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DeviceCodes_DeviceCode",
@@ -471,14 +662,24 @@ namespace ArtHut.Data.Migrations
                 column: "Use");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Massages_ChatRoomId",
-                table: "Massages",
-                column: "ChatRoomId");
+                name: "IX_LikedArtists_ArtistId",
+                table: "LikedArtists",
+                column: "ArtistId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Massages_UserId",
-                table: "Massages",
+                name: "IX_LikedArtists_UserId",
+                table: "LikedArtists",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Massages_ReceiverId",
+                table: "Massages",
+                column: "ReceiverId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Massages_SenderId",
+                table: "Massages",
+                column: "SenderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_PersistedGrants_ConsumedTime",
@@ -526,6 +727,26 @@ namespace ArtHut.Data.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductsLikes_ProductId",
+                table: "ProductsLikes",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductsLikes_UserId",
+                table: "ProductsLikes",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductsTags_ProductId",
+                table: "ProductsTags",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductsTags_TagId",
+                table: "ProductsTags",
+                column: "TagId");
+
+            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "Users",
                 column: "NormalizedEmail");
@@ -540,6 +761,9 @@ namespace ArtHut.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Addresses");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -556,6 +780,9 @@ namespace ArtHut.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "CartItems");
+
+            migrationBuilder.DropTable(
                 name: "DeviceCodes");
 
             migrationBuilder.DropTable(
@@ -563,6 +790,9 @@ namespace ArtHut.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Keys");
+
+            migrationBuilder.DropTable(
+                name: "LikedArtists");
 
             migrationBuilder.DropTable(
                 name: "Massages");
@@ -577,16 +807,28 @@ namespace ArtHut.Data.Migrations
                 name: "ProductsCategories");
 
             migrationBuilder.DropTable(
+                name: "ProductsLikes");
+
+            migrationBuilder.DropTable(
+                name: "ProductsTags");
+
+            migrationBuilder.DropTable(
+                name: "Countries");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "ChatRooms");
+                name: "Carts");
 
             migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Tags");
 
             migrationBuilder.DropTable(
                 name: "Users");

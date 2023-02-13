@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Include="wwwroot\css\imgs\Background_blue.jpg" />
+    <None Include="wwwroot\css\imgs\Profil_Img.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,10 @@
   <ItemGroup>
     <ProjectReference Include="..\ArtHut.Business\ArtHut.Business.csproj" />
     <ProjectReference Include="..\ArtHut.Data\ArtHut.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
 
 </Project>
