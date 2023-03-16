@@ -47,6 +47,10 @@ namespace ArtHut.Data.Repositories
             return entity;
         }
 
+        public virtual async Task<List<TEntity?>> GetAllAsync()
+        {
+            return Entities.ToList();
+        }
         public virtual async Task<IEnumerable<TEntity>> AddRangeAsync(IEnumerable<TEntity> entities)
         {
             var addRangeAsync = entities.ToList();

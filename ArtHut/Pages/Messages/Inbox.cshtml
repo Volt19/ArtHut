@@ -12,9 +12,10 @@
 	<link rel="stylesheet" href="~/css/Messages.css" asp-append-version="true" />
 </head>
 
+
 <div class="user_background container-fluid fontSul"></div>
 <div class="container mycontainer">
-	<div class="row justify-content-center  align-self-center border-bottom p-1"> <h4 class = "justify-content-center  align-self-center d-flex m-0">Messages</h4> </div>
+	<div class="row justify-content-center  align-self-center border-bottom p-1"> <h4 class="justify-content-center  align-self-center d-flex m-0">Messages</h4> </div>
 	<div class="row">
 		<div class="col-3 d-flex flex-column ">
 			<div class="justify-content-center align-self-center row">
@@ -38,11 +39,133 @@
 				</p>
 			</div>
 
-				<partial name="MessagesNav" />
+			<partial name="MessagesNav" />
 		</div>
-		<div class="col-9">
-			<h1>Inbox</h1>
-		</div>
+		<form method="post" enctype="multipart/form-data" class="col-9">
+			<h4>Inbox</h4>
+			@foreach (var message in Model.Messages)
+			{
+				<div class="row bg-white mb-1">
+					<a type="button" class="col ps-3 pt-2 pb-2 text-decoration-none"  data-bs-toggle="modal" data-bs-target="#Message" data-bs-sender="@UserManager.FindByIdAsync(message.SenderId).Result.UserName" data-bs-title="@message.Subject" data-bs-text="@message.Text">
+						<h5 class="mb-1 text-dark">@UserManager.FindByIdAsync(message.SenderId).Result.UserName</h5>
+						<p class="text-muted m-0">@message.Subject</p>
+					</a>
+					<div class="col-1 justify-content-center  align-items-center d-flex trash">
+						<button type="button" class="w-75 h-50" asp-route-id="@message.SenderId" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-senderId="@message.SenderId" data-bs-whatever="@UserManager.FindByIdAsync(message.SenderId).Result.UserName"></button>
+						<input asp-for="MessageId" class="d-none" value="@message.Id" />
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-reply-fill  position-absolute" viewBox="0 0 16 16">
+							<path d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z" />
+						</svg>
+					</div>
+					<div class="col-1 justify-content-center  align-items-center d-flex trash">
+						<button type="submit" asp-page-handler="Delete" asp-route-id="@message.Id" class="w-75 h-50 "></button>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-circle-fill position-absolute" viewBox="0 0 16 16">
+							<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+						</svg>
+					</div>
+
+				</div>
+
+
+			}
+
+		</form>
 	</div>
 </div>
+
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="sss" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<form method="post" enctype="multipart/form-data" class="modal-content myModal fontSul">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalLabel">Contact</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				<input id="senderId" asp-for="MessageId" class="d-none senderId" />
+			</div>
+			<div class="modal-body fontSul">
+				<div>
+					<div class="mb-3">
+						<label asp-for="MessageInput.Subject" class="control-label"></label>
+						<input asp-for="MessageInput.Subject" class="form-control border-0 rounded-0 pt-2 pb-2 fontSulLight shadow-none" />
+						<span asp-validation-for="MessageInput.Subject" class="text-danger"></span>
+					</div>
+					<div class="mb-3">
+						<label asp-for="MessageInput.Message" class="control-label"></label>
+						<textarea asp-for="MessageInput.Message" class="form-control text-box multi-line  border-0 textarea rounded-0 fontSulLight shadow-none"
+								  type="text" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" style="height:250px;"></textarea>
+						<span asp-validation-for="MessageInput.Message" class="text-danger"></span>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary fontSulLight shadow-none" data-bs-dismiss="modal">Close</button>
+				<button type="submit" asp-page-handler="Send" class="btn red_btn fontSulLight shadow-none">Send</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="modal fade" id="Message" tabindex="-1" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+		<form method="post" enctype="multipart/form-data" class="modal-content myModal fontSul">
+			<div class="modal-header col d-block pb-2">
+				<div class="row mb-3">
+					<h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+				</div>
+				<div class="row">
+					<p class="m-0"></p>
+				</div>
+
+			</div>
+			<div class="modal-body fontSulLight">
+				<p></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary fontSulLight shadow-none" data-bs-dismiss="modal">Close</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+
+@section Scripts
+	{
+<script>
+	  const exampleModal = document.getElementById('Modal')
+	  exampleModal.addEventListener('show.bs.modal', event => {
+
+	  const button = event.relatedTarget
+
+	  const recipient = button.getAttribute('data-bs-whatever')
+	  const sender = button.getAttribute('data-bs-senderId')
+
+	  const modalTitle = exampleModal.querySelector('.modal-title')
+	  const modalBodyInput = exampleModal.querySelector('.modal-body input')
+	  const modalSen = exampleModal.querySelector('.senderId')
+	  modalTitle.textContent = `Contact ${recipient}`
+	  modalSen.nodeValue = `${sender}`
+	  $(".senderId").val(`${sender}`);
+	});
+</script>
+
+<script>
+	var exampleModal1 = document.getElementById('Message')
+	exampleModal1.addEventListener('show.bs.modal', event => {
+
+	  const button = event.relatedTarget
+
+	  const text = button.getAttribute('data-bs-text')
+	  const sender = button.getAttribute('data-bs-sender')
+	  const title = button.getAttribute('data-bs-title')
+
+	  const modalTitle = exampleModal1.querySelector('.modal-title')
+	  const senderTitle = exampleModal1.querySelector('.modal-header p')
+	  const modalBodyInput = exampleModal1.querySelector('.modal-body p')
+
+	  modalTitle.textContent = `${title}`
+	  modalBodyInput.textContent = `${text}`
+	  senderTitle.textContent = `From: ${sender}`
+	})
+</script>
+	}
 

@@ -1,0 +1,116 @@
+﻿@page
+@model ArtHut.Pages.CartModel
+@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+@using ArtHut.Business.Services.Interfaces;
+@inject UserManager<User> UserManager
+@inject ICategoriesService _categoriesService
+@{
+}
+<style>
+	.txt_overflow {
+		display: block;
+		width: 270px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+</style>
+<div class="container">
+	<div class="row d-flex justify-content-center  align-self-center pt-5 pb-5">
+		<h3 class="fontSul justify-content-center align-self-center d-flex">Your Basket</h3>
+	</div>
+	@if (Model.CartItems.Count==0)
+	{
+		<div class="row d-flex justify-content-center  align-self-center p-5  m-auto bg-white">
+			<div class="w-50 fontSul">
+				<h5 class=" d-flex justify-content-center  mb-4">
+					There are no artworks in your basket
+				</h5>
+				<div class=" d-flex justify-content-center  ">
+					<a class="btn red_btn pt-2 pb-2 ps-4 pe-4 rounded-0" asp-page="/Shop" asp-route-category="">Continue Shopping</a>
+
+				</div>
+			</div>
+
+		</div>
+	}
+	else
+	{
+		<div class="row mycontainer">
+			<div class="col-7  pe-2 ">
+				@foreach (var Item in Model.CartItems)
+				{
+					<form method="post" class=" bg-white ps-5 pe-5 pt-4 pb-4 mb-3">
+						<h5 class="fontSul row">
+							Sold and shipped by @UserManager.FindByIdAsync(Item.UserId).Result.FirstName @UserManager.FindByIdAsync(Item.UserId).Result.LastName
+						</h5>
+						<div class="row fontSulLight" style="">
+							<div class="col-3 p-0"><img class="w-100" style="height:130px; object-fit: cover;" src="data:image/png;base64,@Convert.ToBase64String(Model.GetProductMainImg(Item.Id))" alt="Product image"></div>
+							<div class="col  ">
+								<div class="row mb-3">
+									<div class="col ">
+										<div class="row ps-3 txt_overflow">@Item.Name</div>
+										<div class="row ps-3">
+											<a class="color_change_red text-decoration-none p-0" asp-page="/Portfolio/Artworks"
+									             asp-page-handler="Artist" asp-route-artist="@Item.UserId">
+												 by  @UserManager.FindByIdAsync(Item.UserId).Result.FirstName @UserManager.FindByIdAsync(Item.UserId).Result.LastName
+											</a>
+										</div>
+										<div class="row ps-3">@_categoriesService.GetCategoryAsync((int)Item.CategoryId).Result.Name </div>
+										<div class="row ps-3"> @Item.Size cm</div>
+
+									</div>
+									<div class="col-2 p-0">
+										€@Item.Price
+									</div>
+								</div>
+								<button type="submit"  asp-page-handler="Delete" asp-route-id="@Item.Id" class="row ps-3 text-decoration-underline border-0 bg-white"> Remove</button>
+							</div>
+						</div>
+					</form>
+				}
+
+			</div>
+
+			<div class="col-5   ps-2">
+				<div class="bg-white p-4">
+					<div class="p-3 pb-0">
+						<h5 class="fontSul mb-4">Order summary</h5>
+						<div class="">
+							<div class="row d-flex mb-3 fontSulLight"><div class="col">Artwork subtotal</div> <div class="col text-end fontSulLight">£120.00</div></div>
+							<div class="row d-flex mb-3 fontSulLight"><div class="col">Shipping total</div> <div class="col text-end">£120.00</div></div>
+							<div class="row d-flex mb-3 fontSulLight"><div class="col fontSul">Order total</div> <div class="col text-end ">£145.99</div></div>
+
+							<form action="/checkout/start-payment/" method="POST" id="start-payment-form" class="row g-flex mt-5 mb-3">
+								<a class="btn red_btn rounded-0 fontSul p-2" type="submit" asp-area=""  asp-page="/Order/Shipping">
+									Checkout  &nbsp;
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="28" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg>
+								</a>
+							</form>
+							<div action="/checkout/start-payment/" id="start-paypal-payment-form" class="row g-flex mb-4">
+								<button class="btn btn-warning rounded-0 fontSul p-2" type="button">
+									<span class="me-3">Pay with</span><img class="" src="https://d2m7ibezl7l5lt.cloudfront.net/img/checkout/paypal-logo.8eb4a34a71a7.png" style="width: 72px;">
+								</button>
+							</div>
+							<div class="clearfix mt20 text-center">
+								<img style="margin-right: 3px; width: 50px;" src="https://d2m7ibezl7l5lt.cloudfront.net/img/checkout/visa.6a4f54b39362.png">
+								<img style="margin-right: 8px; width: 40px;" src="https://d2m7ibezl7l5lt.cloudfront.net/img/checkout/mastercard.a9e5bac5de9c.png">
+								<img style="margin-right: 10px; width: 22px;" src="https://d2m7ibezl7l5lt.cloudfront.net/img/checkout/amex.2c0af6fc1e4d.png">
+								<img style="width: 70px;" src="https://d2m7ibezl7l5lt.cloudfront.net/img/checkout/paypal-logo-alt.ce7e9dfa6eec.png">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+	}
+
+
+</div>

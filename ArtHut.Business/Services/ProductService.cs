@@ -19,5 +19,8 @@ namespace ArtHut.Business.Services
         }
         public async Task<Product> AddProductAsync(Product product) =>await _productRepository.AddAsync(product);
         public async Task<Product?> FindProductAsync(params object[] keyValues) => await _productRepository.FindAsync(keyValues);
+        public async Task<List<Product?>> GetAll() => await _productRepository.GetAllAsync();
+        public async Task<List<Product>> GetUsersProducts(string userId)=> await _productRepository.GetUsersProducts(userId);
+        public async Task UpdateAsync(Product product) => await _productRepository.UpdateAsync(product);
     }
 }

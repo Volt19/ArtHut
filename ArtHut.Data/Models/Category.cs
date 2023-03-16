@@ -14,11 +14,7 @@ namespace ArtHut.Data.Models
         [Required]
         public string Name { get; set; }
         public string? Description { get; set; }
-        public int? ParentCategory { get; set; }
-        [ForeignKey("ParentCategory")]
-        public Category? PCategory { get; set; }
-        public ICollection<Category> Categories { get; set; }
-        public ICollection<ProductsCategory> ProductsCategories { get; set; }
+        public ICollection<Product> Products { get; set; }
 
     }
 }

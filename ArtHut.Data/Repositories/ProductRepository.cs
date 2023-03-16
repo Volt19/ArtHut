@@ -13,10 +13,18 @@ namespace ArtHut.Data.Repositories
     {
         protected ArtHutDbContext Context { get; set; }
         protected DbSet<Product> ProductEntities { get; set; }
+        protected DbSet<Photo> PhotoEntities { get; set; }
         public ProductRepository(ArtHutDbContext context) : base(context)
         {
-            //Context = context;
-            //ProductEntities = Context.Set<Product>();
+            Context = context;
+            ProductEntities = Context.Set<Product>();
+            PhotoEntities = Context.Set<Photo>();
+        }
+
+        public async Task<List<Product>> GetUsersProducts(string userId)
+        {
+            var usersProducts = ProductEntities.Where(x=> x.UserId ==userId).ToList();
+            return usersProducts;
         }
     }
 }

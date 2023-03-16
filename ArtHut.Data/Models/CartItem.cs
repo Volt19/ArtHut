@@ -10,12 +10,22 @@ namespace ArtHut.Data.Models
 {
     public class CartItem
     {
+        public CartItem()
+        {
+        }
+        public CartItem( int prodctId, string userId, bool IsActive)
+        {
+            ProductId = prodctId;
+            UserId = userId;
+            IsSold = IsActive;
+        }
         public int Id { get; set; }
         public int ProductId { get; set; }
         [ForeignKey("ProductId")]
         public Product Product { get; set; }
-        public int CartId { get; set; }
-        [ForeignKey("CartId")]
-        public Cart Cart { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public User User { get; set; }
+        public bool? IsSold { get; set; }
     }
 }

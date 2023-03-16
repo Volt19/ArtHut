@@ -27,9 +27,11 @@
     text-align: center !important;
     width: 55%;
 }
+
 .my_container {
     overflow-x: hidden;
 }
+
 .myblock {
     display: flex;
     flex-direction: column;
@@ -38,4 +40,13 @@
     position: relative;
     z-index: 20;
     top: 20%;
+}
+
+
+
+
+.category-list input[type="radio"]:checked {
+    background-color: #ff1749;
+    color: #ff1749;
+    border:none;
 }

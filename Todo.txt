@@ -1,11 +1,13 @@
-за Data:
--довърши Order Модела.
 
 
 
 За Web:
 -ConfirmEmail трябва да се форматира 
+- TellUsAboutYourself onPost trqbwa sa se syzdade
 
 Do:
 -Ориентация на продукта.  Може : Style": Urban and Pop", Subject:" Animals and birds".
+
+bugs: ako продукт няма main pic страницата Shop няма да зареди 
+трябва задължителен UserName импут 
 

@@ -26,14 +26,18 @@ namespace ArtHut.Data.Models
         public string? LastName { get; set; }
         public string? Alias { get; set; }
         public bool IsPublic { get; set; }
+        public byte[]? ProfilePic { get; set; }
+        public byte[]? PortfolioPic { get; set; }
         public DateTime CreatedAt { get; set; }
         public ICollection<Product> Products { get; set; }
         public ICollection<Photo> Photos { get; set; }
-        public ICollection<Massage> Senders { get; set; } 
-        public ICollection<Massage> Receivers { get; set; }
+        public ICollection<Message> Senders { get; set; } 
+        public ICollection<Message> Receivers { get; set; }
         public ICollection<Address> Addresses { get; set; }
         public ICollection<LikedArtist> LikedArtists { get; set; }
         public ICollection<ProductsLikes> ProductsLikes { get; set; }
+        public ICollection<CartItem> CartItems { get; set; }
+        public ICollection<Order> Orders { get; set; }
 
 
     }

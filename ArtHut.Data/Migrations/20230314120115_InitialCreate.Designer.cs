@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArtHut.Data.Migrations
 {
     [DbContext(typeof(ArtHutDbContext))]
-    [Migration("20230213131859_InitialCreate")]
+    [Migration("20230314120115_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,28 +68,6 @@ namespace ArtHut.Data.Migrations
                     b.ToTable("Addresses");
                 });
 
-            modelBuilder.Entity("ArtHut.Data.Models.Cart", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("IsEmpty")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Carts");
-                });
-
             modelBuilder.Entity("ArtHut.Data.Models.CartItem", b =>
                 {
                     b.Property<int>("Id")
@@ -98,18 +76,21 @@ namespace ArtHut.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CartId")
-                        .HasColumnType("int");
+                    b.Property<bool?>("IsSold")
+                        .HasColumnType("bit");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CartId");
+                    b.HasIndex("ProductId");
 
-                    b.HasIndex("ProductId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("CartItems");
                 });
@@ -129,12 +110,7 @@ namespace ArtHut.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ParentCategory")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ParentCategory");
 
                     b.ToTable("Categories");
 
@@ -142,7 +118,7 @@ namespace ArtHut.Data.Migrations
                         new
                         {
                             Id = 1,
-                            Name = " Painting"
+                            Name = "Painting"
                         },
                         new
                         {
@@ -173,11 +149,6 @@ namespace ArtHut.Data.Migrations
                         {
                             Id = 7,
                             Name = "Collage"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Name = "Wood Carving"
                         });
                 });
 
@@ -196,40 +167,6 @@ namespace ArtHut.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
-                });
-
-            modelBuilder.Entity("ArtHut.Data.Models.Discount", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("DiscountPercent")
-                        .HasColumnType("decimal(6,2)");
-
-                    b.Property<DateTime?>("Ends")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double?>("Price")
-                        .IsRequired()
-                        .HasColumnType("float");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("Starts")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Discounts");
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.LikedArtist", b =>
@@ -254,10 +191,10 @@ namespace ArtHut.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("LikedArtists");
+                    b.ToTable("LikedArtist");
                 });
 
-            modelBuilder.Entity("ArtHut.Data.Models.Massage", b =>
+            modelBuilder.Entity("ArtHut.Data.Models.Message", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -279,6 +216,10 @@ namespace ArtHut.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -290,6 +231,42 @@ namespace ArtHut.Data.Migrations
                     b.HasIndex("SenderId");
 
                     b.ToTable("Massages");
+                });
+
+            modelBuilder.Entity("ArtHut.Data.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("AddressId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Confirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("Payment")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("decimal(6,2)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.Photo", b =>
@@ -308,12 +285,13 @@ namespace ArtHut.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsMain")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("ProductId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -333,6 +311,10 @@ namespace ArtHut.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("CategoryId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -342,17 +324,14 @@ namespace ArtHut.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("IsSold")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("IsUnique")
-                        .HasColumnType("bit");
+                    b.Property<int?>("IsSold")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double?>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(6,2)");
 
                     b.Property<int?>("Qantity")
                         .HasColumnType("int");
@@ -366,21 +345,13 @@ namespace ArtHut.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("IsSold");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "This is Test description",
-                            IsUnique = true,
-                            Name = "Test Product",
-                            Price = 1.0,
-                            Size = "0x0x0",
-                            UserId = "32719623-eabe-479f-9cea-6d0457ef6ed0"
-                        });
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.ProductsCategory", b =>
@@ -396,7 +367,6 @@ namespace ArtHut.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("ProductId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -405,7 +375,7 @@ namespace ArtHut.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductsCategories");
+                    b.ToTable("ProductsCategory");
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.ProductsLikes", b =>
@@ -441,7 +411,6 @@ namespace ArtHut.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int?>("ProductId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("TagId")
@@ -535,6 +504,12 @@ namespace ArtHut.Data.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<byte[]>("PortfolioPic")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("ProfilePic")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -560,22 +535,45 @@ namespace ArtHut.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "32719623-eabe-479f-9cea-6d0457ef6ed0",
+                            Id = "7ba40ab9-bf72-4f47-a442-963532424142",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f84e967a-f50a-4e99-912d-35fa5f454da0",
-                            CreatedAt = new DateTime(2023, 2, 13, 15, 18, 58, 612, DateTimeKind.Local).AddTicks(7607),
+                            ConcurrencyStamp = "e820d29c-e904-4bc8-9fe5-33a1404a8da8",
+                            CreatedAt = new DateTime(2023, 3, 14, 14, 1, 14, 587, DateTimeKind.Local).AddTicks(2270),
                             Email = "admin@AH.net",
                             EmailConfirmed = true,
+                            FirstName = "Adminy",
                             IsPublic = false,
+                            LastName = "Andminski",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@AH.NET",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEK6PJfEjf3zdDPh5clyhtUHI5/Vgk3Xdy+oJM+9F/ks3pBfDbdYqB2UBYoqzoSuQrQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOTs94Eb5UInCbRMzCRh+aEt0K6B/VxqTyeRKWD6ePUgdnc1ul/e6CU89A+hh7ZEOw==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "36b85566-20d3-4b75-bf0b-9ad38562ba52",
+                            SecurityStamp = "a75b2422-14f7-4e7f-a6be-a841a0621551",
                             TwoFactorEnabled = false,
                             UserName = "admin"
+                        },
+                        new
+                        {
+                            Id = "c23e0658-b671-4a20-a52f-ff209c2006f8",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "bb622fa1-d01a-4860-97d1-a3879041bb69",
+                            CreatedAt = new DateTime(2023, 3, 14, 14, 1, 14, 600, DateTimeKind.Local).AddTicks(2471),
+                            Email = "admin2@AH.net",
+                            EmailConfirmed = true,
+                            FirstName = "Adminy",
+                            IsPublic = false,
+                            LastName = "Andminski",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN2@AH.NET",
+                            NormalizedUserName = "ADMIN2",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJbNNs8FnZi+FFZDxnpf3iwYGfu1y/HiaynBByoVYb45VXSlyr6gCAHPao3AtXiNjA==",
+                            PhoneNumber = "1234567890",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "baa387f2-1918-49ac-9bd5-0c204832563e",
+                            TwoFactorEnabled = false,
+                            UserName = "admin2"
                         });
                 });
 
@@ -749,8 +747,8 @@ namespace ArtHut.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1611b0f2-97ce-4f07-9884-0a1b99c71d40",
-                            ConcurrencyStamp = "7f632d5a-e7d6-4fc3-bda1-90042dec0bf3",
+                            Id = "8761cdaa-4c02-46e4-9817-2db7b9b1c718",
+                            ConcurrencyStamp = "52a5b145-7db1-4b44-9f25-71c47ebc1b1f",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -847,8 +845,8 @@ namespace ArtHut.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "32719623-eabe-479f-9cea-6d0457ef6ed0",
-                            RoleId = "1611b0f2-97ce-4f07-9884-0a1b99c71d40"
+                            UserId = "7ba40ab9-bf72-4f47-a442-963532424142",
+                            RoleId = "8761cdaa-4c02-46e4-9817-2db7b9b1c718"
                         });
                 });
 
@@ -892,53 +890,22 @@ namespace ArtHut.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ArtHut.Data.Models.Cart", b =>
+            modelBuilder.Entity("ArtHut.Data.Models.CartItem", b =>
                 {
+                    b.HasOne("ArtHut.Data.Models.Product", "Product")
+                        .WithMany("CartItems")
+                        .HasForeignKey("ProductId")
+                        .IsRequired();
+
                     b.HasOne("ArtHut.Data.Models.User", "User")
-                        .WithMany()
+                        .WithMany("CartItems")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Product");
+
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ArtHut.Data.Models.CartItem", b =>
-                {
-                    b.HasOne("ArtHut.Data.Models.Cart", "Cart")
-                        .WithMany()
-                        .HasForeignKey("CartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ArtHut.Data.Models.Product", "Product")
-                        .WithOne()
-                        .HasForeignKey("ArtHut.Data.Models.CartItem", "ProductId")
-                        .IsRequired();
-
-                    b.Navigation("Cart");
-
-                    b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("ArtHut.Data.Models.Category", b =>
-                {
-                    b.HasOne("ArtHut.Data.Models.Category", "PCategory")
-                        .WithMany("Categories")
-                        .HasForeignKey("ParentCategory");
-
-                    b.Navigation("PCategory");
-                });
-
-            modelBuilder.Entity("ArtHut.Data.Models.Discount", b =>
-                {
-                    b.HasOne("ArtHut.Data.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.LikedArtist", b =>
@@ -959,7 +926,7 @@ namespace ArtHut.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ArtHut.Data.Models.Massage", b =>
+            modelBuilder.Entity("ArtHut.Data.Models.Message", b =>
                 {
                     b.HasOne("ArtHut.Data.Models.User", "Receiver")
                         .WithMany("Receivers")
@@ -976,31 +943,58 @@ namespace ArtHut.Data.Migrations
                     b.Navigation("Sender");
                 });
 
-            modelBuilder.Entity("ArtHut.Data.Models.Photo", b =>
+            modelBuilder.Entity("ArtHut.Data.Models.Order", b =>
                 {
-                    b.HasOne("ArtHut.Data.Models.Product", "Product")
-                        .WithMany("Photos")
-                        .HasForeignKey("ProductId")
+                    b.HasOne("ArtHut.Data.Models.Address", "Address")
+                        .WithMany()
+                        .HasForeignKey("AddressId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ArtHut.Data.Models.User", "User")
-                        .WithMany("Photos")
+                        .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("Address");
 
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ArtHut.Data.Models.Photo", b =>
+                {
+                    b.HasOne("ArtHut.Data.Models.Product", "Product")
+                        .WithMany("Photos")
+                        .HasForeignKey("ProductId");
+
+                    b.HasOne("ArtHut.Data.Models.User", null)
+                        .WithMany("Photos")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("ArtHut.Data.Models.Product", b =>
                 {
+                    b.HasOne("ArtHut.Data.Models.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ArtHut.Data.Models.Order", "Order")
+                        .WithMany()
+                        .HasForeignKey("IsSold");
+
                     b.HasOne("ArtHut.Data.Models.User", "User")
                         .WithMany("Products")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Order");
 
                     b.Navigation("User");
                 });
@@ -1008,16 +1002,14 @@ namespace ArtHut.Data.Migrations
             modelBuilder.Entity("ArtHut.Data.Models.ProductsCategory", b =>
                 {
                     b.HasOne("ArtHut.Data.Models.Category", "Category")
-                        .WithMany("ProductsCategories")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ArtHut.Data.Models.Product", "Product")
                         .WithMany("ProductsCategories")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Category");
 
@@ -1046,9 +1038,7 @@ namespace ArtHut.Data.Migrations
                 {
                     b.HasOne("ArtHut.Data.Models.Product", "Product")
                         .WithMany("ProductsTags")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.HasOne("ArtHut.Data.Models.Tag", "Tag")
                         .WithMany()
@@ -1114,9 +1104,7 @@ namespace ArtHut.Data.Migrations
 
             modelBuilder.Entity("ArtHut.Data.Models.Category", b =>
                 {
-                    b.Navigation("Categories");
-
-                    b.Navigation("ProductsCategories");
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.Country", b =>
@@ -1126,6 +1114,8 @@ namespace ArtHut.Data.Migrations
 
             modelBuilder.Entity("ArtHut.Data.Models.Product", b =>
                 {
+                    b.Navigation("CartItems");
+
                     b.Navigation("Photos");
 
                     b.Navigation("ProductsCategories");
@@ -1139,7 +1129,11 @@ namespace ArtHut.Data.Migrations
                 {
                     b.Navigation("Addresses");
 
+                    b.Navigation("CartItems");
+
                     b.Navigation("LikedArtists");
+
+                    b.Navigation("Orders");
 
                     b.Navigation("Photos");
 

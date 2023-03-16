@@ -35,10 +35,20 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ITagsRepository, TagsRepository>();
 builder.Services.AddScoped<ITagsService, TagsService>();
 
+builder.Services.AddScoped<ICategoriesRepository, CategoriesRepository>();
+builder.Services.AddScoped<ICategoriesService, CategoriesService>();
+
 builder.Services.AddScoped<IPhotosRepository, PhotosRepository>();
 builder.Services.AddScoped<IPhotosService, PhotosService>();
 
-var app = builder.Build();
+builder.Services.AddScoped<IMessagesRepository, MessagesRepository>();
+builder.Services.AddScoped<IMessagesService, MessagesService>();
+
+builder.Services.AddScoped<ICartsRepository, CartsRepository>();
+builder.Services.AddScoped<ICartItemsRepository, CartItemsRepository>();
+builder.Services.AddScoped<ICartsService, CartsService>();
+
+var app = builder.Build(); 
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

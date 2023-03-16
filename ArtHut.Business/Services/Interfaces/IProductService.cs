@@ -11,5 +11,8 @@ namespace ArtHut.Business.Services.Interfaces
     {
         Task<Product> AddProductAsync(Product product);
         Task<Product?> FindProductAsync(params object[] keyValues);
+        Task<List<Product?>> GetAll();
+        Task<List<Product>> GetUsersProducts(string userId);
+        Task UpdateAsync(Product product);
     }
 }

@@ -23,3 +23,13 @@
     max-width: 73.125rem;
 }
 
+.trash:hover {
+    color: #ff1749;
+}
+
+.trash button {
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+}
+

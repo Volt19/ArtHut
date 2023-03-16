@@ -99,10 +99,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcTWVzc2FnZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Veli_/source/repos/ArtHut/ArtHut/Areas/Identity/Pages/Account/Manage/Orders.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcT3JkZXJzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Veli_/source/repos/ArtHut/ArtHut/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -187,16 +183,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/AddPhoto.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUGhvdG8uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/ArtPost/FirstStep.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0UG9zdFxGaXJzdFN0ZXAuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/ArtPost/SecondStep.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXJ0UG9zdFxTZWNvbmRTdGVwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/Error.cshtml]
@@ -231,6 +227,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/Orders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/Order/Review.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJcUmV2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/Order/Shipping.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJcU2hpcHBpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/Portfolio/AboutMe.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9ydGZvbGlvXEFib3V0TWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -249,6 +257,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/Product.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Veli_/source/repos/ArtHut/ArtHut/Pages/Shared/_LoginPartial.cshtml]

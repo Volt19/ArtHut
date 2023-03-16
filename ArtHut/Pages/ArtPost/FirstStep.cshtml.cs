@@ -11,7 +11,7 @@ namespace ArtHut.Pages.ArtPost
 {
     public class ArtPostModel : PageModel
     {
-        private readonly IProductService  _productService;
+        private readonly IProductService _productService;
         private readonly UserManager<User> _userManager;
 
         public ArtPostModel(IProductService productService, UserManager<User> userManager)
@@ -19,6 +19,7 @@ namespace ArtHut.Pages.ArtPost
             _productService = productService;
             _userManager = userManager;
         }
+        
         [BindProperty]
         public InputModel Input { get; set; }
         public bool IsUnique { get; set; }
@@ -30,19 +31,20 @@ namespace ArtHut.Pages.ArtPost
             [DataType(DataType.MultilineText)]
             public string? Description { get; set; }
             [Required]
-            [Range(0.0, Double.MaxValue, ErrorMessage = "The field {0} must be greater than {1}.")]
-            [RegularExpression(@"^\$?\d+(\.(\d{2}))?$", ErrorMessage = "The field Price must match the expression '0,00'.")]
+            [Range(0, Int16.MaxValue, ErrorMessage = "The field {0} must be greater than {1}.")]
             [DisplayName("Price")]
-            public double Price { get; set; }
+            public int Price { get; set; }
             [DisplayName("Width")]
             public double SizeX { get; set; }
             [DisplayName("Length")]
             public double SizeY { get; set; }
             [DisplayName("Height")]
             public double SizeZ { get; set; }
-            public bool IsUnique { get; set; }
+            [Required]
             [Range(0, Int16.MaxValue, ErrorMessage = "The field {0} must be greater than {1}.")]
             public int? Qantity { get; set; }
+            [Required]
+            public int Category { get; set; }
         }
         public virtual async Task<IActionResult> OnGet()
         {
@@ -71,8 +73,8 @@ namespace ArtHut.Pages.ArtPost
         {
             if (ModelState.IsValid)
             {
-                Product NewProduct = await CreateProduct(new Product(Input.Name, Input.Description, Input.Price, Convert.ToString(Input.SizeX+"x"+Input.SizeY+"x"+Input.SizeZ),
-                    Input.IsUnique, Input.Qantity, _userManager.GetUserAsync(HttpContext.User)?.Result));
+                Product NewProduct = await CreateProduct(new Product(Input.Name, Input.Description, Convert.ToDecimal(Input.Price), Convert.ToString(Input.SizeX+"x"+Input.SizeY+"x"+Input.SizeZ),
+                    Input.Qantity, _userManager.GetUserAsync(HttpContext.User)?.Result, Input.Category));
                 return RedirectToPage("SecondStep", new { productId = NewProduct.Id });
             }
             return Page();

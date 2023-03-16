@@ -9,5 +9,6 @@ namespace ArtHut.Data.Repositories.Interfaces
 {
     public interface IProductRepository : IRepository<Product>
     {
+        Task<List<Product>> GetUsersProducts(string userId);
     }
 }

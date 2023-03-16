@@ -14,6 +14,8 @@
         Task DeleteAsync(params object[] keyValues);
 
         Task DeleteRangeAsync(IEnumerable<TEntity> entities);
+
+        Task<List<TEntity?>> GetAllAsync();
     }
 }
 

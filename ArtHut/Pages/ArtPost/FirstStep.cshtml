@@ -2,64 +2,61 @@
 @model ArtHut.Pages.ArtPost.ArtPostModel
 @{
 }
-<style>
-	.input {
-		height: auto;
-	}
+<head>
+	<link rel="stylesheet" href="~/css/ArtPost.css" asp-append-version="true" />
+</head>
 
-	.textarea {
-		height: 165px;
-	}
-	#IsUnique:checked {
-		background-color: #ff1749;
-		outline: none;
-		border: none;
-	}
-	
-</style>
 <section class="container mycontainer">
 	<div class="ps-3 pe-3">
 		<div class="">
 			<div class="row align-self-center justify-content-center d-flex">
 				<h1 class="row align-self-center justify-content-center d-flex">Create Art post</h1>
-				<h4 class="row align-self-center justify-content-center d-flex">1/3</h4>
+				<h4 class="row align-self-center justify-content-center d-flex">1/2</h4>
 				<hr />
 			</div>
-			<form  enctype="multipart/form-data">
+			<form method="post" enctype="multipart/form-data">
 				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 				<div class="row">
 					<div class="col">
 						<div class="form-group">
 							<label asp-for="Input.Name" class="control-label"></label>
-							<input asp-for="Input.Name" class="form-control input" value="@ViewData["Name"]"/>
+							<input asp-for="Input.Name" class="form-control input" value="@ViewData["Name"]" />
 							<span asp-validation-for="Input.Name" class="text-danger"></span>
 						</div>
 						<div class="form-group">
 							<label asp-for="Input.Price" class="control-label"></label>
-							<input asp-for="Input.Price" class="form-control input" placeholder="€" value="@ViewData["Price"]"/>
+							<input asp-for="Input.Price" class="form-control input" placeholder="€" value="@ViewData["Price"]" />
 							<span asp-validation-for="Input.Price" class="text-danger"></span>
 						</div>
 						<div class="row">
 							<div class="form-group col">
 								<label asp-for="Input.SizeX" class="control-label"></label>
-								<input asp-for="Input.SizeX" class="form-control input" placeholder="cm" value="@ViewData["SizeX"]"/>
+								<input asp-for="Input.SizeX" class="form-control input" placeholder="cm" value="@ViewData["SizeX"]" />
 								<span asp-validation-for="Input.SizeX" class="text-danger"></span>
 							</div>
 							<div class="form-group col">
 								<label asp-for="Input.SizeY" class="control-label"></label>
-								<input asp-for="Input.SizeY" class="form-control input" placeholder="cm" value="@ViewData["SizeY"]"/>
+								<input asp-for="Input.SizeY" class="form-control input" placeholder="cm" value="@ViewData["SizeY"]" />
 								<span asp-validation-for="Input.SizeY" class="text-danger"></span>
 							</div>
 							<div class="form-group col">
 								<label asp-for="Input.SizeZ" class="control-label"></label>
-								<input asp-for="Input.SizeZ" class="form-control input" placeholder="cm" value="@ViewData["SizeZ"]"/>
+								<input asp-for="Input.SizeZ" class="form-control input" placeholder="cm" value="@ViewData["SizeZ"]" />
 								<span asp-validation-for="Input.SizeZ" class="text-danger"></span>
 							</div>
 						</div>
-						<div class="form-group mt-3 mb-4 col">
-							<label asp-for="Input.IsUnique" class="control-label"></label>
-							<input id="IsUnique" class="form-check-input" type="checkbox" asp-for="Input.IsUnique" runat="server" value="@ViewData["IsUnique"]" checked onclick="myFunction()" />
-							<span asp-validation-for="Input.IsUnique" class="text-danger"></span>
+						<div class="form-group  col">
+							<label asp-for="Input.Category" class="control-label"></label>
+							<select asp-for="Input.Category" class="form-select input">
+								<option ></option>
+								<option value="1">Painting</option>
+								<option value="2">Printmaking</option>
+								<option value="3">Sculpture</option>
+								<option value="4">Photography</option>
+								<option value="5">Drawing</option>
+								<option value="6">Digital Art</option>
+								<option value="7">Collage</option>
+							</select>
 						</div>
 					</div>
 
@@ -67,14 +64,16 @@
 						<div class="form-group">
 							<label asp-for="Input.Description" class="control-label"></label>
 							<textarea asp-for="Input.Description" class="form-control text-box multi-line input textarea" value="@ViewData["Description"]"
-							type="text" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></textarea>
+									  type="text" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></textarea>
 							<span asp-validation-for="Input.Description" class="text-danger"></span>
 						</div>
 						<div class="form-group col" id="Qantity">
 							<label asp-for="Input.Qantity" class="control-label"></label>
-							<input asp-for="Input.Qantity" class="form-control input" value="@ViewData["Qantity"]"/>
+							<input asp-for="Input.Qantity" class="form-control input" value="@ViewData["Qantity"]" />
 							<span asp-validation-for="Input.Qantity" class="text-danger"></span>
 						</div>
+						
+
 					</div>
 					<div class="row">
 					</div>
@@ -90,14 +89,14 @@
 @section Scripts
 	{
 <script type="text/javascript" language="javascript">
-	let IsUnique = document.getElementById("IsUnique");
-		if (IsUnique.checked) { let IsUnique = document.getElementById("Qantity").style.display = "none";}
-		else{let IsUnique = document.getElementById("Qantity").style.display = "block";}
-	function myFunction(){
-		let IsUnique = document.getElementById("IsUnique");
-		if (IsUnique.checked) { let IsUnique = document.getElementById("Qantity").style.display = "none";}
-		else{let IsUnique = document.getElementById("Qantity").style.display = "block";}
-	}
+	//let IsUnique = document.getElementById("IsUnique");
+	//	if (IsUnique.checked) { let IsUnique = document.getElementById("Qantity").style.display = "none";}
+	//	else{let IsUnique = document.getElementById("Qantity").style.display = "block";}
+	//function myFunction(){
+	//	let IsUnique = document.getElementById("IsUnique");
+	//	if (IsUnique.checked) { let IsUnique = document.getElementById("Qantity").style.display = "none";}
+	//	else{let IsUnique = document.getElementById("Qantity").style.display = "block";}
+	//}
 
 
 </script>

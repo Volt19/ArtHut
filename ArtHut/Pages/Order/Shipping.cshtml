@@ -1,0 +1,135 @@
+﻿@page
+@model ArtHut.Pages.Order.ShippingModel
+@{
+}
+<div class="container">
+	<div class="row mycontainer">
+		<div class="row d-flex justify-content-center  align-self-center pt-5 pb-5">
+			<h3 class="fontSul justify-content-center align-self-center d-flex">Your Shipping Address</h3>
+		</div>
+		<div class="col-7  pe-2 fontSulLight">
+			@*<form method="post" class=" bg-white ps-5 pe-5 pt-4 pb-4 mb-3">
+
+				<button type="submit" asp-page-handler="" class="row text-decoration-underline border-0 bg-white"> Remove</button>
+				</form>*@
+			<div class=" mt-0  bg-white p-5 ">
+				<h4 class=" mb-5 fontSul">Enter Your Shipping Address</h4>
+				<div class="">
+					<div class="row ">
+						<div class="row pe-0">
+							<div class="col ">
+								<label asp-for="Input.FirstName" class="form-label "></label>
+								<input asp-for="Input.FirstName" class="form-control rounded-0 border-1" placeholder="Enter your first name" style="--bs-border-opacity: .5;" />
+								<span asp-validation-for="Input.FirstName" class="text-danger"></span>
+							</div>
+							<div class="col ">
+								<label asp-for="Input.LastName" class="form-label "></label>
+								<input asp-for="Input.LastName" class="form-control rounded-0 border-1" placeholder="Enter your last name" style="--bs-border-opacity: .5;" />
+								<span asp-validation-for="Input.LastName" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row mt-4 pe-0">
+							<div class="col ">
+								<label asp-for="Input.PhoneNumber" class="form-label "></label>
+								<input asp-for="Input.PhoneNumber" class="form-control rounded-0 border-1" placeholder="Enter your phone number" style="--bs-border-opacity: .5;" />
+								<span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+							</div>
+							<div class="col ">
+								<label asp-for="Input.Email" class="form-label "></label>
+								<input asp-for="Input.Email" class="form-control rounded-0 border-1" placeholder="Enter your email address" style="--bs-border-opacity: .5;" />
+								<span asp-validation-for="Input.Email" class="text-danger"></span>
+							</div>
+						</div>
+
+					</div>
+					<afhr class="mt-4 mb-4 d-flex border"></afhr>
+					<div class="row ">
+						<div class="row ">
+							<div class="col ">
+								<label asp-for="Input.StreetAddress" class="form-label "></label>
+								<input asp-for="Input.StreetAddress" class="form-control rounded-0 border-1 " placeholder="Enter your address" style="--bs-border-opacity: .5;" />
+								<span asp-validation-for="Input.StreetAddress" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row mt-4 pe-0">
+							<div class="col ">
+								<label asp-for="Input.City" class="form-label "></label>
+								<input asp-for="Input.City" class="form-control rounded-0 border-1 " placeholder="Enter your city" style="--bs-border-opacity: .5;" />
+								<span asp-validation-for="Input.City" class="text-danger"></span>
+							</div>
+							<div class="col ">
+								<label asp-for="Input.PostalCode" class="form-label "></label>
+								<input asp-for="Input.PostalCode" class="form-control rounded-0 border-1 " placeholder="Enter your post or zip code" style="--bs-border-opacity: .5;" />
+								<span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+							</div>
+						</div>
+
+						<div class="row mt-4 pe-0">
+							<div class="col ">
+								<label asp-for="Input.District" class="form-label "></label>
+								<input asp-for="Input.District" class="form-control rounded-0 border-1" placeholder="Enter your county or statey" style="--bs-border-opacity: .5;" />
+								<span asp-validation-for="Input.District" class="text-danger"></span>
+							</div>
+							<div class="col ">
+								<label asp-for="Input.CountryId" class="form-label "></label>
+								<select asp-for="Input.CountryId" class="form-select rounded-0 border-1" name="country" id="id_country" style="--bs-border-opacity: .5;">
+									<option value="3">Bulgaria</option>
+									<option value="1">Austria</option>
+									<option value="2">Belgium</option>
+									<option value="4">Croatia</option>
+									<option value="5">Cyprus</option>
+									<option value="6">Czech Republic</option>
+									<option value="7">Denmark</option>
+									<option value="8">Estonia</option>
+									<option value="9">Finland</option>
+									<option value="10">France</option>
+									<option value="11">Germany</option>
+									<option value="12">Greece</option>
+									<option value="13">Hungary</option>
+									<option value="14">Ireland</option>
+									<option value="15">Italy</option>
+									<option value="16">Latvia</option>
+									<option value="17">Lithuania</option>
+									<option value="18">Luxembourg</option>
+									<option value="19">Malta</option>
+									<option value="20">Netherlands</option>
+									<option value="21">Poland</option>
+									<option value="22">Portugal</option>
+									<option value="23">Romania</option>
+									<option value="24">Slovakia</option>
+									<option value="25">Slovenia</option>
+									<option value="26">Spain</option>
+									<option value="27">Sweden</option>
+								</select>
+								<span asp-validation-for="Input.CountryId" class="text-danger"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-5   ps-2">
+			<div class="bg-white p-4">
+				<div class="p-3 pb-0">
+					<h5 class="fontSul mb-4">Order summary</h5>
+					<div class="">
+						<div class="row d-flex mb-3 fontSulLight"><div class="col">Artwork subtotal</div> <div class="col text-end fontSulLight">£120.00</div></div>
+						<div class="row d-flex mb-3 fontSulLight"><div class="col">Shipping total</div> <div class="col text-end">£120.00</div></div>
+						<div class="row d-flex mb-3 fontSulLight"><div class="col fontSul">Order total</div> <div class="col text-end ">£145.99</div></div>
+
+						<form action="/checkout/start-payment/" method="POST" id="start-payment-form" class="row g-flex mt-5 mb-3">
+							<a class="btn red_btn rounded-0 fontSul p-2" type="submit" asp-area="" asp-page="/Order/Shipping">
+								Continue
+								
+							</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>

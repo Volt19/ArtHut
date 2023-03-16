@@ -9,6 +9,7 @@ namespace ArtHut.Data.Repositories.Interfaces
 {
 	public interface IPhotosRepository:IRepository<Photo>
 	{
-
+		Task<List<Photo?>> FindProductsPhotosAsync(int productId);
+		Task<Photo?> FindProductsMainPhotoAsync(int productId);
 	}
 }

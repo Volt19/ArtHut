@@ -13,20 +13,32 @@
 		<li class="nav-item search ">
 			<input class="form-control  search" placeholder="Search" aria-label="Search" />
 		</li>
-		<li class="nav-item search me-4">
-			<button class="btn form-control " type="submit"><i class="fa fa-search"></i></button>
+		<li class="nav-item search me-5">
+			<button class="btn form-control" type="submit"><i class="fa fa-search"></i></button>
 		</li>
-		<li class="nav-item dropdown">
+		<li class="nav-item dropdown ">
 			<a id="manage" class="nav-link text-dark color_change_red " asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" aria-expanded="false">
 				<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="  bi bi-person-fill" viewBox="0 0 16 16">
 					<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
 				</svg>
 			</a>
 			<ul class="dropdown-menu fontSulLight">
-				<li><a class="dropdown-item ps-4" asp-area="Identity" asp-page="/Account/Manage/Index">Action</a></li>
-				<li><a class="nav-link text-dark color_change_red ps-3" asp-area=""  asp-page="/Messages/Inbox">Messages</a></li>
-				<li><form id="logoutForm" class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
-				<button id="logout" type="submit" class="nav-link btn btn-link text-dark color_change_red pt-0 pb-0 text-start">Logout</button></form></li>
+				<li><a class="dropdown-item ps-4" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
+				<li><a class="dropdown-item text-dark color_change_red ps-3" asp-area="" asp-page="/Messages/Inbox">Messages</a></li>
+				<li class="nav-item">
+					<a class="dropdown-item text-dark color_change_red ps-3" asp-area="" asp-page="/ArtPost/FirstStep">ArtPost</a>
+				</li>
+				<li>
+					<a class="dropdown-item text-dark color_change_red ps-3" asp-area="" asp-page="/Portfolio/Artworks"  asp-page-handler="Artist" asp-route-artist="@UserManager.GetUserId(User)">Portfolio</a>
+				</li>
+				<li>
+					<a class="dropdown-item text-dark color_change_red ps-3" asp-area="" asp-page="/Orders">Orders</a>
+				</li>
+				<li>
+					<form id="logoutForm" class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+						<button id="logout" type="submit" class="nav-link btn btn-link text-dark color_change_red pt-0 pb-0 text-start">Logout</button>
+					</form>
+				</li>
 			</ul>
 		</li>
 
@@ -65,40 +77,4 @@
 </ul>
 
 
-<div class="modal  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-				@*<form id="registerForm" asp-route-returnUrl="@RegisterModel.ReturnUrl" method="post">
-					<h2>Create a new account.</h2>
-					<hr />
-					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-					<div class="form-floating">
-					<input asp-for="@RegisterModel.Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-					<label asp-for="@RegisterModel.Input.Email"></label>
-					<span asp-validation-for="@RegisterModel.Input.Email" class="text-danger"></span>
-					</div>
-					<div class="form-floating">
-					<input asp-for="@RegisterModel.Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-					<label asp-for="@RegisterModel.Input.Password"></label>
-					<span asp-validation-for="@RegisterModel.Input.Password" class="text-danger"></span>
-					</div>
-					<div class="form-floating">
-					<input asp-for="@RegisterModel.Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-					<label asp-for="@RegisterModel.Input.ConfirmPassword"></label>
-					<span asp-validation-for="@RegisterModel.Input.ConfirmPassword" class="text-danger"></span>
-					</div>
-					<button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
-					</form>*@
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
-			</div>
-		</div>
-	</div>
-</div>
+

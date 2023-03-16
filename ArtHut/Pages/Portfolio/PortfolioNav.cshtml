@@ -1,9 +1,31 @@
-﻿
-<div class="">
-	<ul class="nav nav-pills  fontSul">
-		<li class="nav-item"><a class="nav-link text-black @*@MessagesNavPages.InboxNavClass(ViewContext)*@" id="profile" asp-page="./Inbox">Inbox</a></li>
-		<li class="nav-item"><a class="nav-link text-black @*@MessagesNavPages.SentNavClass(ViewContext)*@" id="email" asp-page="./Sent">Sent</a></li>
-		<li class="nav-item"><a class="nav-link text-black @*@MessagesNavPages.OffersNavClass(ViewContext)*@" id="change-password" asp-page="./Offers">Offers</a></li>
-	</ul>
+﻿@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+@using System.Globalization;
+@using ArtHut.Business.Services.Interfaces;
+@inject UserManager<User> UserManager
+@inject IProductService ProductService;
+@{
+	ViewData["Artworks"] = ProductService.GetUsersProducts(UserManager.GetUserId(User)).Result.Count;
+}
+<head>
+	<link rel="stylesheet" href="~/css/Portfolio.css" asp-append-version="true" />
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<div class="row me-0 pt-2 pb-2">
+	<div class="col justify-content-center align-items-center">
+		<ul class="nav nav-pills fontSul justify-content-center align-items-centerp ps-2">
+			<li class="nav-item"><a class="nav-link text-black @PortfolioNavPages.ArtworksNavClass(ViewContext)" id="profile" asp-page="./Artworks">Artworks</a></li>
+			<li class="nav-item"><a class="nav-link text-black @PortfolioNavPages.AboutMeNavClass(ViewContext)" id="email" asp-page="./AboutMe">About Me</a></li>
+			<li class="nav-item"><a class="nav-link text-black @PortfolioNavPages.AboutMyWorkNavClass(ViewContext)" id="change-password" asp-page="./AboutMyWork">About My Work</a></li>
+		</ul>
+	</div>
+	<div class="col justify-content-center align-items-center">
+		<button class="justify-content-center align-self-center d-flex btn red_btn m-auto shadow-none">Contact me</button>
+	</div>
 </div>
+
 

@@ -17,44 +17,49 @@ namespace ArtHut.Data.Models
             ProductsLikes = new List<ProductsLikes>();
             ProductsCategories = new List<ProductsCategory>();
         }
-        public Product(string name, string? description, double price, string? size, bool isUnique, int? qantity, User user) : this()
+        public Product(string name, string? description, decimal price, string? size, int? qantity, User user, int categoryId) : this()
         {
             Name = name;
             Description=description;
             Price=price;
             Size= size;
-            IsUnique=isUnique;
             Qantity=qantity;
             User=user;
+            CategoryId=categoryId;
         }
-        public Product(string name, string? description, double price, string? size, bool isUnique, int? qantity, string userId) : this()
+        public Product(string name, string? description, decimal price, string? size, int? qantity, string userId, int categoryId) : this()
         {
             Name = name;
             Description=description;
             Price=price;
             Size= size;
-            IsUnique=isUnique;
             Qantity=qantity;
             UserId=userId;
+            CategoryId=categoryId;
         }
 
         [Key]
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
-        public bool? IsUnique { get; set; }
         public int? Qantity { get; set; }
-        //[Column(TypeName = "decimal(6, 2)")]
-        public double? Price { get; set; }
+        [Column(TypeName = "decimal(6, 2)")]
+        public decimal? Price { get; set; }
         public string? Size { get; set; }
         public DateTime? CreatedAt { get; set; }
         //public DateTime? ModifiedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
-        public bool? IsSold { get; set; }
+        public int? IsSold { get; set; }
+        [ForeignKey("IsSold")]
+        public Order Order { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
+        public int? CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
         public ICollection<Photo> Photos { get; set; }
+        public ICollection<CartItem> CartItems { get; set; }
         public ICollection<ProductsTag> ProductsTags { get; set; }
         public ICollection<ProductsLikes> ProductsLikes { get; set; }
         public ICollection<ProductsCategory> ProductsCategories { get; set; }

@@ -1,5 +1,9 @@
-﻿@page
+﻿@page "{category?}"
 @model ArtHut.Pages.ShopModel
+@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+@inject UserManager<User> UserManager
 @{
 	ViewData["Title"] = "Shop";
 }
@@ -7,16 +11,152 @@
 	<link rel="stylesheet" href="~/css/Shop.css" asp-append-version="true" />
 </head>
 
-<body class="container-fluid p-0 my_container">
-	<section>
+<style>
+	.radio-link {
+		display: inline-block;
+		position: relative;
+		margin-right: 10px;
+	}
+
+</style>
+
+<body class="container-fluid p-0 my_container justify-content-center align-self-center">
+	<section class="">
 		<div class="slick_slider_block justify-content-center col align-self-center">
 			<div class=" myblock align-self-center">
-				<p class="slick_slider_block_p fontGB display-3 justify-content-center align-self-center m-0">Original art for sale</p>
-				<p class="slick_slider_block_p fontSulLight mt-4">Art for the soul. Art for life. Art for your home. Arthut connects passionate artists with art lovers.</p>
+				<p class="slick_slider_block_p fontGB display-3 justify-content-center align-self-center m-0">Original art for sale </p>
+				<p class="slick_slider_block_p fontSulLight mt-3 mb-0">Art for the soul. Art for life. Art for your home. Arthut connects passionate artists with art lovers.</p>
 			</div>
 
 			<i class="slick_slider_block_dot"></i>
 		</div>
 	</section>
+
+	<div class="justify-content-center align-self-center  container " style="padding-top: 270px; position: inherit;">
+		<div class="ps-5  row justify-content-center align-self-center m-auto" style="padding-right: 5rem!important;">
+			<div class="col-md-3 " style="font-size: 1.05rem!important;">
+				<p class="col-md-3 mb-4 fontSul">Categories</p>
+				<div class=" fontSulLight " style="padding-left: 30px;">
+					@foreach (var category in Model.Categories)
+					{
+						<div class="form-check category-list" style="position: relative;">
+							<label class="form-check-label shadow-none " for="@category.Name.ToLower()"><a class="text-dark text-decoration-none  pb-4" asp-page="/Shop" asp-route-category="@category.Name.ToLower()" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; ">@category.Name</a></label>
+							<input input class="form-check-input shadow-none pe-3" type="radio" name="flexRadio" id="@category.Name.ToLower()" value="@category.Name" asp-for="@Model.CategoryId" onchange="Category();" style="position: relative; right: 30px;">
+						</div>
+					}
+				</div>
+			</div>
+
+			<div class="col-md-9">
+				<div class="items row">
+					<div class="col ps-1 pe-1">
+						@if (Model.Products.Count==0)
+						{
+							<p class=" fontSul justify-content-center align-self-center d-flex row">Products are not found</p>
+						}
+						@foreach (var product in Model.ProductsCol1)
+						{
+							<div class="card mb-2">
+								<img class="card-img-top" src="data:image/png;base64,@Convert.ToBase64String(Model.GetProductMainImg(product.Id))" alt="Product image">
+								<div class="card-body  ">
+									<div class=" fontSulLight " style="font-size: 1.1rem!important;">
+										<p class="card-title m-0 text-muted ">@UserManager.FindByIdAsync(product.UserId).Result.FirstName @UserManager.FindByIdAsync(product.UserId).Result.LastName</p>
+										<p class="card-text m-0 text-muted">@product.Name</p>
+									</div>
+									<div class="row d-flex">
+										<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
+
+											<p class="fw-bold m-0">
+												€@Convert.ToInt16(product.Price)
+											</p>
+										</div>
+										<form method="post" class="col justify-content-end align-items-end d-flex">
+											<button type="submit" asp-page-handler="AddToCart" asp-route-productId="@product.Id" class=" border-0 bg-white position-relative" style="z-index:5; color_change_red">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket3-fill color_change_red mb-1" viewBox="0 0 16 16">
+													<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
+												</svg>
+											</button>
+										</form>
+									</div>
+								</div>
+								<a class="h-100 w-100 position-absolute" style="z-index:1;" asp-area="" asp-route-id="@product.Id" asp-page="/Product"></a>
+							</div>
+						}
+
+					</div>
+					<div class="col ps-1 pe-1">
+						@foreach (var product in Model.ProductsCol2)
+						{
+							<div class="card mb-2">
+								<img class="card-img-top" src="data:image/png;base64,@Convert.ToBase64String(Model.GetProductMainImg(product.Id))" alt="Product image">
+								<div class="card-body  ">
+									<div class=" fontSulLight " style="font-size: 1.1rem!important;">
+										<p class="card-title m-0 text-muted ">@UserManager.FindByIdAsync(product.UserId).Result.FirstName @UserManager.FindByIdAsync(product.UserId).Result.LastName</p>
+										<p class="card-text m-0 text-muted">@product.Name</p>
+									</div>
+									<div class="row d-flex">
+										<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
+
+											<p class="fw-bold m-0">
+												€@Convert.ToInt16(product.Price)
+											</p>
+										</div>
+										<form method="post" class="col justify-content-end align-items-end d-flex">
+											<button type="submit" asp-page-handler="AddToCart" asp-route-productId="@product.Id" class=" border-0 bg-white position-relative" style="z-index:5; color_change_red">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket3-fill color_change_red mb-1" viewBox="0 0 16 16">
+													<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
+												</svg>
+											</button>
+										</form>
+									</div>
+								</div>
+								<a class="h-100 w-100 position-absolute" style="z-index:1;" asp-area="" asp-route-id="@product.Id" asp-page="/Product"></a>
+							</div>
+						}
+					</div>
+					<div class="col ps-1 pe-1">
+						@foreach (var product in Model.ProductsCol3)
+						{
+							<div class="card mb-2">
+								<img class="card-img-top" src="data:image/png;base64,@Convert.ToBase64String(Model.GetProductMainImg(product.Id))" alt="Product image">
+								<div class="card-body  ">
+									<div class=" fontSulLight " style="font-size: 1.1rem!important;">
+										<p class="card-title m-0 text-muted ">@UserManager.FindByIdAsync(product.UserId).Result.FirstName @UserManager.FindByIdAsync(product.UserId).Result.LastName</p>
+										<p class="card-text m-0 text-muted">@product.Name</p>
+									</div>
+									<div class="row d-flex">
+										<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
+
+											<p class="fw-bold m-0">
+												€@Convert.ToInt16(product.Price)
+											</p>
+										</div>
+										<form method="post" class="col justify-content-end align-items-end d-flex">
+											<button type="submit"  asp-page-handler="AddToCart" asp-route-productId="@product.Id" class=" border-0 bg-white position-relative" style="z-index:5; color_change_red">
+												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket3-fill color_change_red mb-1" viewBox="0 0 16 16">
+													<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
+												</svg>
+											</button>
+										</form>
+									</div>
+								</div>
+								<a class="h-100 w-100 position-absolute" style="z-index:1;" asp-area="" asp-route-id="@product.Id" asp-page="/Product"></a>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 
+@section Scripts
+	{
+<script>
+	Category();
+	function Category(){
+		let RadioNodeList = document.getElementsByClassName("form-check-input");
+		RadioNodeList[@Model.CategoryId-1].checked = true;
+	   }
+</script>
+	}

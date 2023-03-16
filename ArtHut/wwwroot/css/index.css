@@ -4,14 +4,30 @@
     position: relative;
 }
 
-.slick_slider_block {
-
+.slick_slider_block_greenBlue {
     height: 300px;
     display: block;
     background-color: #7ce0d3;
     /*position: absolute;*/
     z-index: 1;
-    
+}
+.slick_slider_block_basic {
+    height: 300px;
+    display: block;
+    background-color: #d7d2cb;
+    z-index: 1;
+}
+.slick_slider_block_yellow {
+    height: 300px;
+    display: block;
+    background-color: #fff38a;
+    z-index: 1;
+}
+.slick_slider_block_blue {
+    height: 300px;
+    display: block;
+    background-color: #8dc8e8;
+    z-index: 1;
 }
 
 .slick_slider_block::before {

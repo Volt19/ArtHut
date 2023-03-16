@@ -40,7 +40,7 @@ namespace ArtHut.Areas.Identity.Pages.Account
             [StringLength(100)]
             [DataType(DataType.Text)]
             [Display(Name = "Alias")]
-            public string Alias { get; set; }
+            public string? Alias { get; set; }
 
             [StringLength(100)]
             [DataType(DataType.Text)]

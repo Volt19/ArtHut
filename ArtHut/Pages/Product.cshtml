@@ -1,0 +1,228 @@
+﻿@page "{id}"
+@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+@inject UserManager<User> UserManager
+@model ArtHut.Pages.ProductModel
+@{
+
+}
+<head>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+</head>
+
+<style>
+	img {
+		vertical-align: middle;
+	}
+
+	body {
+		background-color: white !important;
+	}
+
+	.mySlides {
+		display: none;
+	}
+
+
+	.cursor {
+		cursor: pointer;
+	}
+
+	.prev,
+	.next {
+		width: 80px;
+		height: 40px;
+		padding-bottom: 8px;
+		padding-top: 8px;
+		color: #919191;
+		background-color: #f5f4f2;
+		text-align: center;
+		cursor: pointer;
+	}
+
+
+
+	.caption-container {
+		text-align: center;
+		background-color: #222;
+		padding: 2px 16px;
+		color: white;
+	}
+
+	.demo {
+		opacity: 0.5;
+	}
+
+     .active,.demo:hover {
+		opacity: 1;
+	}
+</style>
+<body class="container-fluid p-0">
+	<div class="container row d-flex justify-content-center align-self-center mycontainer ps-3 pe-3 mt-4">
+		<div class="col-8  ">
+			<div class="row" style="">
+				<div class="col-1 p-0" style="width:80px;">
+
+					<div class="row d-flex justify-content-center align-self-center mb-2">
+						<a class="prev" onclick="plusSlides(-1)">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up" viewBox="0 0 16 16">
+								<path d="M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z" />
+							</svg>
+						</a>
+					</div>
+					@foreach (var photo in Model.ProductPhotos)
+					{
+						<div class="row  justify-content-center align-self-center mb-2 m-auto">
+							<img class="demo cursor p-0" src="data:image/png;base64,@Convert.ToBase64String(photo.Bytes)" style="width: 80px; height: 80px;" onclick="currentSlide(1)" alt="Photo">
+						</div>
+
+					}
+
+					<div class="row  d-flex justify-content-center align-self-center mt-2">
+						<a class="next" onclick="plusSlides(1)">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+								<path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+							</svg>
+						</a>
+					</div>
+
+
+				</div>
+				<div class="col  ms-3 p-0" style="width:560px; /*height:600px; */">
+					@foreach (var photo in Model.ProductPhotos)
+					{
+						<div class="mySlides" style=" background-color: #f5f4f2;">
+							<img src="data:image/png;base64,@Convert.ToBase64String(photo.Bytes)" style="height: auto; object-fit: contain; width: -webkit-fill-available; max-height: 600px;">
+						</div>
+					}
+
+
+					<div class="caption-container d-none">
+						<p id="caption"></p>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="">
+				<h5 class="mt-4 mb-3 fontSul">Original artwork description:</h5>
+				<pre class="fontSulLight" style="white-space: pre-wrap;">
+					@Model.Product.Description
+				</pre>
+			</div>
+		</div>
+		<div class="col-4 ps-4">
+			<div class="row fontSul">
+				<h4>@Model.Product.Name</h4>
+			</div>
+			<div class="row fontSulLight">
+				<h6>
+					<a class="color_change_red text-decoration-none mb-2"   asp-page="/Shop" asp-route-category="@Model.ProductCategory.Name.ToLower()"> @Model.ProductCategory.Name</a>
+					<br />
+					<span>by<!-- --><a class="color_change_red text-decoration-none" asp-page="/Portfolio/Artworks"  asp-page-handler="Artist" asp-route-artist="@Model.Product.UserId">
+						@UserManager.FindByIdAsync(Model.Product.UserId).Result.FirstName @UserManager.FindByIdAsync(Model.Product.UserId).Result.LastName</a></span>
+				</h6>
+			</div>
+			<div class="row fw-bold" style="font-size: 1.5rem!important;">
+				<p>€@Convert.ToInt16(Model.Product.Price)</p>@*<del></del>*@
+			</div>
+			<div class="">
+				<ul class="row">
+					<li><span><a href="/art/product_category-painting-oil/">Oil painting</a> <!-- -->on<!-- --> <!-- -->Canvas</span></li>
+					<li><span>One of a kind artwork</span></li>
+					<li><span>Size<!-- -->: <!-- -->@Model.Product.Size cm</span></li>
+					<li><span>Signed on the front</span></li>
+					<li><span>Style<!-- -->: <a href="/art/style-photorealistic/">Photorealistic</a></span></li>
+					<li><span>Subject<!-- -->: <a href="/art/subject-flowers-plants/">Flowers and plants</a></span></li>
+				</ul>
+			</div>
+			<div class="row">
+				<button class=" btn red_btn">Add to Basket</button>
+			</div>
+
+
+		</div>
+	</div>
+
+</body>
+
+@section Scripts
+	{
+<script type="text/javascript" language="javascript">
+	let slideIndex = 1;
+	showSlides(slideIndex);
+	currentSlide(slideIndex);
+
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	  currentSlide(slideIndex);
+	}
+
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	  let dots = document.getElementsByClassName("demo");
+	  if(dots.length>4){
+		  //if(n==4||n==8){
+		 // for (i = 0; i < dots.length; i++) {
+			//  dots[i].style.display = "none";
+		 //  }
+		 //  dots[n-1].style.display = "block";
+		 //  dots[n-1]
+		 //  dots[n].style.display = "block";
+		 //  dots[n+1].style.display = "block";
+		 //  dots[n+2].style.display = "block";
+
+	  //}
+	  //else
+	  if(n<4){
+		  for (i = 0; i < dots.length; i++) {
+			  dots[i].style.display = "none";
+			  //dots[i].style.h
+		   }
+		  dots[0].style.display = "block";
+		   dots[1].style.display = "block";
+		   dots[2].style.display = "block";
+		   dots[3].style.display = "block";
+	  }
+	  else if(n<8&&n>=4){
+		  for (i = 0; i < dots.length; i++) {
+			  dots[i].style.display = "none";
+		   }
+		  dots[3].style.display = "block";
+		   dots[4].style.display = "block";
+		   dots[5].style.display = "block";
+		   dots[6].style.display = "block";
+	  }
+	  else if(n<12&&n>=8){
+		  for (i = 0; i < dots.length; i++) {
+			  dots[i].style.display = "none";
+		   }
+		  dots[7].style.display = "block";
+		   dots[8].style.display = "block";
+		   dots[9].style.display = "block";
+		   dots[10].style.display = "block";
+	  }
+	  }
+
+	}
+
+	function showSlides(n) {
+	  let i;
+	  let slides = document.getElementsByClassName("mySlides");
+	  let dots = document.getElementsByClassName("demo");
+	  let captionText = document.getElementById("caption");
+	  if (n > slides.length) {slideIndex = 1}
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none";
+	  }
+	  for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";
+	  dots[slideIndex-1].className += " active";
+	  captionText.innerHTML = dots[slideIndex-1].alt;
+	}
+</script>
+	}

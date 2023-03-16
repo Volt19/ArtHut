@@ -4,7 +4,7 @@
 	ViewData["Title"] = "Home page";
 }
 <head>
-		<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 </head>
 
 
@@ -14,20 +14,57 @@
 			<div class="MyPresentationSlides ">
 				<center>
 					<div class="row p-0 w-100">
-						<div class="slick_slider_block col p-0"></div>
+						<div class="slick_slider_block_greenBlue slick_slider_block col p-0 ">
+							<div class="row h-75 w-75 justify-content-start  align-items-start d-flex pt-4 ps-5 ms-4 mt-2">
+								<h2 class="fontGB d-flex" style="font-size: 3rem;">Prints</h2>
+								<p class="fontSulLight d-flex text-start w-75" style="">Discover handmade and limited edition prints, a more affordable way of buying art. Made with love by our artists.</p>
+								<a class="red_btn w-25 pt-2 pb-2 ms-2 fontSul text-decoration-none btn rounded-0" asp-area="" asp-page="/Shop" asp-route-category="printmaking">Shop now</a>
+							</div>
+						</div>
 						<div class="col p-0">
 							<img src="~/css/imgs/2cd3214367c8470ba3143106415a463f.png" class="slick_slider_block pic align-self-end" />
 						</div>
 					</div>
-
 				</center>
 			</div>
-			<div class="MyPresentationSlides">
+			<div class="MyPresentationSlides ">
+				<center>
+					<div class="row p-0 w-100">
+						<div class="slick_slider_block_basic slick_slider_block col p-0 ">
+							<div class="row h-75 w-75 justify-content-start  align-items-start d-flex pt-4 ps-5 ms-4 mt-2">
+								<h2 class="fontGB d-flex" style="font-size: 3rem;">Sculptures</h2>
+								<p class="fontSulLight d-flex text-start w-75" style="">Want something a little different? Stand-out with an original, handmade sculpture.</p>
+								<a class="red_btn w-25 pt-2 pb-2 ms-2 fontSul text-decoration-none btn rounded-0" asp-area="" asp-page="/Shop" asp-route-category="sculpture">Shop now</a>
+							</div>
+						</div>
+						<div class="col p-0">
+							<img src="~/css/imgs/71ef1aed02514caa855dde351594260a.png" class="slick_slider_block pic align-self-end" />
+						</div>
+					</div>
+				</center>
+			</div>
+			<div class="MyPresentationSlides ">
+				<center>
+					<div class="row p-0 w-100">
+						<div class="slick_slider_block_yellow slick_slider_block col p-0 ">
+							<div class="row h-75 w-75 justify-content-start  align-items-start d-flex pt-4 ps-5 ms-4 mt-2">
+								<h2 class="fontGB d-flex" style="font-size: 3rem;">Photography</h2>
+								<p class="fontSulLight d-flex text-start w-75" style="">Discover incredible photographers on Artfinder, including Royal Academy Summer Exhibition regular, Nadia Attura.</p>
+								<a class="red_btn w-25 pt-2 pb-2 ms-2 fontSul text-decoration-none btn rounded-0" asp-area="" asp-page="/Shop" asp-route-category="photography">Shop now</a>
+							</div>
+						</div>
+						<div class="col p-0">
+							<img src="~/css/imgs/20181220_005016.png" class="slick_slider_block pic align-self-end" />
+						</div>
+					</div>
+				</center>
+			</div>
+@*			<div class="MyPresentationSlides">
 				<center>
 					<img src="~/css/imgs/03_r_car.jpg"
 						 style="width:720;height:400;">
 				</center>
-			</div>
+			</div>*@
 			<a class="prev" onclick="plusPresentationSlides(-1)">
 				<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
 					<path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />

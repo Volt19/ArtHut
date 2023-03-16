@@ -15,8 +15,17 @@ namespace ArtHut.Data.Repositories
         protected DbSet<Photo> PhotoEntities { get; set; }
         public PhotosRepository(ArtHutDbContext context) : base(context)
         {
-            //Context = context;
-            //ProductEntities = Context.Set<Product>();
+            Context = context;
+            PhotoEntities = Context.Set<Photo>();
         }
+        public async Task<List<Photo?>> FindProductsPhotosAsync(int productId)
+        {
+            return PhotoEntities.Where(x=> x.ProductId==productId).ToList();
+        }
+        public async Task<Photo?> FindProductsMainPhotoAsync(int productId)
+        {
+            return PhotoEntities.Where(x => x.ProductId==productId&& x.IsMain).Single();
+        }
+
     }
 }

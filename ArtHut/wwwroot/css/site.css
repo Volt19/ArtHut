@@ -85,6 +85,13 @@ body {
     .color_change_red:hover {
         color: #ff1749 !important;
     }
+.color_change_dark {
+    transition: color 100ms ease-in-out;
+}
+
+    .color_change_dark :hover {
+        color: #15212f !important;
+    }
 
 .font_size_14 {
     font-size: 14px;
@@ -128,6 +135,10 @@ body {
 .dark_btn {
     color: white;
     background-color: #15212f;
+} 
+.dark_btn:hover {
+    color: white !important;
+    background-color: #15212f !important;
 }
 
 .input {
@@ -233,4 +244,7 @@ body {
     margin: 0 auto;
     margin-bottom: 0;
     max-width: 73.125rem;
+}
+.myModal {
+    background-color: #ebe9e5;
 }

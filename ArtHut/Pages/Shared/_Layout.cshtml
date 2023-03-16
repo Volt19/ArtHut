@@ -8,6 +8,9 @@
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/ArtHut.styles.css" asp-append-version="true" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link runat="server" rel="shortcut icon" href="~/favicon.ico" type="image/x-icon"/>
+    <link runat="server" rel="icon" href="~/favicon.ico" type="image/ico"/>
+	<link rel="icon" type="image/x-icon" href="~/favicon.ico" sizes="32x32">
 
 
 	@*    <environment include="Development">
@@ -34,15 +37,18 @@
 				<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
 					<ul class="navbar-nav flex-grow-1">
 						<li class="nav-item">
-							<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-page="/Shop">Shop</a>
+							<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-page="/Shop" asp-route-category="">Shop</a>
 						</li>
 						@if (signInManager.IsSignedIn(User))
 						{
-							<li class="nav-item">
-								<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-page-handler="Dev" asp-page="/ArtPost/SecondStep">ArtPost</a>
-							</li>@*
+							@*<li class="nav-item">  asp-page-handler="Dev"
+								<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-route-productId="9" asp-page="/ArtPost/SecondStep">ArtPost</a>
+							</li>
 							<li class="nav-item">
 								<a class="nav-link text-dark color_change_red ps-3" asp-area=""  asp-page="/ArtPost/FirstStep">ArtPost</a>
+							</li>*@
+							@*<li class="nav-item">
+								<a class="nav-link text-dark color_change_red ps-3" asp-area=""  asp-page="/Messages/Inbox">Messages</a>
 							</li>*@
 						}
 
@@ -54,10 +60,10 @@
 						await Html.RenderPartialAsync("_LoginPartial");
 					}
 				</div>
-				<div class="basket">
+				<a class="basket"  asp-area="" asp-page="/Cart">
 					<img src="~/css/imgs/basket-icon-darck.png" class="image-main  nav-item" />
 					<img class="image-hover" src="~/css/imgs/basket-icon-red.png">
-				</div>
+				</a>
 			</div>
 		</nav>
 	</header>

@@ -1,8 +1,123 @@
-﻿@page
+﻿@page "{artist}"
+@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+@using System.Globalization;
+@using ArtHut.Business.Services.Interfaces;
+@inject UserManager<User> UserManager
+@inject IProductService ProductService;
 @model ArtHut.Pages.Portfolio.AboutMyWorkModel
 @{
 	ViewData["ActivePage"] = PortfolioNavPages.AboutMyWork;
+		ViewData["Artworks"] = ProductService.GetUsersProducts(UserManager.GetUserId(User)).Result.Count;
 }
+
 <head>
-	<link rel="stylesheet" href="~/css/Messages.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/Portfolio.css" asp-append-version="true" />
 </head>
+<section class="container-fluid artist p-0 row m-0">
+	<div class="col justify-content-center align-items-centerp d-flex ps-5">
+		<div class="justify-content-center align-self-center row d-flex ps-5">
+			<div class="justify-content-center align-self-center row d-flex">
+				<img src="~/css/imgs/Profil_Img.jpg" class="ProfileImg p-0 top-0 start-0 position-relative" />
+			</div>
+			<div class=" justify-content-center align-self-center align-items-center row d-flex">
+				@if (@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.UserName != ViewData["User"])
+				{
+					<p class="mt-3 fs-5 text-wrap fontGB justify-content-center align-self-center d-flex">@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.UserName</p>
+				}
+				else
+				{
+					<p class="mt-3 fs-5 text-wrap fontGB justify-content-center align-self-center d-flex">An Arthut user</p>
+				}
+			</div>
+
+			<button type="button" class="justify-content-center align-self-center row d-flex btn dark_btn mb-3 shadow-none" style="width: 190px;" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-whatever="@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.FirstName @UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.LastName">
+				Commission artwork
+			</button>
+			<label class="justify-content-center align-self-center row d-flex fontSulLight">Joined Arthut: @UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.CreatedAt.ToString("MMMM", new CultureInfo("en-GB")) @UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.CreatedAt.Year</label>
+			<label class="justify-content-center align-self-center row d-flex fontSulLight">Artworks for sale: @ViewBag.Artworks </label>
+
+			<div class=" justify-content-center align-items-center row fontSulLight d-flex">
+				<p class="justify-content-center align-self-center d-flex">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-geo-alt-fill color_red pb-1" viewBox="0 0 16 16">
+						<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+					</svg>@RegionInfo.CurrentRegion.EnglishName
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="col justify-content-end  align-items-end d-flex p-0">
+		<img src="~/css/imgs/2cd3214367c8470ba3143106415a463f.png" class=" pic align-self-end" />
+	</div>
+</section>
+
+<div class="row me-0 pt-2 pb-2">
+	<div class="col justify-content-center align-items-center">
+		<ul class="nav nav-pills fontSul justify-content-center align-items-centerp ps-2">
+			<li class="nav-item"><a class="nav-link text-black "  asp-route-artist="@RouteData.Values["artist"]" asp-page="./Artworks">Artworks</a></li>
+			<li class="nav-item"><a class="nav-link text-black "  asp-route-artist="@RouteData.Values["artist"]" asp-page="./AboutMe">About Me</a></li>
+			<li class="nav-item"><a class="nav-link text-black "  asp-route-artist="@RouteData.Values["artist"]" asp-page="./AboutMyWork">About My Work</a></li>
+		</ul>
+	</div>
+	<div class="col justify-content-center align-items-center">
+		<button class="justify-content-center align-self-center d-flex btn red_btn m-auto shadow-none">Contact me</button>
+	</div>
+</div>
+<div class="row blue_row justify-content-center align-items-center d-flex container-fluid m-0" style="">
+	<label class="fontGB display-5 justify-content-center align-self-center d-flex">
+		About @UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.FirstName @UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.LastName's Art
+	</label>
+</div>
+
+<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<form method="post" enctype="multipart/form-data" class="modal-content myModal fontSul">
+			<div class="modal-header">
+				<h1 class="modal-title fs-5" id="exampleModalLabel">Contact</h1>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body fontSul">
+				<div>
+					<div class="mb-3">
+						<label asp-for="MessageInput.Subject" class="control-label"></label>
+						<input asp-for="MessageInput.Subject" class="form-control border-0 rounded-0 pt-2 pb-2 fontSulLight shadow-none" />
+						<span asp-validation-for="MessageInput.Subject" class="text-danger"></span>
+					</div>
+					<div class="mb-3">
+						<label asp-for="MessageInput.Message" class="control-label"></label>
+						<textarea asp-for="MessageInput.Message" class="form-control text-box multi-line  border-0 textarea rounded-0 fontSulLight shadow-none"
+								  type="text" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" style="height:250px;"></textarea>
+						<span asp-validation-for="MessageInput.Message" class="text-danger"></span>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary fontSulLight shadow-none" data-bs-dismiss="modal">Close</button>
+				<button type="submit" asp-page-handler="Send" class="btn red_btn fontSulLight shadow-none">Send</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts
+	{
+<script>
+		const exampleModal = document.getElementById('Modal')
+	exampleModal.addEventListener('show.bs.modal', event => {
+	  // Button that triggered the modal
+	  const button = event.relatedTarget
+	  // Extract info from data-bs-* attributes
+	  const recipient = button.getAttribute('data-bs-whatever')
+	  // If necessary, you could initiate an AJAX request here
+	  // and then do the updating in a callback.
+	  //
+	  // Update the modal's content.
+	  const modalTitle = exampleModal.querySelector('.modal-title')
+	  const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+	  modalTitle.textContent = `Contact ${recipient}`
+	  //modalBodyInput.value = recipient
+	})
+</script>
+	}

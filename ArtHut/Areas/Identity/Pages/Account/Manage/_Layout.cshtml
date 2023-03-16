@@ -45,13 +45,13 @@
 						</svg>@RegionInfo.CurrentRegion.EnglishName
 					</p>
 				</div>
-				<div class="col-3 d-flex flex-column ">
-					@*<p>@ViewData["ActivePage"]</p>*@
+				@*<div class="col-3 d-flex flex-column ">
+					@*<p>@ViewData["ActivePage"]</p>
 					@if(ViewData["ActivePage"] == "Messages")
 					{
 						<partial name="./Messages/MessagesNav"/> 
 					}
-				</div>
+				</div>*@
 			</div>
 			<div class="col-9">
 				@RenderBody()

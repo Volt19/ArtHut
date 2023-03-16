@@ -10,5 +10,7 @@ namespace ArtHut.Business.Services.Interfaces
 	public interface IPhotosService
 	{
 		Task<Photo> AddPhotoAsync(Photo photo);
+		Task<Photo?> FindProductsMainPhotoAsync(int pruductId);
+		Task<List<Photo?>> GetProductsPhotosAsync(int pruductId);
 	}
 }
