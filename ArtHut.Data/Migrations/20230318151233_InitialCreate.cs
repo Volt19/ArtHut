@@ -185,7 +185,6 @@ namespace ArtHut.Data.Migrations
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StreetAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Comment = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
@@ -351,6 +350,7 @@ namespace ArtHut.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AddressId = table.Column<int>(type: "int", nullable: false),
                     Payment = table.Column<int>(type: "int", nullable: true),
+                    Shipping = table.Column<decimal>(type: "decimal(6,2)", nullable: true),
                     Total = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
                     Confirmed = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -542,7 +542,7 @@ namespace ArtHut.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "8761cdaa-4c02-46e4-9817-2db7b9b1c718", "52a5b145-7db1-4b44-9f25-71c47ebc1b1f", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "4509525c-1645-4e19-a890-3d352d9fdce1", "f234162e-6fd9-4c00-a616-53ddf0875e4c", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -559,18 +559,52 @@ namespace ArtHut.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Countries",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Austria" },
+                    { 2, "Belgium" },
+                    { 3, "Bulgaria" },
+                    { 4, "Croatia" },
+                    { 5, "Cyprus" },
+                    { 6, "Czech Republic" },
+                    { 7, "Denmark" },
+                    { 8, "Estonia" },
+                    { 9, "France" },
+                    { 10, "France" },
+                    { 11, "Germany" },
+                    { 12, "Greece" },
+                    { 13, "Hungary" },
+                    { 14, "Ireland" },
+                    { 15, "Italy" },
+                    { 16, "Latvia" },
+                    { 17, "Lithuania" },
+                    { 18, "Luxembourg" },
+                    { 19, "Malta" },
+                    { 20, "Netherlands" },
+                    { 21, "Poland" },
+                    { 22, "Portugal" },
+                    { 23, "Romania" },
+                    { 24, "Slovakia" },
+                    { 25, "Slovenia" },
+                    { 26, "Spain" },
+                    { 27, "Sweden" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "AccessFailedCount", "Alias", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FirstName", "IsPublic", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PortfolioPic", "ProfilePic", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "7ba40ab9-bf72-4f47-a442-963532424142", 0, null, "e820d29c-e904-4bc8-9fe5-33a1404a8da8", new DateTime(2023, 3, 14, 14, 1, 14, 587, DateTimeKind.Local).AddTicks(2270), "admin@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN@AH.NET", "ADMIN", "AQAAAAEAACcQAAAAEOTs94Eb5UInCbRMzCRh+aEt0K6B/VxqTyeRKWD6ePUgdnc1ul/e6CU89A+hh7ZEOw==", "1234567890", false, null, null, "a75b2422-14f7-4e7f-a6be-a841a0621551", false, "admin" },
-                    { "c23e0658-b671-4a20-a52f-ff209c2006f8", 0, null, "bb622fa1-d01a-4860-97d1-a3879041bb69", new DateTime(2023, 3, 14, 14, 1, 14, 600, DateTimeKind.Local).AddTicks(2471), "admin2@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN2@AH.NET", "ADMIN2", "AQAAAAEAACcQAAAAEJbNNs8FnZi+FFZDxnpf3iwYGfu1y/HiaynBByoVYb45VXSlyr6gCAHPao3AtXiNjA==", "1234567890", false, null, null, "baa387f2-1918-49ac-9bd5-0c204832563e", false, "admin2" }
+                    { "d43b53e0-b741-4f58-9f4a-5523e9e170ff", 0, null, "dce00084-b9fd-497e-84e5-43f0f57adabb", new DateTime(2023, 3, 18, 17, 12, 33, 29, DateTimeKind.Local).AddTicks(5931), "admin@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN@AH.NET", "ADMIN", "AQAAAAEAACcQAAAAEFFUVqwtWhv7+MPxYwdqlfRP7QhYCCLpTvypGZ5K/e12kHRcCvR3omzxO86xdgGrvQ==", "1234567890", false, null, null, "e7dafca1-3646-4044-a04d-097ce352b30d", false, "admin" },
+                    { "d49edba8-2d03-4786-b825-f4e5eec80991", 0, null, "9a2b92d0-a792-44f2-a754-347c347f3c44", new DateTime(2023, 3, 18, 17, 12, 33, 42, DateTimeKind.Local).AddTicks(7547), "admin2@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN2@AH.NET", "ADMIN2", "AQAAAAEAACcQAAAAEOo86dF17PLM67hUzdc5bQ/8hilDtiS+IwDV/BqMEvE7BGl9okZgTDOTslOv+hT8BA==", "1234567890", false, null, null, "d597ac6d-ec7c-4910-8573-566db8130dd8", false, "admin2" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "8761cdaa-4c02-46e4-9817-2db7b9b1c718", "7ba40ab9-bf72-4f47-a442-963532424142" });
+                values: new object[] { "4509525c-1645-4e19-a890-3d352d9fdce1", "d43b53e0-b741-4f58-9f4a-5523e9e170ff" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_CountryId",

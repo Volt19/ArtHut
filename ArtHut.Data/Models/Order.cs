@@ -16,6 +16,8 @@ namespace ArtHut.Data.Models
         public Address Address { get; set; }
         public int? Payment { get; set; }
         [Column(TypeName = "decimal(6, 2)")]
+        public decimal? Shipping { get; set; }
+        [Column(TypeName = "decimal(6, 2)")]
         public decimal Total { get; set; }
         public bool Confirmed { get; set; }
         public DateTime CreatedAt { get; set; }

@@ -34,10 +34,6 @@ namespace ArtHut.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
 
@@ -165,6 +161,143 @@ namespace ArtHut.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Countries");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Austria"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Belgium"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Bulgaria"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Croatia"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Cyprus"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Czech Republic"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Denmark"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Estonia"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "France"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "France"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Germany"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Greece"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Hungary"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Ireland"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Italy"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Latvia"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "Lithuania"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Name = "Luxembourg"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Name = "Malta"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Name = "Netherlands"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Name = "Poland"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Name = "Portugal"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Name = "Romania"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Name = "Slovakia"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Name = "Slovenia"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Name = "Spain"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Name = "Sweden"
+                        });
                 });
 
             modelBuilder.Entity("ArtHut.Data.Models.LikedArtist", b =>
@@ -250,6 +383,9 @@ namespace ArtHut.Data.Migrations
 
                     b.Property<int?>("Payment")
                         .HasColumnType("int");
+
+                    b.Property<decimal?>("Shipping")
+                        .HasColumnType("decimal(6,2)");
 
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(6,2)");
@@ -533,10 +669,10 @@ namespace ArtHut.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7ba40ab9-bf72-4f47-a442-963532424142",
+                            Id = "d43b53e0-b741-4f58-9f4a-5523e9e170ff",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e820d29c-e904-4bc8-9fe5-33a1404a8da8",
-                            CreatedAt = new DateTime(2023, 3, 14, 14, 1, 14, 587, DateTimeKind.Local).AddTicks(2270),
+                            ConcurrencyStamp = "dce00084-b9fd-497e-84e5-43f0f57adabb",
+                            CreatedAt = new DateTime(2023, 3, 18, 17, 12, 33, 29, DateTimeKind.Local).AddTicks(5931),
                             Email = "admin@AH.net",
                             EmailConfirmed = true,
                             FirstName = "Adminy",
@@ -545,19 +681,19 @@ namespace ArtHut.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@AH.NET",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEOTs94Eb5UInCbRMzCRh+aEt0K6B/VxqTyeRKWD6ePUgdnc1ul/e6CU89A+hh7ZEOw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFFUVqwtWhv7+MPxYwdqlfRP7QhYCCLpTvypGZ5K/e12kHRcCvR3omzxO86xdgGrvQ==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a75b2422-14f7-4e7f-a6be-a841a0621551",
+                            SecurityStamp = "e7dafca1-3646-4044-a04d-097ce352b30d",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "c23e0658-b671-4a20-a52f-ff209c2006f8",
+                            Id = "d49edba8-2d03-4786-b825-f4e5eec80991",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bb622fa1-d01a-4860-97d1-a3879041bb69",
-                            CreatedAt = new DateTime(2023, 3, 14, 14, 1, 14, 600, DateTimeKind.Local).AddTicks(2471),
+                            ConcurrencyStamp = "9a2b92d0-a792-44f2-a754-347c347f3c44",
+                            CreatedAt = new DateTime(2023, 3, 18, 17, 12, 33, 42, DateTimeKind.Local).AddTicks(7547),
                             Email = "admin2@AH.net",
                             EmailConfirmed = true,
                             FirstName = "Adminy",
@@ -566,10 +702,10 @@ namespace ArtHut.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN2@AH.NET",
                             NormalizedUserName = "ADMIN2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJbNNs8FnZi+FFZDxnpf3iwYGfu1y/HiaynBByoVYb45VXSlyr6gCAHPao3AtXiNjA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEOo86dF17PLM67hUzdc5bQ/8hilDtiS+IwDV/BqMEvE7BGl9okZgTDOTslOv+hT8BA==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "baa387f2-1918-49ac-9bd5-0c204832563e",
+                            SecurityStamp = "d597ac6d-ec7c-4910-8573-566db8130dd8",
                             TwoFactorEnabled = false,
                             UserName = "admin2"
                         });
@@ -745,8 +881,8 @@ namespace ArtHut.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8761cdaa-4c02-46e4-9817-2db7b9b1c718",
-                            ConcurrencyStamp = "52a5b145-7db1-4b44-9f25-71c47ebc1b1f",
+                            Id = "4509525c-1645-4e19-a890-3d352d9fdce1",
+                            ConcurrencyStamp = "f234162e-6fd9-4c00-a616-53ddf0875e4c",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -843,8 +979,8 @@ namespace ArtHut.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "7ba40ab9-bf72-4f47-a442-963532424142",
-                            RoleId = "8761cdaa-4c02-46e4-9817-2db7b9b1c718"
+                            UserId = "d43b53e0-b741-4f58-9f4a-5523e9e170ff",
+                            RoleId = "4509525c-1645-4e19-a890-3d352d9fdce1"
                         });
                 });
 

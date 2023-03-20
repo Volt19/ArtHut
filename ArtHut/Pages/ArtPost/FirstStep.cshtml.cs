@@ -48,7 +48,6 @@ namespace ArtHut.Pages.ArtPost
         }
         public virtual async Task<IActionResult> OnGet()
         {
-            ViewData["IsUnique"]=true;
             return Page();
         }
         //public virtual async Task<IActionResult> OnGet(Product product)

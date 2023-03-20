@@ -25,31 +25,12 @@ namespace ArtHut.Areas.Identity.Pages.Account.Manage
             _userManager = userManager;
             _signInManager = signInManager;
         }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+        [BindProperty]
         public string Username { get; set; }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [TempData]
         public string StatusMessage { get; set; }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public class InputModel
         {
             [Display(Name = "First Name")]
@@ -116,16 +97,39 @@ namespace ArtHut.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
-            //var firstName = user.FirstName;
-            //if (Input.FirstName != firstName)
-            //{
-            //    var setFirstName = xxxawait _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
-            //    if (!setFirstName.Succeeded)
-            //    {
-            //        StatusMessage = "Unexpected error when trying to set phone number.";
-            //        return RedirectToPage();
-            //    }
-            //}
+            var userName = user.UserName;
+            if (Username != userName)
+            {
+                user.UserName=Username;
+                var setUsername = await _userManager.UpdateAsync(user);
+                if (!setUsername.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set Username.";
+                    return RedirectToPage();
+                }
+            }
+            var firstName = user.FirstName;
+            if (Input.FirstName != firstName)
+            {
+                user.FirstName=Input.FirstName;
+                var setFirstName = await _userManager.UpdateAsync(user);
+                if (!setFirstName.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set First Name.";
+                    return RedirectToPage();
+                }
+            }
+            var lastName = user.LastName;
+            if (Input.LastName != lastName)
+            {
+                user.LastName=Input.LastName;
+                var setLastName = await _userManager.UpdateAsync(user);
+                if (!setLastName.Succeeded)
+                {
+                    StatusMessage = "Unexpected error when trying to set Last Name.";
+                    return RedirectToPage();
+                }
+            }
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";

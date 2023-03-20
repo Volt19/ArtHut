@@ -54,7 +54,7 @@ namespace ArtHut.Data
             builder.Entity<Message>().HasOne(x => x.Sender).WithMany(x => x.Senders).HasForeignKey(x => x.SenderId).OnDelete(DeleteBehavior.ClientSetNull); ;
             builder.Entity<Message>().HasOne(x => x.Receiver).WithMany(x => x.Receivers).HasForeignKey(x => x.ReceiverId).OnDelete(DeleteBehavior.ClientSetNull); ;
             //builder.Entity<Category>().HasOne(x => x.PCategory).WithMany(x => x.Categories).OnDelete(DeleteBehavior.ClientSetNull); ;
-            builder.Entity<CartItem>().HasOne(x => x.Product).WithMany(x=> x.CartItems).HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.ClientSetNull); ;
+            builder.Entity<CartItem>().HasOne(x => x.Product).WithMany(x => x.CartItems).HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.ClientSetNull); ;
             builder.Entity<LikedArtist>().HasOne(x => x.User).WithMany(x => x.LikedArtists).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.ClientSetNull); ;
             builder.Entity<ProductsLikes>().HasOne(x => x.User).WithMany(x => x.ProductsLikes).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.ClientSetNull); ;
             builder.Entity<Order>().HasOne(x => x.User).WithMany(x => x.Orders).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.ClientSetNull); ;
@@ -129,6 +129,36 @@ namespace ArtHut.Data
                 new Category { Id = 6, Name = "Digital Art" },
                 new Category { Id = 7, Name = "Collage" }
                 );
+            builder.Entity<Country>().HasData(
+                new Country { Id = 1, Name = "Austria" },
+                new Country { Id = 2, Name = "Belgium" },
+                new Country { Id = 3, Name = "Bulgaria" },
+                new Country { Id = 4, Name = "Croatia" },
+                new Country { Id = 5, Name = "Cyprus" },
+                new Country { Id = 6, Name = "Czech Republic" },
+                new Country { Id = 7, Name = "Denmark" },
+                new Country { Id = 8, Name = "Estonia" },
+                new Country { Id = 9, Name = "France" },
+                new Country { Id = 10, Name = "France" },
+                new Country { Id = 11, Name = "Germany" },
+                new Country { Id = 12, Name = "Greece" },
+                new Country { Id = 13, Name = "Hungary" },
+                new Country { Id = 14, Name = "Ireland" },
+                new Country { Id = 15, Name = "Italy" },
+                new Country { Id = 16, Name = "Latvia" },
+                new Country { Id = 17, Name = "Lithuania" },
+                new Country { Id = 18, Name = "Luxembourg" },
+                new Country { Id = 19, Name = "Malta" },
+                new Country { Id = 20, Name = "Netherlands" },
+                new Country { Id = 21, Name = "Poland" },
+                new Country { Id = 22, Name = "Portugal" },
+                new Country { Id = 23, Name = "Romania" },
+                new Country { Id = 24, Name = "Slovakia" },
+                new Country { Id = 25, Name = "Slovenia" },
+                new Country { Id = 26, Name = "Spain" },
+                new Country { Id = 27, Name = "Sweden" }
+                );
+           
             //builder.Entity<Product>().HasData(
             //   new Product { Id=1, Name ="Test Product1", Description = "This is Test description", Price= 1, Size="0x0x0", Qantity = null, UserId = user.Id },
             //   new Product { Id=2, Name ="Test Product2", Description = "This is Test description", Price= 2, Size="0x0x0", Qantity = null, UserId = user.Id },

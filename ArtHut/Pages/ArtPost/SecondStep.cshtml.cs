@@ -114,6 +114,7 @@ namespace ArtHut.Pages.ArtPost
             //immg = (Image)ic.ConvertFrom(test.Bytes);
 
             return Page();
+           // return RedirectToPage("Artworks", new { artist = _userManager.GetUserId(User) });
         }
 
     }
