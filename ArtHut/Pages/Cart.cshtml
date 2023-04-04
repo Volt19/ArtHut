@@ -40,35 +40,38 @@
 	{
 		<div class="row mycontainer">
 			<div class="col-7  pe-2 ">
-				@foreach (var Item in Model.CartItems)
+				@foreach (var group in Model.CartItems.GroupBy(o => o.UserId))
 				{
 					<form method="post" class=" bg-white ps-5 pe-5 pt-4 pb-4 mb-3">
 						<h5 class="fontSul row">
-							Sold and shipped by @UserManager.FindByIdAsync(Item.UserId).Result.FirstName @UserManager.FindByIdAsync(Item.UserId).Result.LastName
+							Sold and shipped by @UserManager.FindByIdAsync(group.Key).Result.FirstName @UserManager.FindByIdAsync(group.Key).Result.LastName
 						</h5>
-						<div class="row fontSulLight" style="">
-							<div class="col-3 p-0"><img class="w-100" style="height:130px; object-fit: cover;" src="data:image/png;base64,@Convert.ToBase64String(Model.GetProductMainImg(Item.Id))" alt="Product image"></div>
-							<div class="col  ">
-								<div class="row mb-3">
-									<div class="col ">
-										<div class="row ps-3 txt_overflow">@Item.Name</div>
-										<div class="row ps-3">
-											<a class="color_change_red text-decoration-none p-0" asp-page="/Portfolio/Artworks"
-									             asp-page-handler="Artist" asp-route-artist="@Item.UserId">
-												 by  @UserManager.FindByIdAsync(Item.UserId).Result.FirstName @UserManager.FindByIdAsync(Item.UserId).Result.LastName
-											</a>
-										</div>
-										<div class="row ps-3">@_categoriesService.GetCategoryAsync((int)Item.CategoryId).Result.Name </div>
-										<div class="row ps-3"> @Item.Size cm</div>
+						@foreach(var Item in group)
+						{
+							<div class="row fontSulLight" style="">
+								<div class="col-3 p-0"><img class="w-100" style="height:130px; object-fit: cover;" src="data:image/png;base64,@Convert.ToBase64String(Model.GetProductMainImg(Item.Id))" alt="Product image"></div>
+								<div class="col  ">
+									<div class="row mb-3">
+										<div class="col ">
+											<div class="row ps-3 txt_overflow">@Item.Name</div>
+											<div class="row ps-3">
+												<a class="color_change_red text-decoration-none p-0" asp-page="/Portfolio/Artworks"
+									   asp-page-handler="Artist" asp-route-artist="@Item.UserId">
+													by  @UserManager.FindByIdAsync(Item.UserId).Result.FirstName @UserManager.FindByIdAsync(Item.UserId).Result.LastName
+												</a>
+											</div>
+											<div class="row ps-3">@_categoriesService.GetCategoryAsync((int)Item.CategoryId).Result.Name </div>
+											<div class="row ps-3"> @Item.Size cm</div>
 
+										</div>
+										<div class="col-2 p-0">
+											€@Item.Price
+										</div>
 									</div>
-									<div class="col-2 p-0">
-										€@Item.Price
-									</div>
+									<button type="submit" asp-page-handler="Delete" asp-route-id="@Item.Id" class="row ps-3 text-decoration-underline border-0 bg-white"> Remove</button>
 								</div>
-								<button type="submit"  asp-page-handler="Delete" asp-route-id="@Item.Id" class="row ps-3 text-decoration-underline border-0 bg-white"> Remove</button>
 							</div>
-						</div>
+						}
 					</form>
 				}
 
@@ -79,9 +82,9 @@
 					<div class="p-3 pb-0">
 						<h5 class="fontSul mb-4">Order summary</h5>
 						<div class="">
-							<div class="row d-flex mb-3 fontSulLight"><div class="col">Artwork subtotal</div> <div class="col text-end fontSulLight">£120.00</div></div>
-							<div class="row d-flex mb-3 fontSulLight"><div class="col">Shipping total</div> <div class="col text-end">£120.00</div></div>
-							<div class="row d-flex mb-3 fontSulLight"><div class="col fontSul">Order total</div> <div class="col text-end ">£145.99</div></div>
+							<div class="row d-flex mb-3 fontSulLight"><div class="col">Artwork subtotal</div> <div class="col text-end fontSulLight">€@ViewBag.ArtTotal</div></div>
+							<div class="row d-flex mb-3 fontSulLight"><div class="col">Shipping total</div> <div class="col text-end">Free</div></div>
+							<div class="row d-flex mb-3 fontSulLight"><div class="col fontSul">Order total</div> <div class="col text-end ">€@ViewBag.ArtTotal</div></div>
 
 							<form action="/checkout/start-payment/" method="POST" id="start-payment-form" class="row g-flex mt-5 mb-3">
 								<a class="btn red_btn rounded-0 fontSul p-2" type="submit" asp-area=""  asp-page="/Order/Shipping">

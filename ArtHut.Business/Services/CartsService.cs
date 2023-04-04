@@ -22,6 +22,7 @@ namespace ArtHut.Business.Services
         public async Task<CartItem> AddCartItemAsync(CartItem cartItem) => await _cartItemsRepository.AddAsync(cartItem);
         public async Task<CartItem> GetCartItemAsync(int cartItemId) => await _cartItemsRepository.FindAsync(cartItemId);
         public async Task RemoveCartItemAsync(CartItem cartItem) => await _cartItemsRepository.DeleteAsync(cartItem);
-        public async Task<List<CartItem>> GetCartAsync(string userId) => await _cartItemsRepository.GetCartAsync(userId);
+		public async Task RemoveRangeCartItemAsync(List<CartItem> cartItems) => await _cartItemsRepository.DeleteRangeAsync(cartItems);
+		public async Task<List<CartItem>> GetCartAsync(string userId) => await _cartItemsRepository.GetCartAsync(userId);
     }
 }

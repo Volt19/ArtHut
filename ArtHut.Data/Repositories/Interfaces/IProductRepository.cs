@@ -10,5 +10,8 @@ namespace ArtHut.Data.Repositories.Interfaces
     public interface IProductRepository : IRepository<Product>
     {
         Task<List<Product>> GetUsersProducts(string userId);
-    }
+        Task<List<Product>> GetOrdersProducts(int orderId);
+        Task<List<Product>> GetSoldProductsOfUser(string userId);
+
+	}
 }

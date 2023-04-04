@@ -1,5 +1,6 @@
 using ArtHut.Business.Services.Interfaces;
 using ArtHut.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace ArtHut.Pages.ArtPost
 {
-    public class SecondStepcshtmlModel : PageModel
+	[Authorize]
+	public class SecondStepcshtmlModel : PageModel
     {
         [BindProperty]
         public static Product NewProduct { get; set; }
@@ -108,13 +110,8 @@ namespace ArtHut.Pages.ArtPost
                 await _productService.UpdateAsync(thisProduct);
             }
 
-            //Photo test = _photosService.FindProductsMainPhotoAsync(NewProduct.Id).Result;
-            //ImageBytes = test.Bytes;
-            //ImageConverter ic = new ImageConverter();
-            //immg = (Image)ic.ConvertFrom(test.Bytes);
-
-            return Page();
-           // return RedirectToPage("Artworks", new { artist = _userManager.GetUserId(User) });
+            //return Page();
+            return RedirectToPage("/Portfolio/Artworks","Artist", new { artist = _userManager.GetUserId(User), category="" });
         }
 
     }

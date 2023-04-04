@@ -26,5 +26,15 @@ namespace ArtHut.Data.Repositories
             var usersProducts = ProductEntities.Where(x=> x.UserId ==userId).ToList();
             return usersProducts;
         }
-    }
+		public async Task<List<Product>> GetOrdersProducts(int orderId)
+		{
+			var Products = ProductEntities.Where(x => x.IsSold ==orderId).ToList();
+			return Products;
+		}
+		public async Task<List<Product>> GetSoldProductsOfUser(string userId)
+		{
+			var Products = ProductEntities.Where(x => x.IsSold !=null && x.UserId==userId).ToList();
+			return Products;
+		}
+	}
 }

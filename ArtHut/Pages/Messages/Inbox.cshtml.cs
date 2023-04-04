@@ -1,5 +1,6 @@
 using ArtHut.Business.Services.Interfaces;
 using ArtHut.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,7 +8,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ArtHut.Pages.Messages
 {
-    public class InboxModel : PageModel
+	[Authorize]
+	public class InboxModel : PageModel
     {
 
         private readonly IMessagesService _messagesService;

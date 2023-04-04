@@ -28,18 +28,19 @@ namespace ArtHut.Pages
         {
             Cart = _cartsService.GetCartAsync(_userManager.GetUserId(User)).Result;
             CartItems =  new List<Product?>();
+            ViewData["ArtTotal"] = 0;
             if (Cart.Count > 0)
             {
-               
                 foreach (var item in Cart)
                 {
                     CartItems.Add(_productService.FindProductAsync(item.ProductId).Result);
                 }
-                //Products.OrderBy(x=> x.UserId).ToList();
-                var ProductsWhitSameArtist = CartItems.GroupBy(x => x.UserId);
+                CartItems = CartItems.OrderBy(x => x.UserId).ToList(); ;//Products.OrderBy(x=> x.UserId).ToList();
+				ViewData["ArtTotal"] = CartItems.Sum(x=> x.Price);
             }
 
-            return Page();
+
+			return Page();
         }
         public async Task<IActionResult> OnPostDelete(int id)
         {

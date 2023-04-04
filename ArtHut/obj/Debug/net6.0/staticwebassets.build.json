@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PPx6UQxh5oYrdrgH2WCro7Dx5jKiEGbzqbLhAj+8k14=",
+  "Hash": "BdH3pDjNw6oyti2knQkQC/d7VXrp16aw+m1SwYGJSgU=",
   "Source": "ArtHut",
   "BasePath": "_content/ArtHut",
   "Mode": "Default",
@@ -1173,23 +1173,6 @@
       "OriginalItemSpec": "wwwroot\\css\\Fonts\\SulSans-Regular.woff"
     },
     {
-      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\03_r_car.jpg",
-      "SourceId": "ArtHut",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
-      "BasePath": "_content/ArtHut",
-      "RelativePath": "css/imgs/03_r_car.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\imgs\\03_r_car.jpg"
-    },
-    {
       "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\20181220_005016.png",
       "SourceId": "ArtHut",
       "SourceType": "Discovered",
@@ -1292,12 +1275,12 @@
       "OriginalItemSpec": "wwwroot\\css\\imgs\\basket-icon-red.png"
     },
     {
-      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\f3da14f9431249788e7b9a8c11166a7f_opt.jpg",
+      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\image_processing20200728-30792-7ttjer.png",
       "SourceId": "ArtHut",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
       "BasePath": "_content/ArtHut",
-      "RelativePath": "css/imgs/f3da14f9431249788e7b9a8c11166a7f_opt.jpg",
+      "RelativePath": "css/imgs/image_processing20200728-30792-7ttjer.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1306,7 +1289,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\imgs\\f3da14f9431249788e7b9a8c11166a7f_opt.jpg"
+      "OriginalItemSpec": "wwwroot\\css\\imgs\\image_processing20200728-30792-7ttjer.png"
     },
     {
       "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\Profil_Img.jpg",
@@ -1341,23 +1324,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\imgs\\Red Panda logo.png"
-    },
-    {
-      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\imgs\\tutorials24x7-mysql-online-shopping-cart-database-design.png",
-      "SourceId": "ArtHut",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
-      "BasePath": "_content/ArtHut",
-      "RelativePath": "css/imgs/tutorials24x7-mysql-online-shopping-cart-database-design.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\imgs\\tutorials24x7-mysql-online-shopping-cart-database-design.png"
     },
     {
       "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\index.css",

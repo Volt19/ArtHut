@@ -18,6 +18,16 @@
 		margin-right: 10px;
 	}
 
+	.product-tag-sold:after {
+		content: "";
+		display: inline-block;
+		margin-left: 0.5em;
+		width: 0.875rem;
+		height: 0.875rem;
+		border-radius: 50%;
+		background-color: #ff1749;
+	}
+
 </style>
 
 <body class="container-fluid p-0 my_container justify-content-center align-self-center">
@@ -64,19 +74,33 @@
 										<p class="card-text m-0 text-muted">@product.Name</p>
 									</div>
 									<div class="row d-flex">
-										<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
+										@if (product.IsSold==null)
+										{
+											<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
 
-											<p class="fw-bold m-0">
-												€@Convert.ToInt16(product.Price)
-											</p>
-										</div>
-										<form method="post" class="col justify-content-end align-items-end d-flex">
-											<button type="submit" asp-page-handler="AddToCart" asp-route-productId="@product.Id" class=" border-0 bg-white position-relative" style="z-index:5; color_change_red">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket3-fill color_change_red mb-1" viewBox="0 0 16 16">
-													<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
-												</svg>
-											</button>
-										</form>
+												<p class="fw-bold m-0">
+													€@Convert.ToInt16(product.Price)
+												</p>
+											</div>
+											<form method="post" class="col justify-content-end align-items-end d-flex">
+												<button type="submit" asp-page-handler="AddToCart" asp-route-productId="@product.Id" class=" border-0 bg-white position-relative" style="z-index:5; color_change_red">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket3-fill color_change_red mb-1" viewBox="0 0 16 16">
+														<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
+													</svg>
+												</button>
+											</form>
+										}
+										else
+										{
+											<div class="col justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
+
+												<p class="fw-bold m-0 text-secondary text-decoration-line-through">
+													€@Convert.ToInt16(product.Price)
+												</p>
+												&nbsp; &nbsp;
+												<p class="product-tag-sold  fontSul m-0" style="padding-top:2px;">Sold</p>
+											</div>
+										}
 									</div>
 								</div>
 								<a class="h-100 w-100 position-absolute" style="z-index:1;" asp-area="" asp-route-id="@product.Id" asp-page="/Product"></a>
@@ -95,19 +119,33 @@
 										<p class="card-text m-0 text-muted">@product.Name</p>
 									</div>
 									<div class="row d-flex">
-										<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
+										@if (product.IsSold==null)
+										{
+											<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
 
-											<p class="fw-bold m-0">
-												€@Convert.ToInt16(product.Price)
-											</p>
-										</div>
-										<form method="post" class="col justify-content-end align-items-end d-flex">
-											<button type="submit" asp-page-handler="AddToCart" asp-route-productId="@product.Id" class=" border-0 bg-white position-relative" style="z-index:5; color_change_red">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket3-fill color_change_red mb-1" viewBox="0 0 16 16">
-													<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
-												</svg>
-											</button>
-										</form>
+												<p class="fw-bold m-0">
+													€@Convert.ToInt16(product.Price)
+												</p>
+											</div>
+											<form method="post" class="col justify-content-end align-items-end d-flex">
+												<button type="submit" asp-page-handler="AddToCart" asp-route-productId="@product.Id" class=" border-0 bg-white position-relative" style="z-index:5; color_change_red">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket3-fill color_change_red mb-1" viewBox="0 0 16 16">
+														<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
+													</svg>
+												</button>
+											</form>
+										}
+										else
+										{
+											<div class="col justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
+
+												<p class="fw-bold m-0 text-secondary text-decoration-line-through">
+													€@Convert.ToInt16(product.Price)
+												</p>
+												&nbsp; &nbsp;
+												<p class="product-tag-sold  fontSul m-0" style="padding-top:2px;">Sold</p>
+											</div>
+										}
 									</div>
 								</div>
 								<a class="h-100 w-100 position-absolute" style="z-index:1;" asp-area="" asp-route-id="@product.Id" asp-page="/Product"></a>
@@ -125,19 +163,33 @@
 										<p class="card-text m-0 text-muted">@product.Name</p>
 									</div>
 									<div class="row d-flex">
-										<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
+										@if (product.IsSold==null)
+										{
+											<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
 
-											<p class="fw-bold m-0">
-												€@Convert.ToInt16(product.Price)
-											</p>
-										</div>
-										<form method="post" class="col justify-content-end align-items-end d-flex">
-											<button type="submit"  asp-page-handler="AddToCart" asp-route-productId="@product.Id" class=" border-0 bg-white position-relative" style="z-index:5; color_change_red">
-												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket3-fill color_change_red mb-1" viewBox="0 0 16 16">
-													<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
-												</svg>
-											</button>
-										</form>
+												<p class="fw-bold m-0">
+													€@Convert.ToInt16(product.Price)
+												</p>
+											</div>
+											<form method="post" class="col justify-content-end align-items-end d-flex">
+												<button type="submit" asp-page-handler="AddToCart" asp-route-productId="@product.Id" class=" border-0 bg-white position-relative" style="z-index:5; color_change_red">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket3-fill color_change_red mb-1" viewBox="0 0 16 16">
+														<path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.468 15.426.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
+													</svg>
+												</button>
+											</form>
+										}
+										else
+										{
+											<div class="col justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
+
+												<p class="fw-bold m-0 text-secondary text-decoration-line-through">
+													€@Convert.ToInt16(product.Price)
+												</p>
+												&nbsp; &nbsp;
+												<p class="product-tag-sold  fontSul m-0" style="padding-top:2px;">Sold</p>
+											</div>
+										}
 									</div>
 								</div>
 								<a class="h-100 w-100 position-absolute" style="z-index:1;" asp-area="" asp-route-id="@product.Id" asp-page="/Product"></a>

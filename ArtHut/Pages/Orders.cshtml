@@ -17,7 +17,14 @@
 	<div class="row">
 		<div class="col-3 d-flex flex-column ">
 			<div class="justify-content-center align-self-center row">
-				<img src="~/css/imgs/Profil_Img.jpg" class="ProfileImg p-0" />
+				@if (@UserManager.GetUserAsync(User).Result.ProfilePic==null)
+				{
+					<img src="~/css/imgs/Profil_Img.jpg" class=" ProfileImg p-0" />
+				}
+				else
+				{
+					<img src="data:image/png;base64,@Convert.ToBase64String(@UserManager.GetUserAsync(User).Result.ProfilePic)" class=" ProfileImg p-0  " />
+				}
 			</div>
 			<div class=" align-self-center row mt-2">
 				@if (@User.Identity!.Name! != UserManager.GetUserId(User))
@@ -39,34 +46,29 @@
 
 		</div>
 		<form method="post" enctype="multipart/form-data" class="col-9">
-
-			@*<h4>Inbox</h4>
-			@foreach (var message in Model.Messages)
+			@foreach (var order in Model.Orders)
 			{
 				<div class="row bg-white mb-1">
-					<a type="button" class="col ps-3 pt-2 pb-2 text-decoration-none"  data-bs-toggle="modal" data-bs-target="#Message" data-bs-sender="@UserManager.FindByIdAsync(message.SenderId).Result.UserName" data-bs-title="@message.Subject" data-bs-text="@message.Text">
-						<h5 class="mb-1 text-dark">@UserManager.FindByIdAsync(message.SenderId).Result.UserName</h5>
-						<p class="text-muted m-0">@message.Subject</p>
+					<a type="button" class="col ps-3 pt-2 pb-2 text-decoration-none" asp-area="" asp-page="/Order/OrderDetails" asp-route-id="@order.Id">
+						<h5 class="mb-1 text-dark">@order.CreatedAt</h5>
+						<p class="text-muted m-0">Price: €@order.Total</p>
 					</a>
 					<div class="col-1 justify-content-center  align-items-center d-flex trash">
-						<button type="button" class="w-75 h-50" asp-route-id="@message.SenderId" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-senderId="@message.SenderId" data-bs-whatever="@UserManager.FindByIdAsync(message.SenderId).Result.UserName"></button>
+						@*<button type="button" class="w-75 h-50" asp-route-id="@message.SenderId" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-senderId="@message.SenderId" data-bs-whatever="@UserManager.FindByIdAsync(message.SenderId).Result.UserName"></button>
 						<input asp-for="MessageId" class="d-none" value="@message.Id" />
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-reply-fill  position-absolute" viewBox="0 0 16 16">
 							<path d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z" />
-						</svg>
+						</svg>*@
 					</div>
 					<div class="col-1 justify-content-center  align-items-center d-flex trash">
-						<button type="submit" asp-page-handler="Delete" asp-route-id="@message.Id" class="w-75 h-50 "></button>
+						@*<button type="submit" asp-page-handler="Delete" asp-route-id="@message.Id" class="w-75 h-50 "></button>
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-circle-fill position-absolute" viewBox="0 0 16 16">
 							<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
-						</svg>
+						</svg>*@
 					</div>
 
 				</div>
-
-
-			}*@
-
+			}
 		</form>
 	</div>
 </div>

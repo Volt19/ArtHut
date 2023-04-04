@@ -13,5 +13,7 @@ namespace ArtHut.Business.Services.Interfaces
         Task<CartItem> GetCartItemAsync(int cartItemId);
         Task<List<CartItem>> GetCartAsync(string userId);
         Task RemoveCartItemAsync(CartItem cartItem);
-    }
+        Task RemoveRangeCartItemAsync(List<CartItem> cartItems); 
+
+	}
 }

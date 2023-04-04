@@ -5,9 +5,11 @@ using ArtHut.Business.Services.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ArtHut.Pages
 {
+    
     public class ShopModel : PageModel
     {
         private readonly IProductService _productService;
@@ -105,9 +107,13 @@ namespace ArtHut.Pages
         {
             return _photosService.FindProductsMainPhotoAsync(productId).Result.Bytes;
         }
-
         public async Task<IActionResult> OnPostAddToCart(int productId)
         {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToPage("/Account/Login", new { area = "Identity" }); 
+            }
+
             var Cart = _cartsService.GetCartAsync(_userManager.GetUserId(User)).Result;
             if(!Cart.Where(x => x.ProductId==productId).Any())
             {

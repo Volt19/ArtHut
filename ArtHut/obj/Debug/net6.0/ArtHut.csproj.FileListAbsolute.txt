@@ -5,7 +5,6 @@ C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ArtHut.exe
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ArtHut.deps.json
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ArtHut.runtimeconfig.json
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ArtHut.dll
-C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ref\ArtHut.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\ArtHut.pdb
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\MessagePack.dll
@@ -288,3 +287,9 @@ C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\IdentityModel.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Microsoft.AspNetCore.ApiAuthorization.IdentityServer.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\obj\Debug\net6.0\staticwebassets\msbuild.ArtHut.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\obj\Debug\net6.0\staticwebassets\msbuild.build.ArtHut.props
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ArtHut.props
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ArtHut.props
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Veli_\source\repos\ArtHut\ArtHut\obj\Debug\net6.0\refint\ArtHut.dll

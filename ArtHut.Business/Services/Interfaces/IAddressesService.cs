@@ -10,5 +10,7 @@ namespace ArtHut.Business.Services.Interfaces
     public interface IAddressesService
     {
         Task<Address> AddAddressAsync(Address address);
-    }
+        Task<Address?> FindAsync(params object[] keyValues);
+
+	}
 }

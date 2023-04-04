@@ -1,0 +1,133 @@
+﻿@page 
+@model ArtHut.Pages.Order.OrderDetailsModel
+@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+@using ArtHut.Business.Services.Interfaces;
+@inject UserManager<User> UserManager
+@inject ICategoriesService _categoriesService
+@{
+}
+
+<div class="container">
+	<div class="row mycontainer">
+		<div class="row d-flex justify-content-center  align-self-center pt-5 pb-5">
+			<h3 class="fontSul justify-content-center align-self-center d-flex">Your Order Details</h3>
+		</div>
+		<div class="col-7  pe-2 fontSulLight">
+			<div class=" mt-0  bg-white p-5 ">
+				<div class="row">
+					<div class="col">
+						<h5 class=" mb-4 fontSul">Enter Your Payment Details</h5>
+						<div class="ps-3">
+							<div class="row">
+								@Model.Order.ReceiverFirstName @Model.Order.ReceiverLastName
+							</div>
+							<div class="row">
+								@Model.Order.ReceiverPhoneNumber
+							</div>
+							<div class="row">
+								@Model.Order.ReceiverEmail
+							</div>
+							<div class="row">
+								@Model.Address.StreetAddress,
+							</div>
+							<div class="row">
+								@Model.Address.City,
+							</div>
+							<div class="row">
+								@Model.Address.District,
+							</div>
+							<div class="row">
+								@Model.Address.PostalCode,
+							</div>
+							<div class="row">
+								@Model.GetCountryName(Model.Address.CountryId)
+							</div>
+						</div>
+
+					</div>
+					<div class="col">
+						<h5 class=" mb-4 fontSul">Enter Your Payment Details</h5>
+						<div class="ps-3">
+							@if (Model.Payment.Id==1)
+							{
+								<div class="row">
+									Cash on Delivery
+								</div> 
+							}
+							else
+							{
+								<div class="row">
+									****
+									@for(int i =4; i>0; i--)
+									{
+										@Model.Payment.CardNumber[Model.Payment.CardNumber.Length - i];
+									}
+									
+								</div>
+								<div class="row">
+									@Model.Payment.ExpirationDate
+								</div>
+								<div class="row">
+									@Model.Payment.CardholderName
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+
+			@foreach (var group in Model.OrderedProducts.GroupBy(o => o.UserId))
+			{
+				<div class=" bg-white ps-5 pe-5 pt-4 pb-4 mt-3">
+					<h5 class="fontSul row">
+						Sold and shipped by @UserManager.FindByIdAsync(group.Key).Result.FirstName @UserManager.FindByIdAsync(group.Key).Result.LastName
+					</h5>
+					@foreach (var Item in group)
+					{
+						<div class="row fontSulLight mt-3" style="">
+							<div class="col-3 p-0"><img class="w-100" style="height:130px; object-fit: cover;" src="data:image/png;base64,@Convert.ToBase64String(Model.GetProductMainImg(Item.Id))" alt="Product image"></div>
+							<div class="col  ">
+								<div class="row mb-3">
+									<div class="col ">
+										<div class="row ps-3 txt_overflow">@Item.Name</div>
+										<div class="row ps-3">
+											<a class="color_change_red text-decoration-none p-0" asp-page="/Portfolio/Artworks"
+									   asp-page-handler="Artist" asp-route-artist="@Item.UserId">
+												by  @UserManager.FindByIdAsync(Item.UserId).Result.FirstName @UserManager.FindByIdAsync(Item.UserId).Result.LastName
+											</a>
+										</div>
+										<div class="row ps-3">@_categoriesService.GetCategoryAsync((int)Item.CategoryId).Result.Name </div>
+										<div class="row ps-3"> @Item.Size cm</div>
+
+									</div>
+									<div class="col-2 p-0">
+										€@Item.Price
+									</div>
+								</div>
+							</div>
+						</div>
+					}
+				</div>
+			}
+		</div>
+
+
+
+		<div class="col-5   ps-2">
+			<div class="bg-white p-4">
+				<div class="p-3 pb-0">
+					<h5 class="fontSul mb-4">Order summary</h5>
+					<div class="">
+						<div class="row d-flex mb-3 fontSulLight"><div class="col">Artwork subtotal</div> <div class="col text-end fontSulLight">€@Model.Order.Total</div></div>
+						<div class="row d-flex mb-3 fontSulLight"><div class="col">Shipping total</div> <div class="col text-end">Free</div></div>
+						<div class="row d-flex mb-3 fontSulLight"><div class="col fontSul">Order total</div> <div class="col text-end ">€@Model.Order.Total</div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>

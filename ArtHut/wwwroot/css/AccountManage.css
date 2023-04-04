@@ -10,14 +10,43 @@
     background-color: #f5f4f2 !important;
 }
 
-.ProfileImg {
+.ProfileImg Img {
     position: absolute;
     width: 112px !important;
     height: 112px !important;
     border-radius: 100%;
     top: 240px;
     z-index: 5;
+    object-fit: cover;
 }
+
+.ProfileImg input {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    top: 188px;
+    opacity: 0;
+    z-index: 6;
+}
+
+.ProfileImg label {
+    z-index: 5;
+}
+
+.ProfileImg svg {
+    position: absolute;
+    top: 240px;
+    display: none;
+    z-index: 5;
+}
+.ProfileImg:hover svg {
+    display: block;
+    position: absolute;
+    top: 280px;
+    z-index: 5;
+}
+
 .mycontainer {
     max-width: 73.125rem;
 }

@@ -25,13 +25,21 @@
 
 		<div class="row">
 			<div class="col-3 d-flex flex-column ">
-				<div class="justify-content-center align-self-center row">
-					<img src="~/css/imgs/Profil_Img.jpg" class="ProfileImg p-0" />
-				</div>
+				<form method="post" enctype="multipart/form-data"  class="justify-content-center align-self-center row d-flex ProfileImg "  id="formImg">
+					@if (@UserManager.GetUserAsync(User).Result.ProfilePic==null)
+					{
+						<img src="~/css/imgs/Profil_Img.jpg" class=" ProfileImg p-0" />
+					}
+					else
+					{
+						<img src="data:image/png;base64,@Convert.ToBase64String(@UserManager.GetUserAsync(User).Result.ProfilePic)" class=" ProfileImg p-0  " />
+					}
+
+				</form>
 				<div class=" align-self-center row">
 					@if (@User.Identity!.Name! != UserManager.GetUserId(User))
 					{
-						<p class="mt-5 fs-5 text-wrap fontSul">@User.Identity!.Name!</p>
+						<p class="mt-5 fs-5 text-wrap fontSul">@User.Identity!.Name</p>
 					}
 					else
 					{

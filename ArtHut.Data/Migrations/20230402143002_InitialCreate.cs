@@ -88,6 +88,22 @@ namespace ArtHut.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Payments",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CardholderName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ExpirationDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CVV = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Payments", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PersistedGrants",
                 columns: table => new
                 {
@@ -185,7 +201,7 @@ namespace ArtHut.Data.Migrations
                     City = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PostalCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StreetAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -200,8 +216,7 @@ namespace ArtHut.Data.Migrations
                         name: "FK_Addresses_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -349,12 +364,16 @@ namespace ArtHut.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AddressId = table.Column<int>(type: "int", nullable: false),
-                    Payment = table.Column<int>(type: "int", nullable: true),
+                    PaymentId = table.Column<int>(type: "int", nullable: false),
                     Shipping = table.Column<decimal>(type: "decimal(6,2)", nullable: true),
                     Total = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
-                    Confirmed = table.Column<bool>(type: "bit", nullable: false),
+                    Confirmed = table.Column<bool>(type: "bit", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ReceiverFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReceiverLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReceiverPhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReceiverEmail = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -363,6 +382,12 @@ namespace ArtHut.Data.Migrations
                         name: "FK_Orders_Addresses_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Addresses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Orders_Payments_PaymentId",
+                        column: x => x.PaymentId,
+                        principalTable: "Payments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -446,7 +471,7 @@ namespace ArtHut.Data.Migrations
                     Bytes = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     FileExtension = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsMain = table.Column<bool>(type: "bit", nullable: false),
-                    ProductId = table.Column<int>(type: "int", nullable: true),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
@@ -456,7 +481,8 @@ namespace ArtHut.Data.Migrations
                         name: "FK_Photos_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Photos_Users_UserId",
                         column: x => x.UserId,
@@ -520,7 +546,7 @@ namespace ArtHut.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProductId = table.Column<int>(type: "int", nullable: true),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
                     TagId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -530,7 +556,8 @@ namespace ArtHut.Data.Migrations
                         name: "FK_ProductsTags_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ProductsTags_Tags_TagId",
                         column: x => x.TagId,
@@ -542,7 +569,7 @@ namespace ArtHut.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "4509525c-1645-4e19-a890-3d352d9fdce1", "f234162e-6fd9-4c00-a616-53ddf0875e4c", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "7f34c503-893c-499b-b52d-bd905e934684", "6c0dc1f9-7eef-4827-9489-78eb5f8672ea", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -593,18 +620,23 @@ namespace ArtHut.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Payments",
+                columns: new[] { "Id", "CVV", "CardNumber", "CardholderName", "ExpirationDate" },
+                values: new object[] { 1, "0", "0", "admin", "0" });
+
+            migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "AccessFailedCount", "Alias", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FirstName", "IsPublic", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PortfolioPic", "ProfilePic", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "d43b53e0-b741-4f58-9f4a-5523e9e170ff", 0, null, "dce00084-b9fd-497e-84e5-43f0f57adabb", new DateTime(2023, 3, 18, 17, 12, 33, 29, DateTimeKind.Local).AddTicks(5931), "admin@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN@AH.NET", "ADMIN", "AQAAAAEAACcQAAAAEFFUVqwtWhv7+MPxYwdqlfRP7QhYCCLpTvypGZ5K/e12kHRcCvR3omzxO86xdgGrvQ==", "1234567890", false, null, null, "e7dafca1-3646-4044-a04d-097ce352b30d", false, "admin" },
-                    { "d49edba8-2d03-4786-b825-f4e5eec80991", 0, null, "9a2b92d0-a792-44f2-a754-347c347f3c44", new DateTime(2023, 3, 18, 17, 12, 33, 42, DateTimeKind.Local).AddTicks(7547), "admin2@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN2@AH.NET", "ADMIN2", "AQAAAAEAACcQAAAAEOo86dF17PLM67hUzdc5bQ/8hilDtiS+IwDV/BqMEvE7BGl9okZgTDOTslOv+hT8BA==", "1234567890", false, null, null, "d597ac6d-ec7c-4910-8573-566db8130dd8", false, "admin2" }
+                    { "46dbbc2c-d42c-4f15-953d-4705406b2ed3", 0, null, "35fdfdc5-7f75-487f-95b8-f679660a2a4e", new DateTime(2023, 4, 2, 17, 30, 1, 781, DateTimeKind.Local).AddTicks(9127), "admin2@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN2@AH.NET", "ADMIN2", "AQAAAAEAACcQAAAAEPAleQgi8X/FqqWrJ8C+U0q3rR1l8KwrSMHImXHR8SGekso4cQn+HxKNBGI1B44YgQ==", "1234567890", false, null, null, "733d5a59-d533-4329-b625-c2e4332b0df5", false, "admin2" },
+                    { "73928873-27e2-40af-adae-499c0a0a7bdf", 0, null, "56611e6e-e20b-4ee5-b6cb-94771646e313", new DateTime(2023, 4, 2, 17, 30, 1, 774, DateTimeKind.Local).AddTicks(7168), "admin@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN@AH.NET", "ADMIN", "AQAAAAEAACcQAAAAECfUv46bPA0zQjs5k4nJnjfbA8BfboP7vvl5/72loBo3NxP/gHt5m/646h6QCUYlPw==", "1234567890", false, null, null, "bb6f56ab-89b5-4691-b411-9e0ad517364d", false, "admin" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "4509525c-1645-4e19-a890-3d352d9fdce1", "d43b53e0-b741-4f58-9f4a-5523e9e170ff" });
+                values: new object[] { "7f34c503-893c-499b-b52d-bd905e934684", "73928873-27e2-40af-adae-499c0a0a7bdf" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_CountryId",
@@ -693,6 +725,11 @@ namespace ArtHut.Data.Migrations
                 name: "IX_Orders_AddressId",
                 table: "Orders",
                 column: "AddressId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_PaymentId",
+                table: "Orders",
+                column: "PaymentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_UserId",
@@ -851,6 +888,9 @@ namespace ArtHut.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Addresses");
+
+            migrationBuilder.DropTable(
+                name: "Payments");
 
             migrationBuilder.DropTable(
                 name: "Countries");

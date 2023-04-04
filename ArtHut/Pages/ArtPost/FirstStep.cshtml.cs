@@ -6,10 +6,12 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authentication;
 using System.ComponentModel;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ArtHut.Pages.ArtPost
 {
-    public class ArtPostModel : PageModel
+	[Authorize]
+	public class ArtPostModel : PageModel
     {
         private readonly IProductService _productService;
         private readonly UserManager<User> _userManager;

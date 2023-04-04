@@ -1,12 +1,14 @@
 using ArtHut.Business.Services.Interfaces;
 using ArtHut.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ArtHut.Pages.Messages
 {
-    public class SentModel : PageModel
+	[Authorize]
+	public class SentModel : PageModel
     {
         private readonly IMessagesService _messagesService;
         private readonly UserManager<User> _userManager;

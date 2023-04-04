@@ -51,6 +51,15 @@ builder.Services.AddScoped<ICartsService, CartsService>();
 builder.Services.AddScoped<IAddressesRepository, AddressesRepository>();
 builder.Services.AddScoped<IAddressesService, AddressesService>();
 
+builder.Services.AddScoped<ICountriesRepository, CountriesRepository>();
+builder.Services.AddScoped<ICountriesService, CountriesService>();
+
+builder.Services.AddScoped<IOrdersRepository, OrdersRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+
+builder.Services.AddScoped<IPaymentsRepository, PaymentsRepository>();
+builder.Services.AddScoped<IPaymentsService, PaymentsService>();
+
 var app = builder.Build(); 
 
 // Configure the HTTP request pipeline.
@@ -78,3 +87,4 @@ app.UseCors(c => c
 
 
 app.Run();
+

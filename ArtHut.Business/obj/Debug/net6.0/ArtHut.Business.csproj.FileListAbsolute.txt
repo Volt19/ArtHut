@@ -1,7 +1,6 @@
 C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\bin\Debug\net6.0\ArtHut.Business.deps.json
 C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\bin\Debug\net6.0\ArtHut.Business.runtimeconfig.json
 C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\bin\Debug\net6.0\ArtHut.Business.dll
-C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\bin\Debug\net6.0\ref\ArtHut.Business.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\bin\Debug\net6.0\ArtHut.Business.pdb
 C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\bin\Debug\net6.0\ArtHut.Data.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\bin\Debug\net6.0\ArtHut.Data.pdb
@@ -15,3 +14,4 @@ C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\obj\Debug\net6.0\ArtHut.Busin
 C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\obj\Debug\net6.0\ref\ArtHut.Business.dll
 C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\obj\Debug\net6.0\ArtHut.Business.pdb
 C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\obj\Debug\net6.0\ArtHut.Business.genruntimeconfig.cache
+C:\Users\Veli_\source\repos\ArtHut\ArtHut.Business\obj\Debug\net6.0\refint\ArtHut.Business.dll

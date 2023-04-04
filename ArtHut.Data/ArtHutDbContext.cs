@@ -22,7 +22,8 @@ namespace ArtHut.Data
         //public DbSet<LikedArtist> LikedArtists => Set<LikedArtist>();
         public DbSet<Message> Massages => Set<Message>();
         public DbSet<Order> Orders => Set<Order>();
-        public DbSet<Photo> Photos => Set<Photo>();
+		public DbSet<Payment> Payments => Set<Payment>();
+		public DbSet<Photo> Photos => Set<Photo>();
         public DbSet<Product> Products => Set<Product>();
         //public DbSet<ProductsCategory> ProductsCategories => Set<ProductsCategory>();
         public DbSet<ProductsLikes> ProductsLikes => Set<ProductsLikes>();
@@ -129,7 +130,10 @@ namespace ArtHut.Data
                 new Category { Id = 6, Name = "Digital Art" },
                 new Category { Id = 7, Name = "Collage" }
                 );
-            builder.Entity<Country>().HasData(
+			builder.Entity<Payment>().HasData(
+				new Payment { Id = 1, CardholderName ="admin", CardNumber = "0", ExpirationDate = "0", CVV="0"}
+				);
+			builder.Entity<Country>().HasData(
                 new Country { Id = 1, Name = "Austria" },
                 new Country { Id = 2, Name = "Belgium" },
                 new Country { Id = 3, Name = "Bulgaria" },

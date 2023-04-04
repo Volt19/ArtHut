@@ -14,5 +14,7 @@ namespace ArtHut.Business.Services.Interfaces
         Task<List<Product?>> GetAll();
         Task<List<Product>> GetUsersProducts(string userId);
         Task UpdateAsync(Product product);
-    }
+        Task<List<Product>> GetOrdersProducts(int orderId);
+        Task<List<Product>> GetSoldProductsOfUser(string userId);
+	}
 }

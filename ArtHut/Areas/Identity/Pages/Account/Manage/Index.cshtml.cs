@@ -7,12 +7,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using ArtHut.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ArtHut.Areas.Identity.Pages.Account.Manage
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly UserManager<User> _userManager;
@@ -26,15 +28,22 @@ namespace ArtHut.Areas.Identity.Pages.Account.Manage
             _signInManager = signInManager;
         }
         [BindProperty]
-        public string Username { get; set; }
+        [StringLength(100)]
+        [DataType(DataType.Text)]
+		[RegularExpression(@"^\S*$", ErrorMessage = "Spaces are not allowed.")]
+		public string Username { get; set; }
         [TempData]
         public string StatusMessage { get; set; }
         [BindProperty]
         public InputModel Input { get; set; }
         public class InputModel
         {
+            [StringLength(100)]
+            [DataType(DataType.Text)]
             [Display(Name = "First Name")]
             public string FirstName { get; set; }
+            [StringLength(100)]
+            [DataType(DataType.Text)]
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
             [Phone]
@@ -101,7 +110,8 @@ namespace ArtHut.Areas.Identity.Pages.Account.Manage
             if (Username != userName)
             {
                 user.UserName=Username;
-                var setUsername = await _userManager.UpdateAsync(user);
+				user.NormalizedUserName=Username.ToUpper();
+				var setUsername = await _userManager.UpdateAsync(user);
                 if (!setUsername.Succeeded)
                 {
                     StatusMessage = "Unexpected error when trying to set Username.";

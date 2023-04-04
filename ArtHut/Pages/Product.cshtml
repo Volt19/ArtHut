@@ -56,8 +56,29 @@
 		opacity: 0.5;
 	}
 
-     .active,.demo:hover {
-		opacity: 1;
+		.active, .demo:hover {
+			opacity: 1;
+		}
+
+	pre {
+		font-size: 16px;
+	}
+
+	.ProfileImg {
+		width: 180px !important;
+		height: 180px !important;
+		border-radius: 100%;
+		object-fit: cover;
+	}
+
+	.product-tag-sold:after {
+		content: "";
+		display: inline-block;
+		margin-left: 0.5em;
+		width: 0.875rem;
+		height: 0.875rem;
+		border-radius: 50%;
+		background-color: #ff1749;
 	}
 </style>
 <body class="container-fluid p-0">
@@ -118,111 +139,223 @@
 			</div>
 			<div class="row fontSulLight">
 				<h6>
-					<a class="color_change_red text-decoration-none mb-2"   asp-page="/Shop" asp-route-category="@Model.ProductCategory.Name.ToLower()"> @Model.ProductCategory.Name</a>
+					<a class="color_change_red text-decoration-none mb-2" asp-page="/Shop" asp-route-category="@Model.ProductCategory.Name.ToLower()"> @Model.ProductCategory.Name</a>
 					<br />
-					<span>by<!-- --><a class="color_change_red text-decoration-none" asp-page="/Portfolio/Artworks"  asp-page-handler="Artist" asp-route-artist="@Model.Product.UserId">
-						@UserManager.FindByIdAsync(Model.Product.UserId).Result.FirstName @UserManager.FindByIdAsync(Model.Product.UserId).Result.LastName</a></span>
+					<span>
+						by<!-- --><a class="color_change_red text-decoration-none" asp-page="/Portfolio/Artworks" asp-page-handler="Artist" asp-route-artist="@Model.Product.UserId">
+							@UserManager.FindByIdAsync(Model.Product.UserId).Result.FirstName @UserManager.FindByIdAsync(Model.Product.UserId).Result.LastName
+						</a>
+					</span>
 				</h6>
 			</div>
-			<div class="row fw-bold" style="font-size: 1.5rem!important;">
-				<p>€@Convert.ToInt16(Model.Product.Price)</p>@*<del></del>*@
-			</div>
-			<div class="">
+
+			@if (Model.Product.IsSold==null)
+			{
+				<div class="row fw-bold" style="font-size: 1.5rem!important;">
+					<p>€@Convert.ToInt16(Model.Product.Price)</p>
+				</div>
+			}
+			else
+			{
+				<div class="row fw-bold d-flex" style="font-size: 1.5rem!important;">
+					<p class=" col-2  text-secondary text-decoration-line-through">€@Convert.ToInt16(Model.Product.Price)  </p>
+					&nbsp; <p class="product-tag-sold col fontSul m-0" style="padding-top:4px;">Sold</p>
+				</div>
+			}
+
+
+			<div class="fontSulLight">
 				<ul class="row">
-					<li><span><a href="/art/product_category-painting-oil/">Oil painting</a> <!-- -->on<!-- --> <!-- -->Canvas</span></li>
-					<li><span>One of a kind artwork</span></li>
+					@*<li><span><a href="/art/product_category-painting-oil/">Oil painting</a> <!-- -->on<!-- --> <!-- -->Canvas</span></li>*@
+					<li>
+						@if (Model.Product.Qantity == 1)
+						{
+							<span>One of a kind artwork</span>
+						}
+						else
+						{
+							<span>From a limited edition of @Model.Product.Qantity</span>
+						}
+					</li>
 					<li><span>Size<!-- -->: <!-- -->@Model.Product.Size cm</span></li>
-					<li><span>Signed on the front</span></li>
-					<li><span>Style<!-- -->: <a href="/art/style-photorealistic/">Photorealistic</a></span></li>
-					<li><span>Subject<!-- -->: <a href="/art/subject-flowers-plants/">Flowers and plants</a></span></li>
+					@*<li><span>Signed on the front</span></li>*@
+					@*<li><span>Style<!-- -->: <a href="/art/style-photorealistic/">Photorealistic</a></span></li>
+					<li><span>Subject<!-- -->: <a href="/art/subject-flowers-plants/">Flowers and plants</a></span></li>*@
 				</ul>
 			</div>
-			<div class="row">
-				<button class=" btn red_btn">Add to Basket</button>
+			<form method="post" class="row">
+				@if (Model.Product.IsSold==null)
+				{
+					<button type="submit" asp-page-handler="AddToCart" class="btn red_btn">Add to Basket</button>
+				}
+				else
+				{
+					<button type="submit" asp-page-handler="AddToCart" class="btn red_btn" disabled>Add to Basket</button>
+				}
+			</form>
+		</div>
+	</div>
+	<div class="row pt-4 pb-4 ps-5 mt-5" style="background-color: #f5f4f2;">
+		<div class="col-2">
+			@if (@UserManager.FindByIdAsync(Model.Product.UserId).Result.ProfilePic==null)
+			{
+				<img src="~/css/imgs/Profil_Img.jpg" class=" ProfileImg p-0  ms-3" />
+			}
+			else
+			{
+				<img src="data:image/png;base64,@Convert.ToBase64String(@UserManager.FindByIdAsync(Model.Product.UserId).Result.ProfilePic)" class=" ProfileImg p-0  ms-5" />
+			}
+		</div>
+		<div class=" col d-grid ps-5">
+			<a class=" row fontSul color_change_red text-decoration-none d-flex justify-content-start align-items-start mb-5 pt-2" 
+			asp-page="/Portfolio/Artworks" asp-page-handler="Artist" asp-route-artist="@Model.Product.UserId">
+				@if (@UserManager.FindByIdAsync(Model.Product.UserId).Result.UserName != Model.Product.UserId)
+				{
+					<h3 class=" row">@UserManager.FindByIdAsync(Model.Product.UserId).Result.FirstName</h3>
+					<h3 class=" row">@UserManager.FindByIdAsync(Model.Product.UserId).Result.LastName</h3>
+				}
+				else
+				{
+					<div class=" row">An Arthut user</div>
+				}
+			</a>
+			<div class=" row ">
+				<button type="button" class="justify-content-center align-self-center row d-flex btn dark_btn shadow-none"
+						style="width: 190px;" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-whatever="@UserManager.FindByIdAsync(Model.Product.UserId).Result.FirstName
+				@UserManager.FindByIdAsync(Model.Product.UserId).Result.LastName">
+					Contact me
+				</button>
 			</div>
-
 
 		</div>
 	</div>
 
+	<div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered">
+			<form method="post" enctype="multipart/form-data" class="modal-content myModal fontSul">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Contact</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body fontSul">
+					<div>
+						<div class="mb-3">
+							<label asp-for="MessageInput.Subject" class="control-label"></label>
+							<input asp-for="MessageInput.Subject" class="form-control border-0 rounded-0 pt-2 pb-2 fontSulLight shadow-none" />
+							<span asp-validation-for="MessageInput.Subject" class="text-danger"></span>
+						</div>
+						<div class="mb-3">
+							<label asp-for="MessageInput.Message" class="control-label"></label>
+							<textarea asp-for="MessageInput.Message" class="form-control text-box multi-line  border-0 textarea rounded-0 fontSulLight shadow-none"
+		   type="text" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" style="height:250px;"></textarea>
+							<span asp-validation-for="MessageInput.Message" class="text-danger"></span>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary fontSulLight shadow-none" data-bs-dismiss="modal">Close</button>
+					<button type="submit" asp-page-handler="Send" class="btn red_btn fontSulLight shadow-none">Send</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
+
 
 @section Scripts
 	{
-<script type="text/javascript" language="javascript">
-	let slideIndex = 1;
-	showSlides(slideIndex);
-	currentSlide(slideIndex);
+	<script>
+		const exampleModal = document.getElementById('Modal')
+		exampleModal.addEventListener('show.bs.modal', event => {
+			// Button that triggered the modal
+			const button = event.relatedTarget
+			// Extract info from data-bs-* attributes
+			const recipient = button.getAttribute('data-bs-whatever')
+			// If necessary, you could initiate an AJAX request here
+			// and then do the updating in a callback.
+			//
+			// Update the modal's content.
+			const modalTitle = exampleModal.querySelector('.modal-title')
+			const modalBodyInput = exampleModal.querySelector('.modal-body input')
 
-	function plusSlides(n) {
-	  showSlides(slideIndex += n);
-	  currentSlide(slideIndex);
-	}
+			modalTitle.textContent = `Contact ${recipient}`
+			//modalBodyInput.value = recipient
+		})
+	</script>
+	<script type="text/javascript" language="javascript">
+		let slideIndex = 1;
+		showSlides(slideIndex);
+		currentSlide(slideIndex);
 
-	function currentSlide(n) {
-	  showSlides(slideIndex = n);
-	  let dots = document.getElementsByClassName("demo");
-	  if(dots.length>4){
-		  //if(n==4||n==8){
-		 // for (i = 0; i < dots.length; i++) {
-			//  dots[i].style.display = "none";
-		 //  }
-		 //  dots[n-1].style.display = "block";
-		 //  dots[n-1]
-		 //  dots[n].style.display = "block";
-		 //  dots[n+1].style.display = "block";
-		 //  dots[n+2].style.display = "block";
+		function plusSlides(n) {
+			showSlides(slideIndex += n);
+			currentSlide(slideIndex);
+		}
 
-	  //}
-	  //else
-	  if(n<4){
-		  for (i = 0; i < dots.length; i++) {
-			  dots[i].style.display = "none";
-			  //dots[i].style.h
-		   }
-		  dots[0].style.display = "block";
-		   dots[1].style.display = "block";
-		   dots[2].style.display = "block";
-		   dots[3].style.display = "block";
-	  }
-	  else if(n<8&&n>=4){
-		  for (i = 0; i < dots.length; i++) {
-			  dots[i].style.display = "none";
-		   }
-		  dots[3].style.display = "block";
-		   dots[4].style.display = "block";
-		   dots[5].style.display = "block";
-		   dots[6].style.display = "block";
-	  }
-	  else if(n<12&&n>=8){
-		  for (i = 0; i < dots.length; i++) {
-			  dots[i].style.display = "none";
-		   }
-		  dots[7].style.display = "block";
-		   dots[8].style.display = "block";
-		   dots[9].style.display = "block";
-		   dots[10].style.display = "block";
-	  }
-	  }
+		function currentSlide(n) {
+			showSlides(slideIndex = n);
+			let dots = document.getElementsByClassName("demo");
+			if (dots.length > 4) {
+				//if(n==4||n==8){
+				// for (i = 0; i < dots.length; i++) {
+				//  dots[i].style.display = "none";
+				//  }
+				//  dots[n-1].style.display = "block";
+				//  dots[n-1]
+				//  dots[n].style.display = "block";
+				//  dots[n+1].style.display = "block";
+				//  dots[n+2].style.display = "block";
 
-	}
+				//}
+				//else
+				if (n < 4) {
+					for (i = 0; i < dots.length; i++) {
+						dots[i].style.display = "none";
+						//dots[i].style.h
+					}
+					dots[0].style.display = "block";
+					dots[1].style.display = "block";
+					dots[2].style.display = "block";
+					dots[3].style.display = "block";
+				}
+				else if (n < 8 && n >= 4) {
+					for (i = 0; i < dots.length; i++) {
+						dots[i].style.display = "none";
+					}
+					dots[3].style.display = "block";
+					dots[4].style.display = "block";
+					dots[5].style.display = "block";
+					dots[6].style.display = "block";
+				}
+				else if (n < 12 && n >= 8) {
+					for (i = 0; i < dots.length; i++) {
+						dots[i].style.display = "none";
+					}
+					dots[7].style.display = "block";
+					dots[8].style.display = "block";
+					dots[9].style.display = "block";
+					dots[10].style.display = "block";
+				}
+			}
 
-	function showSlides(n) {
-	  let i;
-	  let slides = document.getElementsByClassName("mySlides");
-	  let dots = document.getElementsByClassName("demo");
-	  let captionText = document.getElementById("caption");
-	  if (n > slides.length) {slideIndex = 1}
-	  if (n < 1) {slideIndex = slides.length}
-	  for (i = 0; i < slides.length; i++) {
-		slides[i].style.display = "none";
-	  }
-	  for (i = 0; i < dots.length; i++) {
-		dots[i].className = dots[i].className.replace(" active", "");
-	  }
-	  slides[slideIndex-1].style.display = "block";
-	  dots[slideIndex-1].className += " active";
-	  captionText.innerHTML = dots[slideIndex-1].alt;
-	}
-</script>
+		}
+
+		function showSlides(n) {
+			let i;
+			let slides = document.getElementsByClassName("mySlides");
+			let dots = document.getElementsByClassName("demo");
+			let captionText = document.getElementById("caption");
+			if (n > slides.length) { slideIndex = 1 }
+			if (n < 1) { slideIndex = slides.length }
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex - 1].style.display = "block";
+			dots[slideIndex - 1].className += " active";
+			captionText.innerHTML = dots[slideIndex - 1].alt;
+		}
+	</script>
 	}

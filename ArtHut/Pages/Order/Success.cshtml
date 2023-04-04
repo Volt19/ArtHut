@@ -1,0 +1,46 @@
+﻿@page
+@model ArtHut.Pages.Order.SuccessModel
+@{
+}
+<style>
+	.confetti_l{
+		height:200px;
+		width:198px;
+        position: absolute;
+        transform: scaleX(-1);
+        top: 200px;
+        left: 10%;
+	}
+
+    .confetti_r {
+        height: 200px;
+        width: 198px;
+        position:absolute;
+        right: 10%;
+        top: 200px;
+    }
+
+    .red_panda {
+        height: 200px;
+        width: 198px;
+    }
+</style>
+<img src="~/css/imgs/image_processing20200728-30792-7ttjer.png" class="p-0 confetti_l mt-5 " />
+<div class="d-flex justify-content-center">
+ 
+    <div class="mycontainer fontSul">
+        <div class="col">
+            <div class="row d-flex align-self-center justify-content-center">
+                <img src="~/css/imgs/Red Panda logo.png" class="p-0 red_panda mt-4 " />
+            </div>
+            <div class="row d-flex align-self-center justify-content-center mt-4">
+                <h2 class=" d-flex justify-content-center">Your order is complete!</h2>
+            </div>
+            <div class="row d-flex align-self-center justify-content-center">
+                <h5 class=" d-flex justify-content-center">You will receive an email when changes are made.</h5>
+            </div>
+        </div>
+    </div>
+   
+</div>
+<img src="~/css/imgs/image_processing20200728-30792-7ttjer.png" class="p-0 confetti_r mt-5 " />

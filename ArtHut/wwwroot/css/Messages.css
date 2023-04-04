@@ -17,6 +17,7 @@
     border-radius: 100%;
     top: 240px;
     z-index: 5;
+    object-fit: cover;
 }
 
 .mycontainer {

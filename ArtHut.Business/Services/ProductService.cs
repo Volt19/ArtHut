@@ -21,6 +21,8 @@ namespace ArtHut.Business.Services
         public async Task<Product?> FindProductAsync(params object[] keyValues) => await _productRepository.FindAsync(keyValues);
         public async Task<List<Product?>> GetAll() => await _productRepository.GetAllAsync();
         public async Task<List<Product>> GetUsersProducts(string userId)=> await _productRepository.GetUsersProducts(userId);
-        public async Task UpdateAsync(Product product) => await _productRepository.UpdateAsync(product);
+		public async Task<List<Product>> GetSoldProductsOfUser(string userId) => await _productRepository.GetSoldProductsOfUser(userId);
+		public async Task<List<Product>> GetOrdersProducts(int orderId) => await _productRepository.GetOrdersProducts(orderId);
+		public async Task UpdateAsync(Product product) => await _productRepository.UpdateAsync(product);
     }
 }

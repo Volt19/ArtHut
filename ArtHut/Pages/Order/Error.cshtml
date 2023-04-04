@@ -1,0 +1,51 @@
+﻿@page
+@model ArtHut.Pages.Order.ErrorModel
+@using Microsoft.AspNetCore.Identity
+@using ArtHut.Data.Models;
+@using ArtHut.Areas.Identity.Pages.Account
+@using ArtHut.Business.Services.Interfaces;
+@inject UserManager<User> UserManager
+@inject ICategoriesService _categoriesService
+@{
+}
+
+
+<div class="d-flex justify-content-center">
+	<div class="mycontainer fontSul">
+		<div class="col">
+			<div class="row d-flex align-self-center justify-content-center mt-4">
+				<h2 class=" d-flex justify-content-center">Oops!</h2>
+			</div>
+			<div class="row d-flex align-self-center justify-content-center">
+				<h5 class=" d-flex justify-content-center">This art is already sold.</h5>
+			</div>
+			<div class="row d-flex align-self-center justify-content-center">
+				<div class=" bg-white ps-5 pe-5 pt-4 pb-4 mt-3">
+					<div class="row fontSulLight " style="">
+						<div class="col-3 p-0"><img class="w-100" style="height:130px; object-fit: cover;" src="data:image/png;base64,@Convert.ToBase64String(Model.GetProductMainImg(Model.Product.Id))" alt="Product image"></div>
+						<div class="col  ">
+							<div class="row mb-3">
+								<div class="col ">
+									<div class="row ps-3 txt_overflow">@Model.Product.Name</div>
+									<div class="row ps-3">
+										<a class="color_change_red text-decoration-none p-0" asp-page="/Portfolio/Artworks"
+										   asp-page-handler="Artist" asp-route-artist="@Model.Product.UserId">
+											by  @UserManager.FindByIdAsync(Model.Product.UserId).Result.FirstName @UserManager.FindByIdAsync(Model.Product.UserId).Result.LastName
+										</a>
+									</div>
+									<div class="row ps-3">@_categoriesService.GetCategoryAsync((int)Model.Product.CategoryId).Result.Name </div>
+									<div class="row ps-3"> @Model.Product.Size cm</div>
+
+								</div>
+								<div class="col-2 p-0">
+									€@Model.Product.Price
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row d-flex align-self-center justify-content-center mt-3"> <a class="red_btn btn shadow-none w-50" asp-page="/Cart" asp-area="">Go to cart</a></div>
+		</div> 
+	</div>
+</div>

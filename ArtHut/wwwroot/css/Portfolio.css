@@ -24,14 +24,80 @@
     object-fit: fill;
 }
 
-.ProfileImg {
-    width: 120px !important;
-    height: 120px !important;
+
+.ProfileImg Img {
+    position: absolute;
+    width: 132px !important;
+    height: 132px !important;
     border-radius: 100%;
+    top: 158px;
+    z-index: 5;
+    object-fit: cover;
+}
+
+.ProfileImg input {
+    position: absolute;
+    height: 138px;
+    width: 138px;
+    border-radius: 100%;
+    top: 158px;
+    opacity: 0;
+    z-index: 6;
+}
+
+.ProfileImg label {
+    z-index: 5;
+}
+
+.ProfileImg svg {
+    display: none;
+    z-index: 5;
+}
+
+.ProfileImg:hover svg {
+    display: block;
     z-index: 5;
 }
 
 .blue_row {
     height: 135px;
     background-color: #8dc8e8;
+}
+
+.PortfolioImg input {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    border-radius: 100%;
+    top: 188px;
+    opacity: 0;
+    z-index: 6;
+}
+
+.PortfolioImg label {
+    z-index: 5;
+}
+
+.PortfolioImg svg {
+    display: none;
+    z-index: 5;
+}
+
+.PortfolioImg:hover svg {
+    display: block;
+    z-index: 5;
+}
+.category-list input[type="radio"]:checked {
+    background-color: #ff1749;
+    color: #ff1749;
+    border: none;
+}
+.product-tag-sold:after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    background-color: #ff1749;
 }
