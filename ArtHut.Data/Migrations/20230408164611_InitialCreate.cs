@@ -364,7 +364,7 @@ namespace ArtHut.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AddressId = table.Column<int>(type: "int", nullable: false),
-                    PaymentId = table.Column<int>(type: "int", nullable: false),
+                    PaymentId = table.Column<int>(type: "int", nullable: true),
                     Shipping = table.Column<decimal>(type: "decimal(6,2)", nullable: true),
                     Total = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
                     Confirmed = table.Column<bool>(type: "bit", nullable: true),
@@ -388,8 +388,7 @@ namespace ArtHut.Data.Migrations
                         name: "FK_Orders_Payments_PaymentId",
                         column: x => x.PaymentId,
                         principalTable: "Payments",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Orders_Users_UserId",
                         column: x => x.UserId,
@@ -405,7 +404,7 @@ namespace ArtHut.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Qantity = table.Column<int>(type: "int", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: true),
                     Price = table.Column<decimal>(type: "decimal(6,2)", nullable: true),
                     Size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -569,7 +568,7 @@ namespace ArtHut.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "7f34c503-893c-499b-b52d-bd905e934684", "6c0dc1f9-7eef-4827-9489-78eb5f8672ea", "Administrator", "ADMINISTRATOR" });
+                values: new object[] { "2ef7b40d-6706-4497-bb62-54ba690bc8ed", "b8be5b15-e0c4-4824-8b9e-523bd4d294c8", "Administrator", "ADMINISTRATOR" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -629,14 +628,14 @@ namespace ArtHut.Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "Alias", "ConcurrencyStamp", "CreatedAt", "Email", "EmailConfirmed", "FirstName", "IsPublic", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "PortfolioPic", "ProfilePic", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "46dbbc2c-d42c-4f15-953d-4705406b2ed3", 0, null, "35fdfdc5-7f75-487f-95b8-f679660a2a4e", new DateTime(2023, 4, 2, 17, 30, 1, 781, DateTimeKind.Local).AddTicks(9127), "admin2@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN2@AH.NET", "ADMIN2", "AQAAAAEAACcQAAAAEPAleQgi8X/FqqWrJ8C+U0q3rR1l8KwrSMHImXHR8SGekso4cQn+HxKNBGI1B44YgQ==", "1234567890", false, null, null, "733d5a59-d533-4329-b625-c2e4332b0df5", false, "admin2" },
-                    { "73928873-27e2-40af-adae-499c0a0a7bdf", 0, null, "56611e6e-e20b-4ee5-b6cb-94771646e313", new DateTime(2023, 4, 2, 17, 30, 1, 774, DateTimeKind.Local).AddTicks(7168), "admin@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN@AH.NET", "ADMIN", "AQAAAAEAACcQAAAAECfUv46bPA0zQjs5k4nJnjfbA8BfboP7vvl5/72loBo3NxP/gHt5m/646h6QCUYlPw==", "1234567890", false, null, null, "bb6f56ab-89b5-4691-b411-9e0ad517364d", false, "admin" }
+                    { "3606543a-7274-4893-9595-abcd4846b6fc", 0, null, "077fb42d-3157-4ab5-9331-a7581035e04d", new DateTime(2023, 4, 8, 19, 46, 11, 63, DateTimeKind.Local).AddTicks(5203), "admin@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN@AH.NET", "ADMIN", "AQAAAAEAACcQAAAAEJRprmQ8O/csZJEGxnB1SvQ3CPXij2LDvsZxCY+OLVDqQzdP53mVgjf1owr8LWOgGQ==", "1234567890", false, null, null, "5c704016-ce19-4ec2-b344-e10a9ae74bf1", false, "admin" },
+                    { "f1f15ec2-8eec-437c-89dc-31aa107b55d7", 0, null, "39d9e4c4-2117-4a63-b8c6-fcd0f16ee90e", new DateTime(2023, 4, 8, 19, 46, 11, 73, DateTimeKind.Local).AddTicks(9278), "admin2@AH.net", true, "Adminy", false, "Andminski", false, null, "ADMIN2@AH.NET", "ADMIN2", "AQAAAAEAACcQAAAAEBB+Ovfc9As414Uq3H8BCgjMEtm4gdq2hnBw9pEeiYULlIWdNUvYEp0vyPRSPnyjpA==", "1234567890", false, null, null, "78bc20ba-9e66-489a-9378-d3d2b9273f7a", false, "admin2" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "7f34c503-893c-499b-b52d-bd905e934684", "73928873-27e2-40af-adae-499c0a0a7bdf" });
+                values: new object[] { "2ef7b40d-6706-4497-bb62-54ba690bc8ed", "3606543a-7274-4893-9595-abcd4846b6fc" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Addresses_CountryId",

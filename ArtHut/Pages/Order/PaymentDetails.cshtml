@@ -1,6 +1,7 @@
 ﻿@page
 @model ArtHut.Pages.Order.PaymentDetailsModel
 @{
+	ViewData["Title"] = "Payment Details";
 }
 <style>
 	.form-check-input:checked {
@@ -43,8 +44,7 @@
 							<span asp-validation-for="CreditCard.CVV" class="text-danger"></span>
 						</div>
 					</div>
-				</div>
-
+				</div> 
 				<div class="row d-flex justify-content-center">or</div>
 				<div class="row">
 					<div class="mb-3 fontSulLight">
@@ -57,7 +57,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 
 		<div class="col-5   ps-2">
@@ -89,12 +88,6 @@
 		$(document).ready(function () {
 			$('#myCheckbox').change(function () {
 				if ($(this).is(':checked')) {
-					//$('#Card').hide();
-					//$('#CardholderName').prop('required', false);
-					//$('#CardNumber').prop('required', false);
-					//$('#ExpirationDate').prop('required', false);
-					//$('#CVV').prop('required', false);
-
 					var div = document.getElementById("Card");
 					var inputs = div.getElementsByTagName("input");
 
@@ -102,7 +95,8 @@
 						inputs[i].disabled = true;
 						inputs[i].value = "";
 					}
-				} else {
+				} 
+				else {
 					var div = document.getElementById("Card");
 					var inputs = div.getElementsByTagName("input");
 

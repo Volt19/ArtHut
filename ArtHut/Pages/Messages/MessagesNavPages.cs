@@ -1,15 +1,10 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-#nullable disable
-
-using System;
+﻿using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ArtHut.Pages.Messages
 {
 	public static class MessagesNavPages
 	{
-		
 		public static string Inbox => "Inbox";
 		public static string Sent => "Sent";
 		public static string Offers => "Offers";

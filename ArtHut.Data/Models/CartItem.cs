@@ -13,8 +13,8 @@ namespace ArtHut.Data.Models
         public CartItem()
         {
         }
-        public CartItem( int prodctId, string userId, bool IsActive)
-        {
+        public CartItem( int prodctId, string userId, bool IsActive) : this()
+		{
             ProductId = prodctId;
             UserId = userId;
             IsSold = IsActive;

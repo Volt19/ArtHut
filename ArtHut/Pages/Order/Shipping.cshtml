@@ -1,6 +1,7 @@
 ﻿@page
 @model ArtHut.Pages.Order.ShippingModel
 @{
+	ViewData["Title"] = "Shipping";
 }
 <div class="container">
 	<form method="post"  enctype="multipart/form-data"  class="row mycontainer">
@@ -37,7 +38,6 @@
 								<span asp-validation-for="Input.Email" class="text-danger"></span>
 							</div>
 						</div>
-
 					</div>
 					<afhr class="mt-4 mb-4 d-flex border"></afhr>
 					<div class="row ">
@@ -60,7 +60,6 @@
 								<span asp-validation-for="Input.PostalCode" class="text-danger"></span>
 							</div>
 						</div>
-
 						<div class="row mt-4 pe-0">
 							<div class="col ">
 								<label asp-for="Input.District" class="form-label "></label>
@@ -104,9 +103,7 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
-
 		<div class="col-5   ps-2">
 			<div class="bg-white p-4">
 				<div class="p-3 pb-0">
@@ -115,7 +112,6 @@
 						<div class="row d-flex mb-3 fontSulLight"><div class="col">Artwork subtotal</div> <div class="col text-end fontSulLight">€@ViewBag.ArtTotal</div></div>
 						<div class="row d-flex mb-3 fontSulLight"><div class="col">Shipping total</div> <div class="col text-end">Free</div></div>
 						<div class="row d-flex mb-3 fontSulLight"><div class="col fontSul">Order total</div> <div class="col text-end ">€@ViewBag.ArtTotal</div></div>
-
 						<div   class="row g-flex mt-5 mb-3">
 							<button class="btn red_btn rounded-0 fontSul p-2" type="submit" method="post">
 								Continue  &nbsp;
@@ -128,7 +124,5 @@
 				</div>
 			</div>
 		</div>
-
-
 	</form>
 </div>

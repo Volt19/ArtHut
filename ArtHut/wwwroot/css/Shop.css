@@ -1,7 +1,6 @@
 ﻿.slick_slider_block {
-    /*height: 300px;*/
     display: block;
-    background-color: #8dc8e8; /*#7ce0d3*/
+    background-color: #8dc8e8; 
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -23,7 +22,6 @@
 }
 
 .slick_slider_block_p {
-    /*font-size: 2.3125rem;*/
     text-align: center !important;
     width: 55%;
 }
@@ -42,11 +40,24 @@
     top: 20%;
 }
 
-
-
-
 .category-list input[type="radio"]:checked {
     background-color: #ff1749;
     color: #ff1749;
     border:none;
+}
+
+.radio-link {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+}
+
+.product-tag-sold:after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    background-color: #ff1749;
 }

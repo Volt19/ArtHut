@@ -7,6 +7,7 @@
 @inject UserManager<User> UserManager
 @inject ICategoriesService _categoriesService
 @{
+	ViewData["Title"] = "Order Review";
 }
 <div class="container">
 	<div class="row mycontainer">
@@ -44,7 +45,6 @@
 								@Model.GetCountryName(Model.Address.CountryId)
 							</div>
 						</div>
-
 					</div>
 					<div class="col">
 						<h5 class=" mb-4 fontSul">Enter Your Payment Details</h5>
@@ -99,7 +99,6 @@
 										</div>
 										<div class="row ps-3">@_categoriesService.GetCategoryAsync((int)Item.CategoryId).Result.Name </div>
 										<div class="row ps-3"> @Item.Size cm</div>
-
 									</div>
 									<div class="col-2 p-0">
 										€@Item.Price
@@ -111,8 +110,6 @@
 				</div>
 			}
 		</div>
-
-
 
 		<div class="col-5   ps-2">
 			<div class="bg-white p-4">
@@ -134,8 +131,6 @@
 				</div>
 			</div>
 		</div>
-
-
 	</div>
 </div>
 

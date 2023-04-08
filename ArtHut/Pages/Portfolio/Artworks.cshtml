@@ -10,6 +10,7 @@
 @{
 	ViewData["ActivePage"] = PortfolioNavPages.Artworks;
 	ViewData["Artworks"] = ProductService.GetAll().Result.Where(x => x.CreatedAt!=null && x.UserId == ViewData["User"].ToString()).Count();
+	ViewData["Title"] = "Portfolio";
 }
 <head>
 	<link rel="stylesheet" href="~/css/Portfolio.css" asp-append-version="true" />
@@ -42,7 +43,6 @@
 					{
 						<img src="data:image/png;base64,@Convert.ToBase64String(@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.ProfilePic)" class=" ProfileImg p-0  " />
 					}
-					
 					<label asp-for="@Model.ProfileImg" class=" ProfileImg justify-content-center align-self-center d-flex ">
 						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pencil-square ProfileImg" viewBox="0 0 16 16">
 							<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
@@ -50,10 +50,9 @@
 						</svg>
 					</label>
 					<input type="file" asp-for="@Model.ProfileImg" class="ProfileImg" accept="image/*" id="ImgUpload" />
-
 				</form>
 			}
-			
+
 			<div class=" justify-content-center align-self-center align-items-center row d-flex">
 				@if (@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.UserName != ViewData["User"].ToString())
 				{
@@ -64,13 +63,11 @@
 					<p class="mt-3 fs-5 text-wrap fontGB justify-content-center align-self-center d-flex">An Arthut user</p>
 				}
 			</div>
-
 			<button type="button" class="justify-content-center align-self-center row d-flex btn dark_btn mb-3 shadow-none" style="width: 190px;" data-bs-toggle="modal" data-bs-target="#Modal" data-bs-whatever="@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.FirstName @UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.LastName">
 				Commission artwork
 			</button>
 			<label class="justify-content-center align-self-center row d-flex fontSulLight">Joined Arthut: @UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.CreatedAt.ToString("MMMM", new CultureInfo("en-GB")) @UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.CreatedAt.Year</label>
 			<label class="justify-content-center align-self-center row d-flex fontSulLight">Artworks for sale: @ViewBag.Artworks </label>
-
 			<div class=" justify-content-center align-items-center row fontSulLight d-flex">
 				<p class="justify-content-center align-self-center d-flex">
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor" class="bi bi-geo-alt-fill color_red pb-1" viewBox="0 0 16 16">
@@ -81,10 +78,9 @@
 		</div>
 	</div>
 	<div class="col justify-content-end  align-items-end d-flex p-0">
-		@*<img src="~/css/imgs/2cd3214367c8470ba3143106415a463f.png" class=" pic align-self-end" />*@
 		@if (ViewData["User"].ToString() != UserManager.GetUserAsync(User)?.Result.Id)
 		{
-			<div class="justify-content-center align-self-center row d-flex PortfolioImg" >
+			<div class="justify-content-center align-self-center row d-flex PortfolioImg">
 				@if (@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.PortfolioPic==null)
 				{
 					<img src="~/css/imgs/2cd3214367c8470ba3143106415a463f.png" class=" pic align-self-end" />
@@ -106,7 +102,6 @@
 				{
 					<img src="data:image/png;base64,@Convert.ToBase64String(@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.PortfolioPic)" class=" pic align-self-end" />
 				}
-
 				<label asp-for="@Model.ProfileImg" class=" ProfileImg justify-content-center align-self-center d-flex PortfolioImg position-absolute">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-pencil-square PortfolioImg" viewBox="0 0 16 16">
 						<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
@@ -114,7 +109,6 @@
 					</svg>
 				</label>
 				<input type="file" asp-for="@Model.PortfolioImg" class="PortfolioImg " accept="image/*" id="PortfolioImgUpload" style="margin-top:5rem;" />
-
 			</form>
 		}
 	</div>
@@ -151,7 +145,6 @@
 				}
 			</div>
 		</div>
-
 		<div class="col-md-9">
 			<div class="items row">
 				<div class="col ps-1 pe-1">
@@ -188,7 +181,6 @@
 									else
 									{
 										<div class="col justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
-
 											<p class="fw-bold m-0 text-secondary text-decoration-line-through">
 												€@Convert.ToInt16(product.Price)
 											</p>
@@ -201,7 +193,6 @@
 							<a class="h-100 w-100 position-absolute" style="z-index:1;" asp-area="" asp-route-id="@product.Id" asp-page="/Product"></a>
 						</div>
 					}
-
 				</div>
 				<div class="col ps-1 pe-1">
 					@foreach (var product in Model.ProductsCol2)
@@ -233,7 +224,6 @@
 									else
 									{
 										<div class="col justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
-
 											<p class="fw-bold m-0 text-secondary text-decoration-line-through">
 												€@Convert.ToInt16(product.Price)
 											</p>
@@ -317,7 +307,7 @@
 					<div class="mb-3">
 						<label asp-for="MessageInput.Message" class="control-label"></label>
 						<textarea asp-for="MessageInput.Message" class="form-control text-box multi-line  border-0 textarea rounded-0 fontSulLight shadow-none"
-								  type="text" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" style="height:250px;"></textarea>
+		  type="text" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" style="height:250px;"></textarea>
 						<span asp-validation-for="MessageInput.Message" class="text-danger"></span>
 					</div>
 				</div>
@@ -332,36 +322,28 @@
 
 @section Scripts
 	{
-<script>
+	<script>
 		const exampleModal = document.getElementById('Modal')
-	exampleModal.addEventListener('show.bs.modal', event => {
-	  // Button that triggered the modal
-	  const button = event.relatedTarget
-	  // Extract info from data-bs-* attributes
-	  const recipient = button.getAttribute('data-bs-whatever')
-	  // If necessary, you could initiate an AJAX request here
-	  // and then do the updating in a callback.
-	  //
-	  // Update the modal's content.
-	  const modalTitle = exampleModal.querySelector('.modal-title')
-	  const modalBodyInput = exampleModal.querySelector('.modal-body input')
+		exampleModal.addEventListener('show.bs.modal', event => {
+			const button = event.relatedTarget
+			const recipient = button.getAttribute('data-bs-whatever')
+			const modalTitle = exampleModal.querySelector('.modal-title')
+			const modalBodyInput = exampleModal.querySelector('.modal-body input')
+			modalTitle.textContent = `Contact ${recipient}`
+		})
+	</script>
 
-	  modalTitle.textContent = `Contact ${recipient}`
-	  //modalBodyInput.value = recipient
-	})
-</script>
-
-<script>
-	Category();
-	function Category(){
-		let RadioNodeList = document.getElementsByClassName("form-check-input");
-		RadioNodeList[@Model.CategoryId-1].checked = true;
-	   }
-</script>
+	<script>
+		Category();
+		function Category() {
+			let RadioNodeList = document.getElementsByClassName("form-check-input");
+			RadioNodeList[@Model.CategoryId-1].checked = true;
+		}
+	</script>
 
 	<script>
 		document.getElementById("ImgUpload").addEventListener("change", function (event) {
-			document.getElementById("formImg").submit(); 
+			document.getElementById("formImg").submit();
 		});
 	</script>
 	<script>

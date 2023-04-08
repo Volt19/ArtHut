@@ -9,7 +9,7 @@
 @model ArtHut.Pages.Portfolio.AboutMyWorkModel
 @{
 	ViewData["ActivePage"] = PortfolioNavPages.AboutMyWork;
-		ViewData["Artworks"] = ProductService.GetUsersProducts(UserManager.GetUserId(User)).Result.Count;
+	ViewData["Artworks"] = ProductService.GetUsersProducts(UserManager.GetUserId(User)).Result.Count;
 }
 
 <head>

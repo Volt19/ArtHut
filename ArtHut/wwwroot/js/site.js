@@ -12,28 +12,28 @@
 });
 
 
-let PresentationslideIndex = 1;
-PresentationSlides(PresentationslideIndex);
+//let PresentationslideIndex = 1;
+//PresentationSlides(PresentationslideIndex);
 
-function plusPresentationSlides(n) {
-    PresentationSlides(PresentationslideIndex += n);
-}
+//function plusPresentationSlides(n) {
+//    PresentationSlides(PresentationslideIndex += n);
+//}
 
-function currentPresentationSlides(n) {
-    PresentationSlides(PresentationslideIndex = n);
-}
-function PresentationSlides(n) {
-    let i;
-    let slides = document.getElementsByClassName("MyPresentationSlides");
-    let dots = document.getElementsByClassName("Slide");
-    if (n > slides.length) { PresentationslideIndex = 1 }
-    if (n < 1) { PresentationslideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[PresentationslideIndex - 1].style.display = "block";
-    dots[PresentationslideIndex - 1].className += " active";
-}
+//function currentPresentationSlides(n) {
+//    PresentationSlides(PresentationslideIndex = n);
+//}
+//function PresentationSlides(n) {
+//    let i;
+//    let slides = document.getElementsByClassName("MyPresentationSlides");
+//    let dots = document.getElementsByClassName("Slide");
+//    if (n > slides.length) { PresentationslideIndex = 1 }
+//    if (n < 1) { PresentationslideIndex = slides.length }
+//    for (i = 0; i < slides.length; i++) {
+//        slides[i].style.display = "none";
+//    }
+//    for (i = 0; i < dots.length; i++) {
+//        dots[i].className = dots[i].className.replace(" active", "");
+//    }
+//    slides[PresentationslideIndex - 1].style.display = "block";
+//    dots[PresentationslideIndex - 1].className += " active";
+//}

@@ -11,25 +11,6 @@
 	<link rel="stylesheet" href="~/css/Shop.css" asp-append-version="true" />
 </head>
 
-<style>
-	.radio-link {
-		display: inline-block;
-		position: relative;
-		margin-right: 10px;
-	}
-
-	.product-tag-sold:after {
-		content: "";
-		display: inline-block;
-		margin-left: 0.5em;
-		width: 0.875rem;
-		height: 0.875rem;
-		border-radius: 50%;
-		background-color: #ff1749;
-	}
-
-</style>
-
 <body class="container-fluid p-0 my_container justify-content-center align-self-center">
 	<section class="">
 		<div class="slick_slider_block justify-content-center col align-self-center">
@@ -37,7 +18,6 @@
 				<p class="slick_slider_block_p fontGB display-3 justify-content-center align-self-center m-0">Original art for sale </p>
 				<p class="slick_slider_block_p fontSulLight mt-3 mb-0">Art for the soul. Art for life. Art for your home. Arthut connects passionate artists with art lovers.</p>
 			</div>
-
 			<i class="slick_slider_block_dot"></i>
 		</div>
 	</section>
@@ -106,7 +86,6 @@
 								<a class="h-100 w-100 position-absolute" style="z-index:1;" asp-area="" asp-route-id="@product.Id" asp-page="/Product"></a>
 							</div>
 						}
-
 					</div>
 					<div class="col ps-1 pe-1">
 						@foreach (var product in Model.ProductsCol2)
@@ -166,7 +145,6 @@
 										@if (product.IsSold==null)
 										{
 											<div class="col  justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
-
 												<p class="fw-bold m-0">
 													€@Convert.ToInt16(product.Price)
 												</p>
@@ -182,7 +160,6 @@
 										else
 										{
 											<div class="col justify-content-start align-items-start d-flex" style="font-size: 1.15rem!important;">
-
 												<p class="fw-bold m-0 text-secondary text-decoration-line-through">
 													€@Convert.ToInt16(product.Price)
 												</p>

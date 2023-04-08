@@ -381,7 +381,6 @@ namespace ArtHut.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("PaymentId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("ReceiverEmail")
@@ -525,7 +524,7 @@ namespace ArtHut.Data.Migrations
                     b.Property<decimal?>("Price")
                         .HasColumnType("decimal(6,2)");
 
-                    b.Property<int?>("Qantity")
+                    b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<string>("Size")
@@ -728,10 +727,10 @@ namespace ArtHut.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "73928873-27e2-40af-adae-499c0a0a7bdf",
+                            Id = "3606543a-7274-4893-9595-abcd4846b6fc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "56611e6e-e20b-4ee5-b6cb-94771646e313",
-                            CreatedAt = new DateTime(2023, 4, 2, 17, 30, 1, 774, DateTimeKind.Local).AddTicks(7168),
+                            ConcurrencyStamp = "077fb42d-3157-4ab5-9331-a7581035e04d",
+                            CreatedAt = new DateTime(2023, 4, 8, 19, 46, 11, 63, DateTimeKind.Local).AddTicks(5203),
                             Email = "admin@AH.net",
                             EmailConfirmed = true,
                             FirstName = "Adminy",
@@ -740,19 +739,19 @@ namespace ArtHut.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@AH.NET",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAECfUv46bPA0zQjs5k4nJnjfbA8BfboP7vvl5/72loBo3NxP/gHt5m/646h6QCUYlPw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJRprmQ8O/csZJEGxnB1SvQ3CPXij2LDvsZxCY+OLVDqQzdP53mVgjf1owr8LWOgGQ==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bb6f56ab-89b5-4691-b411-9e0ad517364d",
+                            SecurityStamp = "5c704016-ce19-4ec2-b344-e10a9ae74bf1",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
                         new
                         {
-                            Id = "46dbbc2c-d42c-4f15-953d-4705406b2ed3",
+                            Id = "f1f15ec2-8eec-437c-89dc-31aa107b55d7",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "35fdfdc5-7f75-487f-95b8-f679660a2a4e",
-                            CreatedAt = new DateTime(2023, 4, 2, 17, 30, 1, 781, DateTimeKind.Local).AddTicks(9127),
+                            ConcurrencyStamp = "39d9e4c4-2117-4a63-b8c6-fcd0f16ee90e",
+                            CreatedAt = new DateTime(2023, 4, 8, 19, 46, 11, 73, DateTimeKind.Local).AddTicks(9278),
                             Email = "admin2@AH.net",
                             EmailConfirmed = true,
                             FirstName = "Adminy",
@@ -761,10 +760,10 @@ namespace ArtHut.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN2@AH.NET",
                             NormalizedUserName = "ADMIN2",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPAleQgi8X/FqqWrJ8C+U0q3rR1l8KwrSMHImXHR8SGekso4cQn+HxKNBGI1B44YgQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBB+Ovfc9As414Uq3H8BCgjMEtm4gdq2hnBw9pEeiYULlIWdNUvYEp0vyPRSPnyjpA==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "733d5a59-d533-4329-b625-c2e4332b0df5",
+                            SecurityStamp = "78bc20ba-9e66-489a-9378-d3d2b9273f7a",
                             TwoFactorEnabled = false,
                             UserName = "admin2"
                         });
@@ -940,8 +939,8 @@ namespace ArtHut.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7f34c503-893c-499b-b52d-bd905e934684",
-                            ConcurrencyStamp = "6c0dc1f9-7eef-4827-9489-78eb5f8672ea",
+                            Id = "2ef7b40d-6706-4497-bb62-54ba690bc8ed",
+                            ConcurrencyStamp = "b8be5b15-e0c4-4824-8b9e-523bd4d294c8",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         });
@@ -1038,8 +1037,8 @@ namespace ArtHut.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "73928873-27e2-40af-adae-499c0a0a7bdf",
-                            RoleId = "7f34c503-893c-499b-b52d-bd905e934684"
+                            UserId = "3606543a-7274-4893-9595-abcd4846b6fc",
+                            RoleId = "2ef7b40d-6706-4497-bb62-54ba690bc8ed"
                         });
                 });
 
@@ -1142,9 +1141,7 @@ namespace ArtHut.Data.Migrations
 
                     b.HasOne("ArtHut.Data.Models.Payment", "Payment")
                         .WithMany()
-                        .HasForeignKey("PaymentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PaymentId");
 
                     b.HasOne("ArtHut.Data.Models.User", "User")
                         .WithMany("Orders")

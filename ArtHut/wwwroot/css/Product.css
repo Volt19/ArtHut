@@ -1,0 +1,66 @@
+﻿img {
+    vertical-align: middle;
+}
+
+body {
+    background-color: white !important;
+}
+
+.mySlides {
+    display: none;
+}
+
+
+.cursor {
+    cursor: pointer;
+}
+
+.prev,
+.next {
+    width: 80px;
+    height: 40px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    color: #919191;
+    background-color: #f5f4f2;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.demo {
+    opacity: 0.5;
+}
+
+    .active, .demo:hover {
+        opacity: 1;
+    }
+
+pre {
+    font-size: 16px;
+}
+
+.ProfileImg {
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.product-tag-sold:after {
+    content: "";
+    display: inline-block;
+    margin-left: 0.5em;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    background-color: #ff1749;
+}

@@ -11,20 +11,13 @@ namespace ArtHut.Pages.Messages
 	[Authorize]
 	public class InboxModel : PageModel
     {
-
         private readonly IMessagesService _messagesService;
         private readonly UserManager<User> _userManager;
-
         public InboxModel(UserManager<User> userManager, IMessagesService messagesService)
         {
             _userManager = userManager;
             _messagesService = messagesService;
         }
-        [BindProperty]
-        public List<Message?> Messages { get; set; }
-
-        [BindProperty]
-        public InputMessageModel MessageInput { get; set; }
         public class InputMessageModel
         {
             [Required]
@@ -33,8 +26,13 @@ namespace ArtHut.Pages.Messages
             [DataType(DataType.MultilineText)]
             public string Message { get; set; }
         }
+		[BindProperty]
+		public List<Message?> Messages { get; set; }
 
-        [BindProperty]
+		[BindProperty]
+		public InputMessageModel MessageInput { get; set; }
+
+		[BindProperty]
         public string MessageId { get; set; }
         public async Task<IActionResult> OnGet()
         {
@@ -46,7 +44,6 @@ namespace ArtHut.Pages.Messages
             await _messagesService.DeleteByIdAsync(id);
             return RedirectToPage("Inbox");
         }
-
         public async Task<IActionResult> OnPostSend()
         {
 

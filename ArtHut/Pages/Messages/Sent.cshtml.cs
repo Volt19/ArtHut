@@ -12,7 +12,6 @@ namespace ArtHut.Pages.Messages
     {
         private readonly IMessagesService _messagesService;
         private readonly UserManager<User> _userManager;
-
         public SentModel(UserManager<User> userManager, IMessagesService messagesService)
         {
             _userManager = userManager;
@@ -25,7 +24,6 @@ namespace ArtHut.Pages.Messages
             Messages=_messagesService.SendedMessagesAsync(_userManager.GetUserId(User)).Result;
             return Page();
         }
-
         public async Task<IActionResult> OnPostDelete(int id)
         {
             await _messagesService.DeleteByIdAsync(id);

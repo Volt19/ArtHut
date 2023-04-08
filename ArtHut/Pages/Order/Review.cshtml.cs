@@ -31,9 +31,7 @@ namespace ArtHut.Pages.Order
 			_orderService=orderService;
 			_addressesService=addressesService;
 			_paymentsService=paymentsService;
-			_addressesService = addressesService;
 			_countriesService=countriesService;
-			_countriesService= countriesService;
 		}
 		[BindProperty]
 		public List<CartItem> Cart { get; set; }
@@ -58,7 +56,7 @@ namespace ArtHut.Pages.Order
 				{
 					CartItems.Add(_productService.FindProductAsync(item.ProductId).Result);
 				}
-				CartItems = CartItems.OrderBy(x => x.UserId).ToList(); ;//Products.OrderBy(x=> x.UserId).ToList();
+				CartItems = CartItems.OrderBy(x => x.UserId).ToList(); 
 				ViewData["ArtTotal"] = CartItems.Sum(x => x.Price);
 			}
 

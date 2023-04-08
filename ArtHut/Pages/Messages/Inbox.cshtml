@@ -7,6 +7,7 @@
 @model ArtHut.Pages.Messages.InboxModel
 @{
 	ViewData["ActivePage"] = MessagesNavPages.Inbox;
+	ViewData["Title"] = "Inbox Messages";
 }
 <head>
 	<link rel="stylesheet" href="~/css/Messages.css" asp-append-version="true" />
@@ -19,6 +20,7 @@
 	<div class="row">
 		<div class="col-3 d-flex flex-column ">
 			<div class="justify-content-center align-self-center row">
+
 				@if (@UserManager.GetUserAsync(User).Result.ProfilePic==null)
 				{
 					<img src="~/css/imgs/Profil_Img.jpg" class=" ProfileImg p-0" />
@@ -27,8 +29,10 @@
 				{
 					<img src="data:image/png;base64,@Convert.ToBase64String(@UserManager.GetUserAsync(User).Result.ProfilePic)" class=" ProfileImg p-0  " />
 				}
+
 			</div>
 			<div class=" align-self-center row mt-2">
+
 				@if (@User.Identity!.Name! != UserManager.GetUserId(User))
 				{
 					<p class="mt-5 fs-5 text-wrap fontSul">@User.Identity!.Name!</p>
@@ -37,6 +41,7 @@
 				{
 					<p class="mt-5 fs-5 text-wrap fontSul mb-2">An Arthut user</p>
 				}
+
 			</div>
 			<div class=" align-self-center row fontSulLight ">
 				<p>
@@ -45,10 +50,10 @@
 					</svg>@RegionInfo.CurrentRegion.EnglishName
 				</p>
 			</div>
-
 			<partial name="MessagesNav" />
 		</div>
 		<form method="post" enctype="multipart/form-data" class="col-9">
+
 			@foreach (var message in Model.Messages.OrderByDescending(x=>x.Id))
 			{
 				<div class="row bg-white mb-1">
@@ -69,10 +74,7 @@
 							<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
 						</svg>
 					</div>
-
 				</div>
-
-
 			}
 
 		</form>
@@ -120,7 +122,6 @@
 				<div class="row">
 					<p class="m-0"></p>
 				</div>
-
 			</div>
 			<div class="modal-body fontSulLight">
 				<p></p>
@@ -139,12 +140,9 @@
 <script>
 	  const exampleModal = document.getElementById('Modal')
 	  exampleModal.addEventListener('show.bs.modal', event => {
-
 	  const button = event.relatedTarget
-
 	  const recipient = button.getAttribute('data-bs-whatever')
 	  const sender = button.getAttribute('data-bs-senderId')
-
 	  const modalTitle = exampleModal.querySelector('.modal-title')
 	  const modalBodyInput = exampleModal.querySelector('.modal-body input')
 	  const modalSen = exampleModal.querySelector('.senderId')
@@ -157,17 +155,13 @@
 <script>
 	var exampleModal1 = document.getElementById('Message')
 	exampleModal1.addEventListener('show.bs.modal', event => {
-
 	  const button = event.relatedTarget
-
 	  const text = button.getAttribute('data-bs-text')
 	  const sender = button.getAttribute('data-bs-sender')
 	  const title = button.getAttribute('data-bs-title')
-
 	  const modalTitle = exampleModal1.querySelector('.modal-title')
 	  const senderTitle = exampleModal1.querySelector('.modal-header p')
 	  const modalBodyInput = exampleModal1.querySelector('.modal-body p')
-
 	  modalTitle.textContent = `${title}`
 	  modalBodyInput.textContent = `${text}`
 	  senderTitle.textContent = `From: ${sender}`

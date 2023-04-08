@@ -1,6 +1,8 @@
 ﻿@page
-@model ArtHut.Pages.ArtPost.SecondStepcshtmlModel
-
+@model ArtHut.Pages.ArtPost.SecondStepModel
+@{
+	ViewData["Title"] = "Art Post";
+}
 <head>
 	<link rel="stylesheet" href="~/css/ArtPost.css" asp-append-version="true" />
 </head>
@@ -23,7 +25,6 @@
 								<span asp-validation-for="Input.MainPicture" class="row align-items-center justify-content-center fontSulLight text-danger"></span>
 							</div>
 							<div id="" class="row align-self-center justify-content-center d-flex mainImgBox">
-
 								<div class=" mainImgBox align-self-center justify-content-center row">
 									<div class="d-flex align-items-center justify-content-center d-flex p-0 m-2 file-input" style="width: 226px; height: 226px; background-color: #f5f4f2;">
 										<label asp-for="Input.MainPicture" class="control-label mainImgBox">
@@ -36,8 +37,6 @@
 
 									</div>
 								</div>
-
-								<div></div>
 								<div class="d-flex align-items-center justify-content-center row ImgPreview">
 									<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput()">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
@@ -47,9 +46,6 @@
 									<img id="ImgPreviewMain" class="mainImg align-self-center justify-content-center" />
 								</div>
 							</div>
-							@*								<label asp-for="Input.OtherPictures[0]" class="control-label"></label>
-								<input type="file" asp-for="Input.OtherPictures[0]" class="form-control" accept="image/*" id="ImgUpload" onchange="ImgPre(this)" />
-								<span asp-validation-for="Input.OtherPictures[0]" class="text-danger"></span>*@
 						</div>
 
 						<div class="col bg-white ms-4 pb-3">
@@ -71,8 +67,6 @@
 													<input type="file" asp-for="Input.OtherPicture1" class="form-control " accept="image/*" id="ImgUpload1" onchange="ImgPreOther1(this)" />
 												</div>
 											</div>
-
-											<div></div>
 											<div class="d-flex align-items-center justify-content-center ImgPreview">
 												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput1()">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
@@ -97,8 +91,6 @@
 													<input type="file" asp-for="Input.OtherPicture2" class="form-control " accept="image/*" id="ImgUpload2" onchange="ImgPreOther2(this)" />
 												</div>
 											</div>
-
-											<div></div>
 											<div class="d-flex align-items-center justify-content-center ImgPreview">
 												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput2()">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
@@ -122,8 +114,6 @@
 													<input type="file" asp-for="Input.OtherPicture6" class="form-control " accept="image/*" id="ImgUpload3" onchange="ImgPreOther3(this)" />
 												</div>
 											</div>
-
-											<div></div>
 											<div class="d-flex align-items-center justify-content-center ImgPreview">
 												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput3()">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
@@ -147,8 +137,6 @@
 													<input type="file" asp-for="Input.OtherPicture4" class="form-control " accept="image/*" id="ImgUpload4" onchange="ImgPreOther4(this)" />
 												</div>
 											</div>
-
-											<div></div>
 											<div class="d-flex align-items-center justify-content-center ImgPreview">
 												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput4()">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
@@ -172,8 +160,6 @@
 													<input type="file" asp-for="Input.OtherPicture5" class="form-control " accept="image/*" id="ImgUpload5" onchange="ImgPreOther5(this)" />
 												</div>
 											</div>
-
-											<div></div>
 											<div class="d-flex align-items-center justify-content-center ImgPreview">
 												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput5()">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
@@ -200,8 +186,6 @@
 													<input type="file" asp-for="Input.OtherPicture6" class="form-control " accept="image/*" id="ImgUpload6" onchange="ImgPreOther6(this)" />
 												</div>
 											</div>
-
-											<div></div>
 											<div class="d-flex align-items-center justify-content-center ImgPreview">
 												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput6()">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
@@ -226,8 +210,6 @@
 													<input type="file" asp-for="Input.OtherPicture6" class="form-control " accept="image/*" id="ImgUpload7" onchange="ImgPreOther7(this)" />
 												</div>
 											</div>
-
-											<div></div>
 											<div class="d-flex align-items-center justify-content-center ImgPreview">
 												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput7()">
 													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
@@ -239,358 +221,343 @@
 										</div>
 									</div>
 
-										<div class="col p-0">
-											<div id="" class=" align-self-center justify-content-center d-flex ">
-												<div class=" OtherImgBox8 align-self-center justify-content-center ">
-													<div class="d-flex align-items-center justify-content-center m-2 file-input" style="width: 105px; height: 105px; background-color: #f5f4f2;">
-														<label asp-for="Input.OtherPicture8" class="control-label OtherImgBox8">
-															<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="white" fill="currentColor" class="bi bi-plus-circle align-self-center justify-content-center" viewBox="0 0 16 16">
-																<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-																<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-															</svg>
-														</label>
-														<input type="file" asp-for="Input.OtherPicture8" class="form-control " accept="image/*" id="ImgUpload8" onchange="ImgPreOther8(this)" />
-													</div>
-												</div>
-
-												<div></div>
-												<div class="d-flex align-items-center justify-content-center ImgPreview">
-													<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput8()">
-														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
-															<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+									<div class="col p-0">
+										<div id="" class=" align-self-center justify-content-center d-flex ">
+											<div class=" OtherImgBox8 align-self-center justify-content-center ">
+												<div class="d-flex align-items-center justify-content-center m-2 file-input" style="width: 105px; height: 105px; background-color: #f5f4f2;">
+													<label asp-for="Input.OtherPicture8" class="control-label OtherImgBox8">
+														<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="white" fill="currentColor" class="bi bi-plus-circle align-self-center justify-content-center" viewBox="0 0 16 16">
+															<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+															<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
 														</svg>
-													</button>
-													<img id="ImgPreviewOther8" class="OtherImg align-self-center justify-content-center p-0 m-2" />
+													</label>
+													<input type="file" asp-for="Input.OtherPicture8" class="form-control " accept="image/*" id="ImgUpload8" onchange="ImgPreOther8(this)" />
 												</div>
 											</div>
-										</div>
-
-											<div class="col p-0">
-												<div id="" class=" align-self-center justify-content-center d-flex ">
-													<div class=" OtherImgBox9 align-self-center justify-content-center ">
-														<div class="d-flex align-items-center justify-content-center m-2 file-input" style="width: 105px; height: 105px; background-color: #f5f4f2;">
-															<label asp-for="Input.OtherPicture9" class="control-label OtherImgBox9">
-																<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="white" fill="currentColor" class="bi bi-plus-circle align-self-center justify-content-center" viewBox="0 0 16 16">
-																	<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-																	<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-																</svg>
-															</label>
-															<input type="file" asp-for="Input.OtherPicture9" class="form-control " accept="image/*" id="ImgUpload9" onchange="ImgPreOther9(this)" />
-														</div>
-													</div>
-
-													<div></div>
-													<div class="d-flex align-items-center justify-content-center ImgPreview">
-														<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput9()">
-															<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
-																<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-															</svg>
-														</button>
-														<img id="ImgPreviewOther9" class="OtherImg align-self-center justify-content-center p-0 m-2" />
-													</div>
-												</div>
-											</div>
-
-												<div class="col p-0">
-													<div id="" class=" align-self-center justify-content-center d-flex ">
-														<div class=" OtherImgBox10 align-self-center justify-content-center ">
-															<div class="d-flex align-items-center justify-content-center m-2 file-input" style="width: 105px; height: 105px; background-color: #f5f4f2;">
-																<label asp-for="Input.OtherPicture10" class="control-label OtherImgBox10">
-																	<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="white" fill="currentColor" class="bi bi-plus-circle align-self-center justify-content-center" viewBox="0 0 16 16">
-																		<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-																		<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-																	</svg>
-																</label>
-																<input type="file" asp-for="Input.OtherPicture10" class="form-control " accept="image/*" id="ImgUpload10" onchange="ImgPreOther10(this)" />
-															</div>
-														</div>
-
-														<div></div>
-														<div class="d-flex align-items-center justify-content-center ImgPreview">
-															<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput10()">
-																<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
-																	<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-																</svg>
-															</button>
-															<img id="ImgPreviewOther10" class="OtherImg align-self-center justify-content-center p-0 m-2" />
-														</div>
-													</div>
-												</div>
-											</div>
-
+											<div class="d-flex align-items-center justify-content-center ImgPreview">
+												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput8()">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
+														<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+													</svg>
+												</button>
+												<img id="ImgPreviewOther8" class="OtherImg align-self-center justify-content-center p-0 m-2" />
 											</div>
 										</div>
 									</div>
 
-									<div class="row pt-3">
-										<div class="col">
-											<button method="post" asp-page-handler="back" type="submit" class="w-100 btn btn-lg red_btn">Back</button>
+									<div class="col p-0">
+										<div id="" class=" align-self-center justify-content-center d-flex ">
+											<div class=" OtherImgBox9 align-self-center justify-content-center ">
+												<div class="d-flex align-items-center justify-content-center m-2 file-input" style="width: 105px; height: 105px; background-color: #f5f4f2;">
+													<label asp-for="Input.OtherPicture9" class="control-label OtherImgBox9">
+														<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="white" fill="currentColor" class="bi bi-plus-circle align-self-center justify-content-center" viewBox="0 0 16 16">
+															<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+															<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+														</svg>
+													</label>
+													<input type="file" asp-for="Input.OtherPicture9" class="form-control " accept="image/*" id="ImgUpload9" onchange="ImgPreOther9(this)" />
+												</div>
+											</div>
+											<div class="d-flex align-items-center justify-content-center ImgPreview">
+												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput9()">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
+														<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+													</svg>
+												</button>
+												<img id="ImgPreviewOther9" class="OtherImg align-self-center justify-content-center p-0 m-2" />
+											</div>
 										</div>
-										<div class="col">
-											<button type="submit" method="post" asp-page-handler="next" class="w-100 btn btn-lg red_btn">Next</button>
-										</div>
-										
 									</div>
 
+									<div class="col p-0">
+										<div id="" class=" align-self-center justify-content-center d-flex ">
+											<div class=" OtherImgBox10 align-self-center justify-content-center ">
+												<div class="d-flex align-items-center justify-content-center m-2 file-input" style="width: 105px; height: 105px; background-color: #f5f4f2;">
+													<label asp-for="Input.OtherPicture10" class="control-label OtherImgBox10">
+														<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" color="white" fill="currentColor" class="bi bi-plus-circle align-self-center justify-content-center" viewBox="0 0 16 16">
+															<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+															<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+														</svg>
+													</label>
+													<input type="file" asp-for="Input.OtherPicture10" class="form-control " accept="image/*" id="ImgUpload10" onchange="ImgPreOther10(this)" />
+												</div>
+											</div>
+											<div class="d-flex align-items-center justify-content-center ImgPreview">
+												<button type="button" id="close_btn" class=" align-items-center justify-content-center" onclick="ResetInput10()">
+													<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-white font-weight-bold" viewBox="0 0 16 16" style="position: absolute; right: 4px; top: 4px;">
+														<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+													</svg>
+												</button>
+												<img id="ImgPreviewOther10" class="OtherImg align-self-center justify-content-center p-0 m-2" />
+											</div>
+										</div>
+									</div>
 								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row pt-3">
+						<div class="col">
+							<button method="post" asp-page-handler="back" type="submit" class="w-100 btn btn-lg red_btn">Back</button>
+						</div>
+						<div class="col">
+							<button type="submit" method="post" asp-page-handler="next" class="w-100 btn btn-lg red_btn">Post</button>
+						</div>
+					</div>
+				</div>
 			</form>
 		</div>
+	</div>
 </section>
 
 @section Scripts
 	{
-<script type="text/javascript" language="javascript">
-	$(document).ready(function(){
-		$("#ImgPreviewOther1").hide();
-		$("#ImgPreviewOther2").hide();
-		$("#ImgPreviewOther3").hide();
-		$("#ImgPreviewOther4").hide();
-		$("#ImgPreviewOther5").hide();
-		$("#ImgPreviewOther6").hide();
-		$("#ImgPreviewOther7").hide();
-		$("#ImgPreviewOther8").hide();
-		$("#ImgPreviewOther9").hide();
-		$("#ImgPreviewOther10").hide();
-		$("#ImgUpload").val('');
-		$("#ImgUpload1").val('');
-		$("#ImgUpload2").val('');
-		$("#ImgUpload3").val('');
-		$("#ImgUpload4").val('');
-		$("#ImgUpload5").val('');
-		$("#ImgUpload6").val('');
-		$("#ImgUpload7").val('');
-		$("#ImgUpload8").val('');
-		$("#ImgUpload9").val('');
-		$("#ImgUpload10").val('');
-	});
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function () {
+			$("#ImgPreviewOther1").hide();
+			$("#ImgPreviewOther2").hide();
+			$("#ImgPreviewOther3").hide();
+			$("#ImgPreviewOther4").hide();
+			$("#ImgPreviewOther5").hide();
+			$("#ImgPreviewOther6").hide();
+			$("#ImgPreviewOther7").hide();
+			$("#ImgPreviewOther8").hide();
+			$("#ImgPreviewOther9").hide();
+			$("#ImgPreviewOther10").hide();
+			$("#ImgUpload").val('');
+			$("#ImgUpload1").val('');
+			$("#ImgUpload2").val('');
+			$("#ImgUpload3").val('');
+			$("#ImgUpload4").val('');
+			$("#ImgUpload5").val('');
+			$("#ImgUpload6").val('');
+			$("#ImgUpload7").val('');
+			$("#ImgUpload8").val('');
+			$("#ImgUpload9").val('');
+			$("#ImgUpload10").val('');
+		});
 
-	function ResetInput(){
-		$("#ImgPreviewMain").hide();
-		$(".mainImgBox").show();
-		$("#ImgUpload").val('');
-	}
-
-	function ResetInput1(){
-		$("#ImgPreviewOther1").hide();
-		$(".OtherImgBox1").show();
-		$("#ImgUpload1").val('');
-	}
-
-	function ResetInput2(){
-		$("#ImgPreviewOther2").hide();
-		$(".OtherImgBox2").show();
-		$("#ImgUpload2").val('');
-	}
-
-	function ResetInput3(){
-		$("#ImgPreviewOther3").hide();
-		$(".OtherImgBox3").show();
-		$("#ImgUpload3").val('');
-	}
-
-	function ResetInput4(){
-		$("#ImgPreviewOther4").hide();
-		$(".OtherImgBox4").show();
-		$("#ImgUpload4").val('');
-	}
-
-	function ResetInput5(){
-		$("#ImgPreviewOther5").hide();
-		$(".OtherImgBox5").show();
-		$("#ImgUpload5").val('');
-	}
-
-	function ResetInput6(){
-		$("#ImgPreviewOther6").hide();
-		$(".OtherImgBox6").show();
-		$("#ImgUpload6").val('');
-	}
-
-	function ResetInput7(){
-		$("#ImgPreviewOther7").hide();
-		$(".OtherImgBox7").show();
-		$("#ImgUpload7").val('');
-	}
-
-	function ResetInput8(){
-		$("#ImgPreviewOther8").hide();
-		$(".OtherImgBox8").show();
-		$("#ImgUpload8").val('');
-	}
-
-	function ResetInput9(){
-		$("#ImgPreviewOther9").hide();
-		$(".OtherImgBox9").show();
-		$("#ImgUpload9").val('');
-	}
-
-	function ResetInput10(){
-		$("#ImgPreviewOther10").hide();
-		$(".OtherImgBox10").show();
-		$("#ImgUpload10").val('');}
-
-
-
-	function ImgPreMain(input) {
-			  if (input.files[0]) {
-				  var uploadimg = new FileReader();
-				  uploadimg.onload = function(displayimg) {
-				  $("#ImgPreviewMain").attr('src', displayimg.target.result);
-				  $("#ImgPreviewMain").show();
-				  $("#ImgPreviewMain").css('min-height', '220px');
-				  }
-			  uploadimg.readAsDataURL(input.files[0]);
-			  $(".mainImgBox").hide();
-	}}
-
-
-	function ImgPreOther1(input) {
-		if (input.files[0]) {
-			var uploadimg = new FileReader();
-			uploadimg.onload = function(displayimg) {
-			$("#ImgPreviewOther1").attr('src', displayimg.target.result);
-			$("#ImgPreviewOther1").show();
-			$("#ImgPreviewOther1").css('height', '105px');
-			$("#ImgPreviewOther1").css('width', '105px');
+		function ResetInput() {
+			$("#ImgPreviewMain").hide();
+			$(".mainImgBox").show();
+			$("#ImgUpload").val('');
 		}
-		uploadimg.readAsDataURL(input.files[0]);
-		$(".OtherImgBox1").hide();
-	}}
 
-	function ImgPreOther2(input) {
-		if (input.files[0]) {
-			var uploadimg = new FileReader();
-			uploadimg.onload = function(displayimg) {
-			$("#ImgPreviewOther2").attr('src', displayimg.target.result);
-			$("#ImgPreviewOther2").show();
-			$("#ImgPreviewOther2").css('height', '105px');
-			$("#ImgPreviewOther2").css('width', '105px');
+		function ResetInput1() {
+			$("#ImgPreviewOther1").hide();
+			$(".OtherImgBox1").show();
+			$("#ImgUpload1").val('');
 		}
-		uploadimg.readAsDataURL(input.files[0]);
-		$(".OtherImgBox2").hide();
-	}}
 
-	function ImgPreOther3(input) {
+		function ResetInput2() {
+			$("#ImgPreviewOther2").hide();
+			$(".OtherImgBox2").show();
+			$("#ImgUpload2").val('');
+		}
+
+		function ResetInput3() {
+			$("#ImgPreviewOther3").hide();
+			$(".OtherImgBox3").show();
+			$("#ImgUpload3").val('');
+		}
+
+		function ResetInput4() {
+			$("#ImgPreviewOther4").hide();
+			$(".OtherImgBox4").show();
+			$("#ImgUpload4").val('');
+		}
+
+		function ResetInput5() {
+			$("#ImgPreviewOther5").hide();
+			$(".OtherImgBox5").show();
+			$("#ImgUpload5").val('');
+		}
+
+		function ResetInput6() {
+			$("#ImgPreviewOther6").hide();
+			$(".OtherImgBox6").show();
+			$("#ImgUpload6").val('');
+		}
+
+		function ResetInput7() {
+			$("#ImgPreviewOther7").hide();
+			$(".OtherImgBox7").show();
+			$("#ImgUpload7").val('');
+		}
+
+		function ResetInput8() {
+			$("#ImgPreviewOther8").hide();
+			$(".OtherImgBox8").show();
+			$("#ImgUpload8").val('');
+		}
+
+		function ResetInput9() {
+			$("#ImgPreviewOther9").hide();
+			$(".OtherImgBox9").show();
+			$("#ImgUpload9").val('');
+		}
+
+		function ResetInput10() {
+			$("#ImgPreviewOther10").hide();
+			$(".OtherImgBox10").show();
+			$("#ImgUpload10").val('');
+		}
+
+
+
+		function ImgPreMain(input) {
 			if (input.files[0]) {
 				var uploadimg = new FileReader();
-				uploadimg.onload = function(displayimg) {
-				$("#ImgPreviewOther3").attr('src', displayimg.target.result);
-				$("#ImgPreviewOther3").show();
-				$("#ImgPreviewOther3").css('height', '105px');
-				$("#ImgPreviewOther3").css('width', '105px');
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewMain").attr('src', displayimg.target.result);
+					$("#ImgPreviewMain").show();
+					$("#ImgPreviewMain").css('min-height', '220px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".mainImgBox").hide();
 			}
-			uploadimg.readAsDataURL(input.files[0]);
-			$(".OtherImgBox3").hide();
-	}}
+		}
 
-	function ImgPreOther4(input) {
+
+		function ImgPreOther1(input) {
 			if (input.files[0]) {
 				var uploadimg = new FileReader();
-				uploadimg.onload = function(displayimg) {
-				$("#ImgPreviewOther4").attr('src', displayimg.target.result);
-				$("#ImgPreviewOther4").show();
-				$("#ImgPreviewOther4").css('height', '105px');
-				$("#ImgPreviewOther4").css('width', '105px');
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther1").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther1").show();
+					$("#ImgPreviewOther1").css('height', '105px');
+					$("#ImgPreviewOther1").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox1").hide();
 			}
-			uploadimg.readAsDataURL(input.files[0]);
-			$(".OtherImgBox4").hide();
-	}}
+		}
 
-	function ImgPreOther5(input) {
+		function ImgPreOther2(input) {
 			if (input.files[0]) {
 				var uploadimg = new FileReader();
-				uploadimg.onload = function(displayimg) {
-				$("#ImgPreviewOther5").attr('src', displayimg.target.result);
-				$("#ImgPreviewOther5").show();
-				$("#ImgPreviewOther5").css('height', '105px');
-				$("#ImgPreviewOther5").css('width', '105px');
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther2").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther2").show();
+					$("#ImgPreviewOther2").css('height', '105px');
+					$("#ImgPreviewOther2").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox2").hide();
 			}
-			uploadimg.readAsDataURL(input.files[0]);
-			$(".OtherImgBox5").hide();
-	}}
+		}
 
-	function ImgPreOther6(input) {
+		function ImgPreOther3(input) {
 			if (input.files[0]) {
 				var uploadimg = new FileReader();
-				uploadimg.onload = function(displayimg) {
-				$("#ImgPreviewOther6").attr('src', displayimg.target.result);
-				$("#ImgPreviewOther6").show();
-				$("#ImgPreviewOther6").css('height', '105px');
-				$("#ImgPreviewOther6").css('width', '105px');
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther3").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther3").show();
+					$("#ImgPreviewOther3").css('height', '105px');
+					$("#ImgPreviewOther3").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox3").hide();
 			}
-			uploadimg.readAsDataURL(input.files[0]);
-			$(".OtherImgBox6").hide();
-	}}
+		}
 
-	function ImgPreOther7(input) {
+		function ImgPreOther4(input) {
 			if (input.files[0]) {
 				var uploadimg = new FileReader();
-				uploadimg.onload = function(displayimg) {
-				$("#ImgPreviewOther7").attr('src', displayimg.target.result);
-				$("#ImgPreviewOther7").show();
-				$("#ImgPreviewOther7").css('height', '105px');
-				$("#ImgPreviewOther7").css('width', '105px');
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther4").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther4").show();
+					$("#ImgPreviewOther4").css('height', '105px');
+					$("#ImgPreviewOther4").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox4").hide();
 			}
-			uploadimg.readAsDataURL(input.files[0]);
-			$(".OtherImgBox7").hide();
-	}}
+		}
 
-	function ImgPreOther8(input) {
+		function ImgPreOther5(input) {
 			if (input.files[0]) {
 				var uploadimg = new FileReader();
-				uploadimg.onload = function(displayimg) {
-				$("#ImgPreviewOther8").attr('src', displayimg.target.result);
-				$("#ImgPreviewOther8").show();
-				$("#ImgPreviewOther8").css('height', '105px');
-				$("#ImgPreviewOther8").css('width', '105px');
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther5").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther5").show();
+					$("#ImgPreviewOther5").css('height', '105px');
+					$("#ImgPreviewOther5").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox5").hide();
 			}
-			uploadimg.readAsDataURL(input.files[0]);
-			$(".OtherImgBox8").hide();
-	}}
+		}
 
-	function ImgPreOther9(input) {
+		function ImgPreOther6(input) {
 			if (input.files[0]) {
 				var uploadimg = new FileReader();
-				uploadimg.onload = function(displayimg) {
-				$("#ImgPreviewOther9").attr('src', displayimg.target.result);
-				$("#ImgPreviewOther9").show();
-				$("#ImgPreviewOther9").css('height', '105px');
-				$("#ImgPreviewOther9").css('width', '105px');
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther6").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther6").show();
+					$("#ImgPreviewOther6").css('height', '105px');
+					$("#ImgPreviewOther6").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox6").hide();
 			}
-			uploadimg.readAsDataURL(input.files[0]);
-			$(".OtherImgBox9").hide();
-	}}
+		}
 
-	function ImgPreOther10(input) {
+		function ImgPreOther7(input) {
 			if (input.files[0]) {
 				var uploadimg = new FileReader();
-				uploadimg.onload = function(displayimg) {
-				$("#ImgPreviewOther10").attr('src', displayimg.target.result);
-				$("#ImgPreviewOther10").show();
-				$("#ImgPreviewOther10").css('height', '105px');
-				$("#ImgPreviewOther10").css('width', '105px');
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther7").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther7").show();
+					$("#ImgPreviewOther7").css('height', '105px');
+					$("#ImgPreviewOther7").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox7").hide();
 			}
-			uploadimg.readAsDataURL(input.files[0]);
-			$(".OtherImgBox10").hide();
-	}}
-</script>
+		}
+
+		function ImgPreOther8(input) {
+			if (input.files[0]) {
+				var uploadimg = new FileReader();
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther8").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther8").show();
+					$("#ImgPreviewOther8").css('height', '105px');
+					$("#ImgPreviewOther8").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox8").hide();
+			}
+		}
+
+		function ImgPreOther9(input) {
+			if (input.files[0]) {
+				var uploadimg = new FileReader();
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther9").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther9").show();
+					$("#ImgPreviewOther9").css('height', '105px');
+					$("#ImgPreviewOther9").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox9").hide();
+			}
+		}
+
+		function ImgPreOther10(input) {
+			if (input.files[0]) {
+				var uploadimg = new FileReader();
+				uploadimg.onload = function (displayimg) {
+					$("#ImgPreviewOther10").attr('src', displayimg.target.result);
+					$("#ImgPreviewOther10").show();
+					$("#ImgPreviewOther10").css('height', '105px');
+					$("#ImgPreviewOther10").css('width', '105px');
+				}
+				uploadimg.readAsDataURL(input.files[0]);
+				$(".OtherImgBox10").hide();
+			}
+		}
+	</script>
 }
-
-							@*<form enctype="multipart/form-data" method="post">
-	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-	<div enctype="multipart/form-data" class="form-group" method="post">
-	<label asp-for="Input.MainPicture" class="control-label"></label>
-	<input type="file" asp-for="Input.MainPicture" class="form-control" accept="image/*" id="ImgUpload" onchange="ImgPre(this)" />
-	<span asp-validation-for="Input.MainPicture" class="text-danger"></span>
-	</div>
-	<div class="form-group">
-	<div class="row">
-	<div class="col pt-2">
-	<button method="post" asp-page-handler="add" type="submit" class="w-100 btn dark_btn" onchange="previewImage(event)">
-	Add Picture
-	</button>
-
-	</div>
-	</div>
-	</div>
-	</form>*@

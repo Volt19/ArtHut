@@ -44,7 +44,7 @@ namespace ArtHut.Pages.ArtPost
             public double SizeZ { get; set; }
             [Required]
             [Range(0, Int16.MaxValue, ErrorMessage = "The field {0} must be greater than {1}.")]
-            public int? Qantity { get; set; }
+            public int? Quantity { get; set; }
             [Required]
             public int Category { get; set; }
         }
@@ -52,30 +52,12 @@ namespace ArtHut.Pages.ArtPost
         {
             return Page();
         }
-        //public virtual async Task<IActionResult> OnGet(Product product)
-        //{
-        //    if (product.Name == null)
-        //    {
-        //        ViewData["IsUnique"]=true;
-        //        return Page();
-        //    }
-        //    ViewData["Name"]=product.Name;
-        //    ViewData["Description"]=product.Description;
-        //    ViewData["Price"]=product.Price;
-        //    var Sizes = product.Size.Split("x");
-        //    ViewData["SizeX"]=Sizes[0];
-        //    ViewData["SizeY"]=Sizes[1];
-        //    ViewData["SizeZ"]=Sizes[2];
-        //    ViewData["IsUnique"]=product.IsUnique;
-        //    ViewData["Qantity"]=product.Qantity;
-        //    return Page();
-        //}
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
                 Product NewProduct = await CreateProduct(new Product(Input.Name, Input.Description, Convert.ToDecimal(Input.Price), Convert.ToString(Input.SizeX+"x"+Input.SizeY+"x"+Input.SizeZ),
-                    Input.Qantity, _userManager.GetUserAsync(HttpContext.User)?.Result, Input.Category));
+                    Input.Quantity, _userManager.GetUserAsync(HttpContext.User)?.Result, Input.Category));
                 return RedirectToPage("SecondStep", new { productId = NewProduct.Id });
             }
             return Page();

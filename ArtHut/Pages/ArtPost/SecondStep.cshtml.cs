@@ -13,21 +13,23 @@ using System.Threading.Tasks;
 namespace ArtHut.Pages.ArtPost
 {
 	[Authorize]
-	public class SecondStepcshtmlModel : PageModel
+	public class SecondStepModel : PageModel
     {
-        [BindProperty]
-        public static Product NewProduct { get; set; }
         private readonly IProductService _productService;
         private readonly IPhotosService _photosService;
         private readonly UserManager<User> _userManager;
 
-        public SecondStepcshtmlModel(IProductService productService, UserManager<User> userManager, IPhotosService photosService)
+        public SecondStepModel(IProductService productService, UserManager<User> userManager, IPhotosService photosService)
         {
             _productService = productService;
             _userManager = userManager;
             _photosService = photosService;
         }
-        [BindProperty]
+
+		[BindProperty]
+		public static Product NewProduct { get; set; }
+
+		[BindProperty]
         public InputModel Input { get; set; }
         public class InputModel
         {
@@ -50,20 +52,9 @@ namespace ArtHut.Pages.ArtPost
             NewProduct =_productService.FindProductAsync(productId).Result;
             return Page();
         }
-        //public async Task<IActionResult> OnGetDev(int productId )
-        //{
-        //    NewProduct =_productService.FindProductAsync(productId).Result;
-        //    //ImageConverter ic = new ImageConverter();
-        //    //Image img = (Image)ic.ConvertFrom(bytes);
-        //    return Page();
-        //}
         public async Task<IActionResult> OnPostBack()
         {
             return RedirectToPage("FirstStep", new { product = NewProduct });
-        }
-        public async Task<IActionResult> OnPostAdd()
-        {
-            return Page();
         }
         public async Task<IActionResult> OnPostNext()
         {
@@ -102,15 +93,13 @@ namespace ArtHut.Pages.ArtPost
                         {
                             await _photosService.AddPhotoAsync(new Photo(bytes, picture.ContentType, NewProduct.Id, false));
                         }
-                        
                     }
                 }
+
                 Product thisProduct = _productService.FindProductAsync(NewProduct.Id).Result;
                 thisProduct.CreatedAt=DateTime.Now;
                 await _productService.UpdateAsync(thisProduct);
             }
-
-            //return Page();
             return RedirectToPage("/Portfolio/Artworks","Artist", new { artist = _userManager.GetUserId(User), category="" });
         }
 

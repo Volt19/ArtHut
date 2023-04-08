@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\Portfolio.css"
     },
     {
+      "Id": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\Product.css",
+      "PackagePath": "staticwebassets\\css\\Product.css"
+    },
+    {
       "Id": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\Shop.css",
       "PackagePath": "staticwebassets\\css\\Shop.css"
     },

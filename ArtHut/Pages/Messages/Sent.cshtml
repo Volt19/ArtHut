@@ -7,6 +7,7 @@
 @model ArtHut.Pages.Messages.SentModel
 @{
 	ViewData["ActivePage"] = MessagesNavPages.Sent;
+	ViewData["Title"] = "Sent Messages";
 }
 <head>
 	<link rel="stylesheet" href="~/css/Messages.css" asp-append-version="true" />
@@ -18,6 +19,7 @@
 	<div class="row">
 		<div class="col-3 d-flex flex-column ">
 			<div class="justify-content-center align-self-center row">
+
 				@if (@UserManager.GetUserAsync(User).Result.ProfilePic==null)
 				{
 					<img src="~/css/imgs/Profil_Img.jpg" class=" ProfileImg p-0" />
@@ -26,8 +28,10 @@
 				{
 					<img src="data:image/png;base64,@Convert.ToBase64String(@UserManager.GetUserAsync(User).Result.ProfilePic)" class=" ProfileImg p-0  " />
 				}
+
 			</div>
 			<div class=" align-self-center row mt-2">
+
 				@if (@User.Identity!.Name! != UserManager.GetUserId(User))
 				{
 					<p class="mt-5 fs-5 text-wrap fontSul">@User.Identity!.Name!</p>
@@ -36,6 +40,7 @@
 				{
 					<p class="mt-5 fs-5 text-wrap fontSul mb-2">An Arthut user</p>
 				}
+
 			</div>
 			<div class=" align-self-center row fontSulLight ">
 				<p>
@@ -44,7 +49,6 @@
 					</svg>@RegionInfo.CurrentRegion.EnglishName
 				</p>
 			</div>
-
 			<partial name="MessagesNav" />
 		</div>
 		<form method="post" enctype="multipart/form-data" class="col-9">
@@ -93,17 +97,13 @@
 <script>
 	var exampleModal1 = document.getElementById('Message')
 	exampleModal1.addEventListener('show.bs.modal', event => {
-
 	  const button = event.relatedTarget
-
 	  const text = button.getAttribute('data-bs-text')
 	  const receiver = button.getAttribute('data-bs-receiver')
 	  const title = button.getAttribute('data-bs-title')
-
 	  const modalTitle = exampleModal1.querySelector('.modal-title')
 	  const senderTitle = exampleModal1.querySelector('.modal-header p')
 	  const modalBodyInput = exampleModal1.querySelector('.modal-body p')
-
 	  modalTitle.textContent = `${title}`
 	  modalBodyInput.textContent = `${text}`
 	  senderTitle.textContent = `To: ${receiver}`

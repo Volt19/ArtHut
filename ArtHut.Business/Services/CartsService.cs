@@ -12,11 +12,9 @@ namespace ArtHut.Business.Services
     public class CartsService: ICartsService
     {
         private readonly ICartItemsRepository _cartItemsRepository;
-        private readonly ICartsRepository _cartsRepository;
 
-        public CartsService(ICartItemsRepository cartItemsRepository, ICartsRepository cartsRepository)
+        public CartsService(ICartItemsRepository cartItemsRepository)
         {
-            _cartsRepository = cartsRepository;
             _cartItemsRepository = cartItemsRepository;
         }
         public async Task<CartItem> AddCartItemAsync(CartItem cartItem) => await _cartItemsRepository.AddAsync(cartItem);

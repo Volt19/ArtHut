@@ -17,23 +17,23 @@ namespace ArtHut.Data.Models
             ProductsLikes = new List<ProductsLikes>();
             ProductsCategories = new List<ProductsCategory>();
         }
-        public Product(string name, string? description, decimal price, string? size, int? qantity, User user, int categoryId) : this()
+        public Product(string name, string? description, decimal price, string? size, int? quantity, User user, int categoryId) : this()
         {
             Name = name;
             Description=description;
             Price=price;
             Size= size;
-            Qantity=qantity;
+            Quantity=quantity;
             User=user;
             CategoryId=categoryId;
         }
-        public Product(string name, string? description, decimal price, string? size, int? qantity, string userId, int categoryId) : this()
+        public Product(string name, string? description, decimal price, string? size, int? quantity, string userId, int categoryId) : this()
         {
             Name = name;
             Description=description;
             Price=price;
             Size= size;
-            Qantity=qantity;
+            Quantity=quantity;
             UserId=userId;
             CategoryId=categoryId;
         }
@@ -42,7 +42,7 @@ namespace ArtHut.Data.Models
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
-        public int? Qantity { get; set; }
+        public int? Quantity { get; set; }
         [Column(TypeName = "decimal(6, 2)")]
         public decimal? Price { get; set; }
         public string? Size { get; set; }

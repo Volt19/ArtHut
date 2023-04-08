@@ -1,3 +1,4 @@
+using ArtHut.Business.Services;
 using ArtHut.Business.Services.Interfaces;
 using ArtHut.Data.Models;
 using Microsoft.AspNetCore.Identity;
@@ -13,15 +14,17 @@ namespace ArtHut.Pages.Portfolio
         private readonly IPhotosService _photosService;
         private readonly ICategoriesService _categoriesService;
         private readonly IMessagesService _messagesService;
+		private readonly ICartsService _cartsService;
         private readonly UserManager<User> _userManager;
 
-        public ArtworksModel(IProductService productService, UserManager<User> userManager, IPhotosService photosService, ICategoriesService categoriesService, IMessagesService messagesService)
+        public ArtworksModel(IProductService productService, UserManager<User> userManager, IPhotosService photosService, ICategoriesService categoriesService, IMessagesService messagesService, ICartsService cartsService)
         {
             _productService = productService;
             _userManager = userManager;
             _photosService = photosService;
             _categoriesService = categoriesService;
             _messagesService = messagesService;
+			_cartsService = cartsService;
         }
         [BindProperty]
         public List<Product?> Products { get; set; }
@@ -53,14 +56,6 @@ namespace ArtHut.Pages.Portfolio
             [DataType(DataType.MultilineText)]
             public string Message { get; set; }
         }
-        
-		//public async Task<IActionResult> OnGet(string category)
-		//{
-		//	ViewData["User"]= _userManager.GetUserId(User);
-			
-
-		//	return Page();
-		//}
 		public async Task<IActionResult> OnGetArtist(string artist, string category)
         {
 			Artist = artist;
@@ -129,7 +124,6 @@ namespace ArtHut.Pages.Portfolio
 
 		public async Task<IActionResult> OnPostSend()
 		{
-
             var newMessage = await _messagesService.SendMessageAsync(new Message(MessageInput.Subject, MessageInput.Message, _userManager.GetUserId(User), Artist));
 			return RedirectToPage("Artworks", "Artist", new { artist = Artist, category = Category });
 		}
@@ -176,5 +170,21 @@ namespace ArtHut.Pages.Portfolio
         {
             return _photosService.FindProductsMainPhotoAsync(productId).Result.Bytes;
         }
-    }
+
+		public async Task<IActionResult> OnPostAddToCart(int productId)
+		{
+			if (!HttpContext.User.Identity.IsAuthenticated)
+			{
+				return RedirectToPage("/Account/Login", new { area = "Identity" });
+			}
+
+			var Cart = _cartsService.GetCartAsync(_userManager.GetUserId(User)).Result;
+			if (!Cart.Where(x => x.ProductId==productId).Any())
+			{
+				await _cartsService.AddCartItemAsync(new CartItem(productId, _userManager.GetUserId(User), true));
+			}
+
+			return RedirectToPage("Artworks", "Artist", new { artist = Artist, category = Category });
+		}
+	}
 }

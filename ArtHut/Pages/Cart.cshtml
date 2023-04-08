@@ -7,6 +7,7 @@
 @inject UserManager<User> UserManager
 @inject ICategoriesService _categoriesService
 @{
+	ViewData["Title"] = "Cart";
 }
 <style>
 	.txt_overflow {
@@ -17,6 +18,7 @@
 		text-overflow: ellipsis;
 	}
 </style>
+
 <div class="container">
 	<div class="row d-flex justify-content-center  align-self-center pt-5 pb-5">
 		<h3 class="fontSul justify-content-center align-self-center d-flex">Your Basket</h3>
@@ -30,7 +32,6 @@
 				</h5>
 				<div class=" d-flex justify-content-center  ">
 					<a class="btn red_btn pt-2 pb-2 ps-4 pe-4 rounded-0" asp-page="/Shop" asp-route-category="">Continue Shopping</a>
-
 				</div>
 			</div>
 
@@ -62,7 +63,6 @@
 											</div>
 											<div class="row ps-3">@_categoriesService.GetCategoryAsync((int)Item.CategoryId).Result.Name </div>
 											<div class="row ps-3"> @Item.Size cm</div>
-
 										</div>
 										<div class="col-2 p-0">
 											€@Item.Price
@@ -74,7 +74,6 @@
 						}
 					</form>
 				}
-
 			</div>
 
 			<div class="col-5   ps-2">
@@ -85,7 +84,6 @@
 							<div class="row d-flex mb-3 fontSulLight"><div class="col">Artwork subtotal</div> <div class="col text-end fontSulLight">€@ViewBag.ArtTotal</div></div>
 							<div class="row d-flex mb-3 fontSulLight"><div class="col">Shipping total</div> <div class="col text-end">Free</div></div>
 							<div class="row d-flex mb-3 fontSulLight"><div class="col fontSul">Order total</div> <div class="col text-end ">€@ViewBag.ArtTotal</div></div>
-
 							<form action="/checkout/start-payment/" method="POST" id="start-payment-form" class="row g-flex mt-5 mb-3">
 								<a class="btn red_btn rounded-0 fontSul p-2" type="submit" asp-area=""  asp-page="/Order/Shipping">
 									Checkout  &nbsp;
@@ -109,11 +107,6 @@
 					</div>
 				</div>
 			</div>
-
-
 		</div>
-
 	}
-
-
 </div>

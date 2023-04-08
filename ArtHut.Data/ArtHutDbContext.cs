@@ -14,7 +14,6 @@ namespace ArtHut.Data
     public class ArtHutDbContext : ApiAuthorizationDbContext<User>
     {
         public DbSet<Address> Addresses => Set<Address>();
-        //public DbSet<Cart> Carts => Set<Cart>();
         public DbSet<CartItem> CartItems => Set<CartItem>();
         public DbSet<Category> Categories => Set<Category>();
         public DbSet<Country> Countries => Set<Country>();
@@ -48,19 +47,16 @@ namespace ArtHut.Data
             //builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
             //builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
 
-            //builder.ApplyConfiguration(new UserGroupEntityConfiguration());
+            
 
             SeedInitialData(builder);
 
             builder.Entity<Message>().HasOne(x => x.Sender).WithMany(x => x.Senders).HasForeignKey(x => x.SenderId).OnDelete(DeleteBehavior.ClientSetNull); ;
             builder.Entity<Message>().HasOne(x => x.Receiver).WithMany(x => x.Receivers).HasForeignKey(x => x.ReceiverId).OnDelete(DeleteBehavior.ClientSetNull); ;
-            //builder.Entity<Category>().HasOne(x => x.PCategory).WithMany(x => x.Categories).OnDelete(DeleteBehavior.ClientSetNull); ;
             builder.Entity<CartItem>().HasOne(x => x.Product).WithMany(x => x.CartItems).HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.ClientSetNull); ;
             builder.Entity<LikedArtist>().HasOne(x => x.User).WithMany(x => x.LikedArtists).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.ClientSetNull); ;
             builder.Entity<ProductsLikes>().HasOne(x => x.User).WithMany(x => x.ProductsLikes).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.ClientSetNull); ;
             builder.Entity<Order>().HasOne(x => x.User).WithMany(x => x.Orders).HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.ClientSetNull); ;
-
-
         }
         private void SeedInitialData(ModelBuilder builder)
         {
@@ -162,16 +158,6 @@ namespace ArtHut.Data
                 new Country { Id = 26, Name = "Spain" },
                 new Country { Id = 27, Name = "Sweden" }
                 );
-           
-            //builder.Entity<Product>().HasData(
-            //   new Product { Id=1, Name ="Test Product1", Description = "This is Test description", Price= 1, Size="0x0x0", Qantity = null, UserId = user.Id },
-            //   new Product { Id=2, Name ="Test Product2", Description = "This is Test description", Price= 2, Size="0x0x0", Qantity = null, UserId = user.Id },
-            //   new Product { Id=3, Name ="Test Product3", Description = "This is Test description", Price= 300, Size="0x0x0", Qantity = null, UserId = user.Id },
-            //   new Product { Id=4, Name ="Test Product4", Description = "This is Test description", Price= 5.00, Size="0x0x0", Qantity = null, UserId = user.Id },
-            //   new Product { Id=5, Name ="Test Product5", Description = "This is Test description", Price= 6.66, Size="0x0x0", Qantity = null, UserId = user.Id },
-            //   new Product { Id=6, Name ="Test Product6", Description = "This is Test description", Price= 4.40, Size="0x0x0", Qantity = null, UserId = user.Id },
-            //   new Product { Id=7, Name ="Test Product7", Description = "This is Test description", Price= 1.00, Size="0x0x0", Qantity = null, UserId = user.Id }
-            //   ) ;
         }
     }
 }

@@ -16,8 +16,6 @@ namespace ArtHut.Pages
 		private readonly IPhotosService _photosService;
 		private readonly IOrderService _orderService;
 		private readonly UserManager<User> _userManager;
-
-
 		public OrdersModel(ICartsService cartsService, IProductService productService, IPhotosService photosService, IOrderService orderService, UserManager<User> userManager)
 		{
 			_cartsService = cartsService;

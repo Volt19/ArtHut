@@ -26,7 +26,6 @@ namespace ArtHut.Pages.Messages
 			_orderService = orderService;
 			_addressesService = addressesService;
 			_countriesService = countriesService;
-
 		}
 		[BindProperty]
 		public List<Product?> SoldProducts { get; set; }

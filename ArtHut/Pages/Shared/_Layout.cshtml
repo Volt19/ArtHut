@@ -3,14 +3,21 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 	<title>@ViewData["Title"] - ArtHut</title>
+
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 	<link rel="stylesheet" href="~/ArtHut.styles.css" asp-append-version="true" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <link runat="server" rel="shortcut icon" href="~/favicon.ico" type="image/x-icon"/>
     <link runat="server" rel="icon" href="~/favicon.ico" type="image/ico"/>
 	<link rel="icon" type="image/x-icon" href="~/favicon.ico" sizes="32x32">
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
 </head>
 
 @using ArtHut.Areas.Identity.Pages.Account.Manage
@@ -34,19 +41,6 @@
 						<li class="nav-item">
 							<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-page="/Shop" asp-route-category="">Shop</a>
 						</li>
-						@if (signInManager.IsSignedIn(User))
-						{
-							@*<li class="nav-item">  asp-page-handler="Dev"
-								<a class="nav-link text-dark color_change_red ps-3" asp-area="" asp-route-productId="9" asp-page="/ArtPost/SecondStep">ArtPost</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-dark color_change_red ps-3" asp-area=""  asp-page="/ArtPost/FirstStep">ArtPost</a>
-							</li>*@
-							@*<li class="nav-item">
-								<a class="nav-link text-dark color_change_red ps-3" asp-area=""  asp-page="/Messages/Inbox">Messages</a>
-							</li>*@
-						}
-
 					</ul>
 				</div>
 				<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse ">
@@ -75,12 +69,6 @@
 			</div>
 		</div>
 	</footer>
-
-	<script src="~/lib/jquery/dist/jquery.min.js"></script>
-	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="~/js/site.js" asp-append-version="true"></script>
-
-
 
 	@await RenderSectionAsync("Scripts", required: false)
 </body>

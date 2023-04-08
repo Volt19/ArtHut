@@ -39,7 +39,6 @@ namespace ArtHut.Pages
 				ViewData["ArtTotal"] = CartItems.Sum(x=> x.Price);
             }
 
-
 			return Page();
         }
         public async Task<IActionResult> OnPostDelete(int id)

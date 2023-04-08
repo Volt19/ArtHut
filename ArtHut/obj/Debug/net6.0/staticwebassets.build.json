@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BdH3pDjNw6oyti2knQkQC/d7VXrp16aw+m1SwYGJSgU=",
+  "Hash": "eEU/eUc14xerlQS30Nt4ZU4SiqjA00ob8uZ0D30/Rdc=",
   "Source": "ArtHut",
   "BasePath": "_content/ArtHut",
   "Mode": "Default",
@@ -1375,6 +1375,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Portfolio.css"
+    },
+    {
+      "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\Product.css",
+      "SourceId": "ArtHut",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\",
+      "BasePath": "_content/ArtHut",
+      "RelativePath": "css/Product.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Product.css"
     },
     {
       "Identity": "C:\\Users\\Veli_\\source\\repos\\ArtHut\\ArtHut\\wwwroot\\css\\Shop.css",
