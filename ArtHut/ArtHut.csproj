@@ -33,9 +33,4 @@
     <ProjectReference Include="..\ArtHut.Data\ArtHut.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
-
 </Project>

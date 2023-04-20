@@ -19,7 +19,20 @@
 <section class="container-fluid artist p-0 row m-0">
 	<div class="col justify-content-center align-items-centerp d-flex ps-5">
 		<div class="justify-content-center align-self-center row d-flex ps-5">
-			@if (ViewData["User"].ToString() != UserManager.GetUserAsync(User)?.Result.Id)
+			@if (User.Identity.Name==null)
+			{
+				<div class="justify-content-center align-self-center row d-flex ProfileImg" style="height:120px; width:120px;">
+					@if (@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.ProfilePic==null)
+					{
+						<img src="~/css/imgs/Profil_Img.jpg" class=" ProfileImg p-0  " />
+					}
+					else
+					{
+						<img src="data:image/png;base64,@Convert.ToBase64String(UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.ProfilePic)" class=" ProfileImg p-0  " />
+					}
+				</div>
+			}
+			else if (ViewData["User"].ToString() != UserManager.GetUserAsync(User)?.Result.Id || User==null)
 			{
 				<div class="justify-content-center align-self-center row d-flex ProfileImg" style="height:120px; width:120px;">
 					@if (@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.ProfilePic==null)
@@ -78,7 +91,20 @@
 		</div>
 	</div>
 	<div class="col justify-content-end  align-items-end d-flex p-0">
-		@if (ViewData["User"].ToString() != UserManager.GetUserAsync(User)?.Result.Id)
+		@if (User.Identity.Name==null)
+		{
+			<div class="justify-content-center align-self-center row d-flex PortfolioImg">
+				@if (@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.PortfolioPic==null)
+				{
+					<img src="~/css/imgs/2cd3214367c8470ba3143106415a463f.png" class=" pic align-self-end" />
+				}
+				else
+				{
+					<img src="data:image/png;base64,@Convert.ToBase64String(@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.PortfolioPic)" class=" pic align-self-end" />
+				}
+			</div>
+		}
+		else if (ViewData["User"].ToString() != UserManager.GetUserAsync(User)?.Result.Id)
 		{
 			<div class="justify-content-center align-self-center row d-flex PortfolioImg">
 				@if (@UserManager.FindByIdAsync(ViewData["User"].ToString()).Result.PortfolioPic==null)
@@ -117,9 +143,9 @@
 <div class="row me-0 pt-2 pb-2">
 	<div class="col justify-content-center align-items-center">
 		<ul class="nav nav-pills fontSul justify-content-center align-items-centerp ps-2">
-			<li class="nav-item"><a class="nav-link text-black " asp-route-artist="@RouteData.Values["artist"]" asp-page="./Artworks">Artworks</a></li>
-			<li class="nav-item"><a class="nav-link text-black " asp-route-artist="@RouteData.Values["artist"]" asp-page="./Artworks">About Me</a></li>
-			<li class="nav-item"><a class="nav-link text-black " asp-route-artist="@RouteData.Values["artist"]" asp-page="./Artworks">About My Work</a></li>
+			<li class="nav-item"><a class="nav-link text-black " asp-route-artist="@RouteData.Values["artist"]" asp-page="/Portfolio/Artworks" asp-page-handler="Artist">Artworks</a></li>
+			<li class="nav-item"><a class="nav-link text-black " asp-route-artist="@RouteData.Values["artist"]" asp-page="./Artworks" asp-page-handler="Artist">About Me</a></li>
+			<li class="nav-item"><a class="nav-link text-black " asp-route-artist="@RouteData.Values["artist"]" asp-page="./Artworks" asp-page-handler="Artist">About My Work</a></li>
 		</ul>
 	</div>
 	<div class="col justify-content-center align-items-center">

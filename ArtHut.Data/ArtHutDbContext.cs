@@ -25,9 +25,9 @@ namespace ArtHut.Data
 		public DbSet<Photo> Photos => Set<Photo>();
         public DbSet<Product> Products => Set<Product>();
         //public DbSet<ProductsCategory> ProductsCategories => Set<ProductsCategory>();
-        public DbSet<ProductsLikes> ProductsLikes => Set<ProductsLikes>();
-        public DbSet<ProductsTag> ProductsTags => Set<ProductsTag>();
-        public DbSet<Tag> Tags => Set<Tag>();
+        //public DbSet<ProductsLikes> ProductsLikes => Set<ProductsLikes>();
+        //public DbSet<ProductsTag> ProductsTags => Set<ProductsTag>();
+        //public DbSet<Tag> Tags => Set<Tag>();
 
 
         public ArtHutDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
